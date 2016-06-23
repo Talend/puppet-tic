@@ -1,0 +1,27 @@
+{
+  "name": "puppet-tic",
+  "version": "0.0.1",
+  "author": "Andreas Heumaier",
+  "summary": "Installs Talend Integration Cloud",
+  "license": "MIT",
+  "source": "https://github.com/Talend/puppet-tic",
+  "project_page": "https://github.com/Talend/puppet-tic",
+  "issues_url": "https://github.com/Talend/puppet-tic/issues",
+  "dependencies": [
+    {"name": "puppetlabs-stdlib", "version_requirement": ">= 1.0.0"},
+    {"name": "puppetlabs-postgresql", "version_requirement": "3.4.x"},
+    {"name": "puppetlabs/inifile"},
+    {"name": "camptocamp/archive"},
+    {"name": "justinclayton/serf"},
+    {"name": "puppetlabs/concat", "version_requirement": "1.2.5"},
+    {"name": "camptocamp/systemd"},
+    {"name": "puppetlabs/apt"},
+    {"name": "herculesteam/augeasproviders_shellvar"},
+    {"name": "herculesteam/augeasproviders_core"},
+    {"name": "camptocamp/tomcat"},
+    {"name": "jfryman/nginx"},
+    {"name": "puppetlabs-java","version_requirement":"= 1.5.0"},
+    {"name": "computology-packagecloud"}
+  ],
+  "data_provider": null
+}

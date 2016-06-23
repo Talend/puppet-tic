@@ -1,0 +1,44 @@
+# 'identity' corresponds to access key id
+# 'credential' corresponds to secret access key
+# if 'identity' is empty, AWS will search for keys as described here:
+# 1. Environment Variables AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+# 2. Java System Properties aws.accessKeyId and aws.secretKey
+# 3. The default credential profiles file
+# 4. Instance profile credentials
+cloud.identity=
+cloud.credential=
+
+cloud.region=<%=@rt_aws_region%>
+
+json.template={ "rt_flow_config": {\
+        "account_id":"{$account_id}",\
+        "container_id":"{$container_id}",\
+        "queue_input_name":"{$queue_input_name}",\
+        "queue_input_consumers_count":"{$queue_input_consumers_count}",\
+        "queue_response_name":"{$queue_response_name}",\
+        "queue_response_consumers_count":"{$queue_response_consumers_count}",\
+        "status_update_interval":"{$status_update_interval}",\
+        "dispatcher_input_queue":"ipaas.<%=@subenv_prefix%>.dispatcher.input.queue",\
+        "dispatcher_response_queue":"ipaas.<%=@subenv_prefix%>.dispatcher.response.queue",\
+        "flow_undeploy_after_completed":"<%=@flow_undeploy_after_completed%>",\
+        "dts_service_url":"<%=@dts_service_url%>",\
+        "nexus_urls":"{$nexus_urls}",\
+        "nexus_user":"{$nexus_user}",\
+        "nexus_password_secret":"{$nexus_password_secret}",\
+        <% if defined?(@extra_field1) -%>
+        "extra_field1":"<%=@extra_field1%>",\
+        <% end -%>
+        "activemq_broker_url":"<%=@activemq_broker_url%>",\
+        "activemq_broker_username":"{$amq_username}",\
+        "activemq_broker_password_secret":"{$amq_password_secret}"\
+        },\
+        "t_facts": {\
+          "t_dc":"<%=@t_dc%>",\
+          "t_environment": "<%=@t_environment%>",\
+          "t_release": "<%=@t_release%>",\
+          "t_profile": "<%=@t_profile%>",\
+          "t_role": "rt-flow",\
+          "t_branch": "{$environment_id}",\
+          "t_subenv": "<%=@t_subenv%>"\
+        }}
+

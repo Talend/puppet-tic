@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+    <profiles>
+        <profile>
+            <id>nexus-repo</id>
+
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+
+            <repositories>
+
+            <%- @nexus_url.split(',').each_with_index do |url, index| -%>
+                <repository>
+                  <id>artifact-snapshots<%=index%></id>
+                    <name>Snapshot artifacts</name>
+
+                    <url><%= url %>/content/repositories/<%= @account_id %>-snapshots</url>
+
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>false</enabled>
+                    </releases>
+                </repository>
+
+                <repository>
+                  <id>artifact-releases<%=index%></id>
+                    <name>Released artifacts</name>
+
+                    <url><%= url %>/content/repositories/<%= @account_id %></url>
+
+                    <snapshots>
+                        <enabled>false</enabled>
+                    </snapshots>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                </repository>
+            <%- end -%>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <servers>
+      <%- (0..@nexus_url.split(',').size).each do |i| %>
+        <server>
+          <id>artifact-snapshots<%=i%></id>
+          <username><%= @nexus_user %></username>
+          <password><%= @nexus_password %></password>
+          <configuration>
+             <httpConfiguration>
+                <all>
+                   <connectionTimeout>5000</connectionTimeout>
+                   <readTimeout>300000</readTimeout>
+                </all>
+             </httpConfiguration>
+          </configuration>
+        </server>
+
+        <server>
+          <id>artifact-releases<%=i%></id>
+          <username><%= @nexus_user %></username>
+          <password><%= @nexus_password %></password>
+          <configuration>
+             <httpConfiguration>
+                <all>
+                   <connectionTimeout>5000</connectionTimeout>
+                   <readTimeout>300000</readTimeout>
+                </all>
+             </httpConfiguration>
+          </configuration>
+        </server>
+      <%- end -%>
+    </servers>
+
+    <activeProfiles>
+        <activeProfile>nexus-repo</activeProfile>
+    </activeProfiles>
+</settings>
+
+

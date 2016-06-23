@@ -1,0 +1,36 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: puppet_apply
+  manifests_path: test/integration
+  ignore_spec_fixtures: true
+  custom_facts:
+    packagecloud_tic_donotuse_token: <%= ENV['PACKAGECLOUD_TIC_DONOTUSE_TOKEN'] %>
+
+transport:
+  name: sftp
+
+platforms:
+  - name: centos-7.2
+
+suites:
+  - name: frontend
+    provisioner:
+      manifest: frontend/init.pp
+    driver:
+      customize:
+        memory: 2048
+  - name: services
+    provisioner:
+      manifest: services/init.pp
+    driver:
+      customize:
+        memory: 2048
+  - name: engine
+    provisioner:
+      manifest: engine/init.pp
+    driver:
+      customize:
+        memory: 2048

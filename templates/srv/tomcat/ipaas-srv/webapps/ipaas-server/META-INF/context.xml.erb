@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<Context>
+        <!-- Realm className="org.apache.catalina.realm.JAASRealm"
+                        appName="sts"
+                        userClassNames="org.apache.cxf.common.security.SimplePrincipal"
+                        roleClassNames="org.apache.cxf.common.security.SimpleGroup"/ -->
+
+        <WatchedResource>WEB-INF/web.xml</WatchedResource>
+        <WatchedResource>META-INF/context.xml</WatchedResource>
+
+        <% if @elasticache_address -%>
+        <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
+                memcachedNodes="<%= @elasticache_address %>"
+                requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"
+                transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
+                sessionBackupAsync="false"
+                sticky="false"
+                lockingMode="all"
+                copyCollectionsForSerialization="false" />
+        <% end -%>
+</Context>
+

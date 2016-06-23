@@ -1,0 +1,14 @@
+spec/fixtures/modules/
+vendor/
+.bundle/
+.idea/
+Gemfile.lock
+.reviewboardrc
+log
+.vagrant
+.librarian/
+.kitchen/
+.kitchen.local.yml
+.tmp/
+modules/
+.rspec-local
