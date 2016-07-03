@@ -9,7 +9,7 @@
   "issues_url": "https://github.com/Talend/puppet-tic/issues",
   "dependencies": [
     {"name": "puppetlabs-stdlib", "version_requirement": ">= 1.0.0"},
-    {"name": "puppetlabs-postgresql", "version_requirement": "3.4.x"},
+    {"name": "puppetlabs-postgresql"},
     {"name": "puppetlabs/inifile"},
     {"name": "camptocamp/archive"},
     {"name": "justinclayton/serf"},
