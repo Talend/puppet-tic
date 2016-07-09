@@ -270,14 +270,9 @@ class tic::globals(
 
   $default_karaf_service_ensure = pick($karaf_service_ensure, $env_karaf_service_ensure)
 
-  #the engine params are taken from the ec2_userdata facter fact in case of ec2
-  if $::ec2_instance_id  {
-    $userdata_json = parsejson($::ec2_userdata)
-  } else {
-    $userdata_json = { }
-    $rt_flow_config = { }
-    $rt_infra_config = { }
-  }
+  $userdata_json = { }
+  $rt_flow_config = { }
+  $rt_infra_config = { }
 
 
 
@@ -374,12 +369,6 @@ class tic::globals(
     'services': {
 
       $karaf_base_path = '/opt/talend/ipaas/rt-infra'
-
-      if has_key($userdata_json,'rt_infra_config') {
-        $rt_infra_config = $userdata_json['rt_infra_config']
-      } else {
-        $rt_infra_config = { }
-      }
 
       $cms_url = "http://${cms_node}:8181/services/container-management-service"
       $config_service_url  = "http://${config_service_node}:8181/services/configuration-service"
