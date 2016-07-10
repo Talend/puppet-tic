@@ -63,7 +63,6 @@ class tic::globals(
   $hiera_elasticsearch_host                                        = 'localhost',
   $hiera_elasticsearch_port                                        = '8080',
   $hiera_heartbeat_interval                                        = '180',
-  $hiera_karaf_additional_features_instal                          = undef,
   $hiera_karaf_additional_features_install                         = undef,
   $hiera_karaf_base_features_install                               = undef,
   $hiera_karaf_service_ensure                                      = undef,

@@ -1,6 +1,6 @@
 class tic::services::custom_resources_service {
   tic::ini_settings { 'custom_resources_service':
-    path     => "${tic:services::config::config_dir}/org.talend.ipaas.rt.cr.service.cfg",
+    path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.cr.service.cfg",
     settings => {
       'bucket.name'                      => $tic::cr_bucket_name,
       'object.key.prefix'                => $tic::cr_object_key_prefix,
