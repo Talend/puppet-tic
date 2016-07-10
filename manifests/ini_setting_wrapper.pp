@@ -15,6 +15,9 @@ define tic::ini_setting_wrapper (
   $key   = $settings[0]
   $value = $settings[1]
 
+  $_key = split( $key, "${path}:")
+  $real_key = $_key[1]
+
   validate_string($key)
   validate_string($value)
 
@@ -22,7 +25,8 @@ define tic::ini_setting_wrapper (
       ensure  => $ensure,
       path    => $path,
       section => $section,
-      setting => $key,
+      setting => $real_key,
       value   => $value
   }
 }
+
