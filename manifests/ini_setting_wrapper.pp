@@ -18,10 +18,10 @@ define tic::ini_setting_wrapper (
   $_key = split( $key, "${path}:")
   $real_key = $_key[1]
 
-  validate_string($key)
+  validate_string($real_key)
   validate_string($value)
 
-  ini_setting { "${path}-${section}-${key}-${value}":
+  ini_setting { "${path}-${section}-${real_key}-${value}":
       ensure  => $ensure,
       path    => $path,
       section => $section,
