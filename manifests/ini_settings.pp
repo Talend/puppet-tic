@@ -12,7 +12,9 @@ define tic::ini_settings (
   validate_string($section)
   validate_string($glue)
 
-  $joined = join_keys_to_values( $settings, $glue )
+  $_settings = prefix($settings, "${path}:")
+
+  $joined = join_keys_to_values( $_settings, $glue )
 
   tic::ini_setting_wrapper { $joined:
     glue    => $glue,
