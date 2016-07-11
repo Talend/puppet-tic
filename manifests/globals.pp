@@ -269,11 +269,8 @@ class tic::globals(
 
   $default_karaf_service_ensure = pick($karaf_service_ensure, $env_karaf_service_ensure)
 
-  $userdata_json = { }
-  $rt_flow_config = { }
+  $userdata_json   = { }
   $rt_infra_config = { }
-
-
 
   case $role {
     'engine' : {
