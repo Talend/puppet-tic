@@ -18,7 +18,7 @@
     {"name": "puppetlabs/apt"},
     {"name": "herculesteam/augeasproviders_shellvar"},
     {"name": "herculesteam/augeasproviders_core"},
-    {"name": "camptocamp/tomcat"},
+    {"name": "puppetlabs/tomcat"},
     {"name": "jfryman/nginx"},
     {"name": "puppetlabs-java","version_requirement":"= 1.5.0"},
     {"name": "computology-packagecloud"}
