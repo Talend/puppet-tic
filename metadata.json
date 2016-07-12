@@ -1,6 +1,6 @@
 {
   "name": "puppet-tic",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "author": "Andreas Heumaier",
   "summary": "Installs Talend Integration Cloud",
   "license": "MIT",
