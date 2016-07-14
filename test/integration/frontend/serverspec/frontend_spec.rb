@@ -76,4 +76,9 @@ describe 'frontend' do
     its(:content) { should include '<welcome-file>index-min.jsp</welcome-file>' }
   end
 
+  describe service('tomcat-ipaas-srv') do
+    it { should be_enabled }
+    it { should be_running }
+  end
+
 end
