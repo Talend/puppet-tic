@@ -9,15 +9,13 @@ After=syslog.target network.target
 
 [Service]
 Type=simple
-Environment="NAME="
+Environment="CATALINA_HOME=/opt/apache-tomcat" "CATALINA_BASE=/srv/tomcat/ipaas-srv"
 EnvironmentFile=-/etc/sysconfig/tomcat
-ExecStart=/opt/apache-tomcat/bin/catalina.sh run
+ExecStart=/opt/apache-tomcat/bin/catalina.sh start
 ExecStop=/opt/apache-tomcat/bin/catalina.sh stop
 SuccessExitStatus=143
 User=tomcat
 Group=tomcat
 
-
 [Install]
 WantedBy=multi-user.target
-
