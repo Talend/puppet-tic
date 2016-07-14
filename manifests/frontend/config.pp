@@ -27,42 +27,6 @@ class tic::frontend::config {
 
   Ini_setting {
     notify => Service['tomcat-ipaas-srv']
-
-  }
-
-  # The service resource is in the config.pp due to dependency cycles of with file resources in $base/conf
-  tomcat::instance {
-    'ipaas-srv':
-      ensure       => $tomcat_service_ensure,
-      java_home    => $tic::java_home,
-      http_port    => '8081',
-      http_address => '127.0.0.1',
-      ajp_address  => '127.0.0.1',
-      setenv       => [
-        "JAVA_XMX=${tic::java_xmx}m",
-        'ADD_JAVA_OPTS=-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf'
-      ]
-  }
-
-  # the upstream puppet doesn't seems to do what it's supposed to do so we
-  # patchit up with the ini settings
-  ini_setting {
-
-    'java_opts':
-      ensure  => present,
-      path    => '/etc/sysconfig/tomcat-ipaas-srv',
-      section => '',
-      setting => 'JAVA_OPTS',
-      key_val_separator => '=',
-      value   => "\"-Djava.security.auth.login.config=/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf -Xmx${tic::java_xmx}m -XX:MaxPermSize=256m\"";
-
-    'java_home':
-      ensure  => present,
-      path    => '/etc/sysconfig/tomcat-ipaas-srv',
-      section => '',
-      setting => 'JAVA_HOME',
-      key_val_separator => '=',
-      value   => $tic::java_home;
   }
 
   file {
@@ -95,7 +59,6 @@ class tic::frontend::config {
       '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/inventory-service.xml':
         source => '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/inventory-service-test.xml',
         notify => Service['tomcat-ipaas-srv'];
-
     }
 
     file_line {
@@ -106,154 +69,37 @@ class tic::frontend::config {
     }
   }
 
-  ini_setting {
+  tic::ini_settings { 'ipaas_server_properties':
+    path     => $ipaas_server_properties,
+    settings => {
+      'container_management_url'              => $tic::cms_url,
+      'flow_manager_url'                      => $tic::flow_manager_url,
+      'artifact_manager_url'                  => $tic::artifact_manager_url,
+      'crypto_service_url'                    => $tic::crypto_service_url,
+      'account_manager_url'                   => $tic::ams_url,
+      'flow_execution_log_service_url'        => $tic::flow_execution_log_service_url,
+      'marketplace_service_url'               => "${tic::marketplace_url}/api/",
+      'data_prep_service_url'                 => $tic::data_prep_service_url,
+      'data_transfer_url'                     => $tic::dts_service_url,
+      'schema_discovery_url'                  => $tic::schema_discovery_service_url,
+      'trial_registration_service_url'        => $tic::trial_service_url,
+      'samples_account_name'                  => $tic::web_samples_account_name,
+      'samples_workspace_type'                => $tic::web_samples_workspace_type,
+      'custom_resources_url'                  => $tic::custom_resources_url,
+      'plan_executor_service_url'             => $tic::pe_service_url,
+      'webhooks_service_url'                  => $tic::webhooks_service_url,
+      'notifier_service_url'                  => $tic::notifier_service_url,
+      'notification_subscription_service_url' => $tic::notification_subscription_url,
+      'downloads_config'                      => $tic::s3_download_contentfile_name,
+    }
+  }
 
-    'container_management_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'container_management_url',
-      value   => $tic::cms_url;
-
-    'flow_manager_url_server':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'flow_manager_url',
-      value   => $tic::flow_manager_url;
-
-    'artifact_manager_url_services':
-      ensure  => present,
-      path    => $ipaas_services_properties,
-      section => '',
-      setting => 'artifact_manager_url',
-      value   => $tic::artifact_manager_url;
-
-    'artifact_manager_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'artifact_manager_url',
-      value   => $tic::artifact_manager_url;
-
-    'crypto_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'crypto_service_url',
-      value   => $tic::crypto_service_url;
-
-    'account_manager_service_url_server':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'account_manager_url',
-      value   => $tic::ams_url;
-
-    'account_manager_service_url_services':
-      ensure  => present,
-      path    => $ipaas_services_properties,
-      section => '',
-      setting => 'account_manager_url',
-      value   => $tic::ams_url;
-
-    'flow_execution_log_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'flow_execution_log_service_url',
-      value   => $tic::flow_execution_log_service_url;
-
-    'marketplace_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'marketplace_service_url',
-      value   => "${tic::marketplace_url}/api/";
-
-    'data_prep_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'data_prep_service_url',
-      value   => $tic::data_prep_service_url;
-
-    'data_transfer_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'data_transfer_url',
-      value   => $tic::dts_service_url;
-
-    'schema_discovery_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'schema_discovery_url',
-      value   => $tic::schema_discovery_service_url;
-
-    'trial_registration_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'trial_registration_service_url',
-      value   => $tic::trial_service_url;
-
-    'web_samples_account_name':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'samples_account_name',
-      value   => $tic::web_samples_account_name;
-
-    'web_samples_workspace_type':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'samples_workspace_type',
-      value   => $tic::web_samples_workspace_type;
-
-    'custom_resources_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'custom_resources_url',
-      value   => $tic::custom_resources_url;
-
-    'plan_executor_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'plan_executor_service_url',
-      value   => $tic::pe_service_url;
-
-    'webhooks_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'webhooks_service_url',
-      value   => $tic::webhooks_service_url;
-
-    'notifier_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'notifier_service_url',
-      value   => $tic::notifier_service_url;
-
-    'notification_subscription_service_url':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'notification_subscription_service_url',
-      value   => $tic::notification_subscription_url;
-
-    's3_download_contentfile_name':
-      ensure  => present,
-      path    => $ipaas_server_properties,
-      section => '',
-      setting => 'downloads_config',
-      value   => $tic::s3_download_contentfile_name;
+  tic::ini_settings { 'ipaas_services_properties':
+    path     => $ipaas_services_properties,
+    settings => {
+      'artifact_manager_url' => $tic::artifact_manager_url,
+      'account_manager_url'  => $tic::ams_url,
+    }
   }
 
   if $::t_environment == 'dv' and $::t_subenv != 'build' {
@@ -261,7 +107,6 @@ class tic::frontend::config {
   } else {
     $index_file = 'index-min.jsp'
   }
-
 
   file_line {
     'web_use_ssl':
@@ -277,4 +122,3 @@ class tic::frontend::config {
   }
 
 }
-

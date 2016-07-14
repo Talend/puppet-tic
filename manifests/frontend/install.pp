@@ -1,24 +1,49 @@
 class tic::frontend::install {
 
-  Exec {
-    path => '/usr/bin:/usr/sbin/:/bin:/sbin:/usr/local/bin:/usr/local/sbin',
+  tomcat::install { '/srv/tomcat':
+    catalina_home => '/opt/apache-tomcat',
+    source_url    => 'http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz',
   }
 
-  file {
-    '/etc/sysconfig/tomcat':
-      ensure => present;
+  tomcat::setenv::entry { 'JAVA_OPTS':
+    catalina_home => '/opt/apache-tomcat',
+    quote_char    => '"',
+    value         => [
+      '$JAVA_OPTS',
+      "-Xmx${tic::java_xmx}m",
+      '-XX:MaxPermSize=256m',
+      '-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf',
+      '-Djava.awt.headless=true',
+    ]
+  }
 
-    '/usr/lib/systemd/system/tomcat.service':
-      source => 'puppet:///modules/tic/usr/lib/systemd/system/tomcat.service';
+  tomcat::instance { 'ipaas-srv':
+    catalina_home  => '/opt/apache-tomcat',
+    catalina_base  => '/srv/tomcat/ipaas-srv',
+    manage_service => false,
+  }
 
-    '/etc/rsyslog.d/tomcat-ipaas-srv.conf':
-      content => ':programname,contains,"catalina" /srv/tomcat/ipaas-srv/logs/catalina.out'
-  } ->
-  class { 'tomcat':
-    version    => 8,
-    srcversion => '8.0.33',
-    sources    => true,
-    require    => File['/etc/sysconfig/tomcat']
+  tomcat::config::server::connector { 'ipaas-srv-http':
+    catalina_base         => '/srv/tomcat/ipaas-srv',
+    port                  => '8081',
+    protocol              => 'HTTP/1.1',
+    purge_connectors      => true,
+    additional_attributes => {
+      'address'           => '127.0.0.1',
+      'redirectPort'      => '8443',
+      'connectionTimeout' => '20000',
+    },
+  }
+
+  tomcat::config::server::connector { 'ipaas-srv-ajp':
+    catalina_base         => '/srv/tomcat/ipaas-srv',
+    port                  => '8009',
+    protocol              => 'AJP/1.3',
+    additional_attributes => {
+      'address'           => '127.0.0.1',
+      'redirectPort'      => '8443',
+      'connectionTimeout' => '20000',
+    },
   }
 
   package {
@@ -35,7 +60,7 @@ class tic::frontend::install {
       ensure => $tic::version;
 
     'talend-ipaas-web-memcache-libs':
-      ensure  => '0.2-2', # version with timcat8 libraries
+      ensure  => '0.2-2', # version with tomcat8 libraries
       require => Package['talend-ipaas-web-server']
   }
 

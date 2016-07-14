@@ -7,6 +7,8 @@ packagecloud::repo { 'talend/ticdonotuse':
   type         => 'rpm',
   master_token => $::packagecloud_tic_donotuse_token
 } ->
+class { 'java':
+} ->
 class { 'tic::globals':
   role                    => 'frontend',
   java_xmx                => 1024,
