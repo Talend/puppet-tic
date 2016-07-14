@@ -60,7 +60,7 @@ class tic::frontend::install {
       ensure => $tic::version;
 
     'talend-ipaas-web-memcache-libs':
-      ensure  => '0.2-2', # version with timcat8 libraries
+      ensure  => '0.2-2', # version with tomcat8 libraries
       require => Package['talend-ipaas-web-server']
   }
 
