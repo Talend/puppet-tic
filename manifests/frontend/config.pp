@@ -27,42 +27,6 @@ class tic::frontend::config {
 
   Ini_setting {
     notify => Service['tomcat-ipaas-srv']
-
-  }
-
-  # The service resource is in the config.pp due to dependency cycles of with file resources in $base/conf
-  tomcat::instance {
-    'ipaas-srv':
-      ensure       => $tomcat_service_ensure,
-      java_home    => $tic::java_home,
-      http_port    => '8081',
-      http_address => '127.0.0.1',
-      ajp_address  => '127.0.0.1',
-      setenv       => [
-        "JAVA_XMX=${tic::java_xmx}m",
-        'ADD_JAVA_OPTS=-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf'
-      ]
-  }
-
-  # the upstream puppet doesn't seems to do what it's supposed to do so we
-  # patchit up with the ini settings
-  ini_setting {
-
-    'java_opts':
-      ensure  => present,
-      path    => '/etc/sysconfig/tomcat-ipaas-srv',
-      section => '',
-      setting => 'JAVA_OPTS',
-      key_val_separator => '=',
-      value   => "\"-Djava.security.auth.login.config=/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf -Xmx${tic::java_xmx}m -XX:MaxPermSize=256m\"";
-
-    'java_home':
-      ensure  => present,
-      path    => '/etc/sysconfig/tomcat-ipaas-srv',
-      section => '',
-      setting => 'JAVA_HOME',
-      key_val_separator => '=',
-      value   => $tic::java_home;
   }
 
   file {
@@ -95,7 +59,6 @@ class tic::frontend::config {
       '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/inventory-service.xml':
         source => '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/inventory-service-test.xml',
         notify => Service['tomcat-ipaas-srv'];
-
     }
 
     file_line {
@@ -145,7 +108,6 @@ class tic::frontend::config {
     $index_file = 'index-min.jsp'
   }
 
-
   file_line {
     'web_use_ssl':
       path => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/web.xml',
@@ -160,4 +122,3 @@ class tic::frontend::config {
   }
 
 }
-
