@@ -8,7 +8,7 @@ Description=Apache Tomcat Web Application Container
 After=syslog.target network.target
 
 [Service]
-Type=simple
+Type=forking
 Environment="CATALINA_HOME=/opt/apache-tomcat" "CATALINA_BASE=/srv/tomcat/ipaas-srv"
 EnvironmentFile=-/etc/sysconfig/tomcat
 ExecStart=/opt/apache-tomcat/bin/catalina.sh start
