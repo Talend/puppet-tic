@@ -1,18 +1,21 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+
+gem 'puppet', '~> 3.8'
+gem 'rake'
 
 group :test do
-  gem 'puppet', '~>3.8'
+  gem 'metadata-json-lint'
   gem 'puppetlabs_spec_helper'
-  gem 'rspec-system-puppet'
-  gem 'rspec-system-serverspec'
-  gem 'rspec-puppet'
-  gem 'puppet-lint'
+end
+
+group :development do
+  gem 'vagrant-wrapper'
+  gem 'kitchen-vagrant'
 end
 
 group :system_tests do
   gem 'librarian-puppet'
   gem 'test-kitchen'
-  gem 'kitchen-sync'
   gem 'kitchen-puppet'
-  gem 'kitchen-vagrant'
+  gem 'kitchen-sync'
 end
