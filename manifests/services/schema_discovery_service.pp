@@ -8,7 +8,7 @@ class tic::services::schema_discovery_service {
       path    => "${config_dir}/org.talend.ipaas.rt.keypair.manager.cfg",
       section => '',
       setting => 'keypair.save',
-      value   => 'false';
+      value   => false;
   }
 
 }

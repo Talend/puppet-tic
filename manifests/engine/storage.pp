@@ -23,18 +23,18 @@ class tic::engine::storage {
   if member($blockdevices_list, 'xvdb') {
 
     filesystem { '/dev/xvdb':
-      ensure   => present,
-      fs_type  => 'ext3';
+      ensure  => present,
+      fs_type => 'ext3';
     } ->
 
     mount { '/mnt/ephemeral0':
-      ensure   => 'mounted',
-      device   => '/dev/xvdb',
-      fstype   => 'ext3',
-      options  => 'defaults,nodev,nosuid,noexec',
-      atboot   => true,
-      require  => File['/mnt/ephemeral0'],
-      notify   => Exec['fix_mount_permission'];
+      ensure  => 'mounted',
+      device  => '/dev/xvdb',
+      fstype  => 'ext3',
+      options => 'defaults,nodev,nosuid,noexec',
+      atboot  => true,
+      require => File['/mnt/ephemeral0'],
+      notify  => Exec['fix_mount_permission'];
     }
 
     exec { 'fix_mount_permission':

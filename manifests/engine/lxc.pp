@@ -96,7 +96,7 @@ class tic::engine::lxc {
       require => Exec['lxc_create'];
 
     '/var/lib/lxc/rt-flow/tmp_root_pass':
-      ensure => absent,
+      ensure  => absent,
       require => Exec['lxc_create'];
 
     '/var/lib/lxc/rt-flow/rootfs/etc/localtime':

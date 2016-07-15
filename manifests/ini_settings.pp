@@ -17,9 +17,9 @@ define tic::ini_settings (
   $joined = join_keys_to_values( $_settings, $glue )
 
   tic::ini_setting_wrapper { $joined:
+    ensure  => $ensure,
     glue    => $glue,
     path    => $path,
     section => $section,
-    ensure  => $ensure
   }
 }

@@ -4,7 +4,7 @@ define tic::karaf_service_install (
   $karaf_base      = undef,
   $owner           = 'root',
   $display         = $name,
-  $description     = "Karaf Service : $name",
+  $description     = "Karaf Service : ${name}",
   $conf_properties = {},
 
 ) {

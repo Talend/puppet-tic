@@ -35,15 +35,15 @@ class tic::frontend::config {
 
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf.erb'),
-      notify => Service['tomcat-ipaas-srv'];
+      notify  => Service['tomcat-ipaas-srv'];
 
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf.erb'),
-      notify => Service['tomcat-ipaas-srv'];
+      notify  => Service['tomcat-ipaas-srv'];
 
     '/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml':
       content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml.erb'),
-      notify => Service['tomcat-ipaas-srv'];
+      notify  => Service['tomcat-ipaas-srv'];
 
     '/srv/tomcat/ipaas-srv/webapps/ROOT':
       ensure => link,
@@ -110,14 +110,14 @@ class tic::frontend::config {
 
   file_line {
     'web_use_ssl':
-      path => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/web.xml',
-      line => "<secure>${web_use_ssl}</secure>",
+      path  => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/web.xml',
+      line  => "<secure>${web_use_ssl}</secure>",
       match => '<secure>(true)|(false)</secure>';
 
     'web_use_mini_js':
-      path  => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
-      line  => "<welcome-file>${index_file}</welcome-file>",
-      match => '<welcome-file>',
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
+      line   => "<welcome-file>${index_file}</welcome-file>",
+      match  => '<welcome-file>',
       notify => Service['tomcat-ipaas-srv'];
   }
 

@@ -156,6 +156,8 @@ class tic::params inherits tic::globals {
     }
     'base': {
     }
+    default: {
+    }
   }
 }
 
