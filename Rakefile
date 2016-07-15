@@ -1,21 +1,31 @@
-require 'rake'
 require 'puppetlabs_spec_helper/rake_tasks'
+require 'puppet-lint/tasks/puppet-lint'
 
-# SPEC_SUITES = (Dir.entries('spec') - ['.', '..','fixtures']).select {|e| File.directory? "spec/#{e}" }
-task :default => :spec
+PuppetLint.configuration.send('disable_80chars')
+PuppetLint.configuration.send('disable_140chars')
+PuppetLint.configuration.send('disable_variable_scope')
+PuppetLint.configuration.send('disable_class_inherits_from_params_class')
+PuppetLint.configuration.send('disable_autoloader_layout')
+PuppetLint.configuration.send('disable_nested_classes_or_defines')
+PuppetLint.configuration.send('disable_inherits_across_namespaces')
+PuppetLint.configuration.ignore_paths = %w(
+  spec/**/*.pp
+  pkg/**/*.pp
+  vendor/**/*.pp
+  test/**/*.pp
+)
 
-begin
-  if Gem::Specification::find_by_name('puppet-lint')
-    require 'puppet-lint/tasks/puppet-lint'
-    Rake::Task[:lint].clear
-    PuppetLint::RakeTask.new :lint do |config|
-      config.ignore_paths = ["spec/**/*.pp", "vendor/**/*.pp", "vendor/**/*.rb"]
-      config.log_format = '%{path}:%{linenumber}:%{KIND}: %{message}'
-      config.disable_checks = [ "class_inherits_from_params_class", "80chars" ]
-    end
-    task :default => [:rspec, :lint]
+desc 'Validate manifests, templates, and ruby files'
+task :validate do
+  Dir['manifests/**/*.pp'].each do |manifest|
+    sh "puppet parser validate --noop #{manifest}"
   end
-rescue Gem::LoadError
+  Dir['spec/**/*.rb','lib/**/*.rb'].each do |ruby_file|
+    sh "ruby -c #{ruby_file}" unless ruby_file =~ /spec\/fixtures/
+  end
+  Dir['templates/**/*.erb'].each do |template|
+    sh "erb -P -x -T '-' #{template} | ruby -c"
+  end
 end
 
 begin
