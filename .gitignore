@@ -2,7 +2,6 @@ spec/fixtures/modules/
 vendor/
 .bundle/
 .idea/
-Gemfile.lock
 .reviewboardrc
 log
 .vagrant
