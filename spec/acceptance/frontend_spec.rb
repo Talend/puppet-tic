@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'frontend' do
 
   describe port(8081) do
-    it { should be_listening }
+    it { should be_listening.on('0.0.0.0') }
   end
 
   describe command('/usr/bin/wget -O - http://127.0.0.1:8081') do
@@ -54,7 +54,7 @@ describe 'frontend' do
 
   describe file('/srv/tomcat/ipaas-srv/conf/server.xml') do
     its(:content) { should include 'port="8009"' }
-    its(:content) { should include 'address="127.0.0.1"' }
+    its(:content) { should include 'address="0.0.0.0"' }
     its(:content) { should include 'protocol="AJP/1.3"' }
     its(:content) { should include 'connectionTimeout="20000"' }
     its(:content) { should include 'redirectPort="8443"' }
@@ -62,7 +62,7 @@ describe 'frontend' do
 
   describe file('/srv/tomcat/ipaas-srv/conf/server.xml') do
     its(:content) { should include 'port="8081"' }
-    its(:content) { should include 'address="127.0.0.1"' }
+    its(:content) { should include 'address="0.0.0.0"' }
     its(:content) { should include 'protocol="HTTP/1.1"' }
     its(:content) { should include 'connectionTimeout="20000"' }
     its(:content) { should include 'redirectPort="8443"' }

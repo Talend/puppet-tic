@@ -29,7 +29,7 @@ class tic::frontend::install {
     protocol              => 'HTTP/1.1',
     purge_connectors      => true,
     additional_attributes => {
-      'address'           => '127.0.0.1',
+      'address'           => '0.0.0.0',
       'redirectPort'      => '8443',
       'connectionTimeout' => '20000',
     },
@@ -40,7 +40,7 @@ class tic::frontend::install {
     port                  => '8009',
     protocol              => 'AJP/1.3',
     additional_attributes => {
-      'address'           => '127.0.0.1',
+      'address'           => '0.0.0.0',
       'redirectPort'      => '8443',
       'connectionTimeout' => '20000',
     },
