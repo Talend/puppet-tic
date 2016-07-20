@@ -11,3 +11,4 @@ log
 .tmp/
 modules/
 .rspec-local
+build/

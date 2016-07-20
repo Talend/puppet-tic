@@ -1,10 +1,12 @@
 ---
 driver:
   name: vagrant
+  customize:
+    memory: 2048
 
 provisioner:
   name: puppet_apply
-  manifests_path: test/integration
+  manifests_path: examples
   ignore_spec_fixtures: true
   custom_facts:
     packagecloud_tic_donotuse_token: <%= ENV['PACKAGECLOUD_TIC_DONOTUSE_TOKEN'] %>
@@ -15,22 +17,27 @@ transport:
 platforms:
   - name: centos-7.2
 
+verifier:
+  name: serverspec
+  remote_exec: false
+  extra_flags: '--require spec_helper -I spec/acceptance --format RspecJunitFormatter --out build/junit.xml'
+
 suites:
   - name: frontend
     provisioner:
-      manifest: frontend/init.pp
-    driver:
-      customize:
-        memory: 2048
+      manifest: frontend.pp
+    verifier:
+      patterns:
+        - 'spec/acceptance/frontend_spec.rb'
   - name: services
     provisioner:
-      manifest: services/init.pp
-    driver:
-      customize:
-        memory: 2048
+      manifest: services.pp
+    verifier:
+      patterns:
+        - 'spec/acceptance/services_spec.rb'
   - name: engine
     provisioner:
-      manifest: engine/init.pp
-    driver:
-      customize:
-        memory: 2048
+      manifest: engine.pp
+    verifier:
+      patterns:
+        - 'spec/acceptance/engine_spec.rb'
