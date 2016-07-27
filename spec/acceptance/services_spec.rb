@@ -24,4 +24,8 @@ describe 'services' do
     it { should match /wrapper.java.maxmemory\s*=\s*1024/ }
     it { should match /wrapper.disable_restarts\s*=\s*true/ }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.eventsource.amq.cfg') do
+    its(:content) { should include 'activemq.broker.password=activemq_broker_test_password' }
+  end
 end
