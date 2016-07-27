@@ -139,7 +139,7 @@ class tic::services::config {
           path    => "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg",
           section => '',
           setting => 'activemq.broker.username',
-          value   => 'tadmin';
+          value   => $tic::activemq_broker_username;
 
         'activemq_broker_password':
           ensure  => present,
