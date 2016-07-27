@@ -24,7 +24,7 @@ class { 'tic::globals':
   web_use_ssl                        => true,
   cms_node                           => 'testcmsnode',
   java_home                          => '/usr/java/jre1.8.0_60',
-  activemq_broker_username           => 'activemq_broker_test_username'
-  activemq_broker_password           => 'activemq_broker_test_password'
+  activemq_broker_username           => 'activemq_broker_test_username',
+  activemq_broker_password           => 'activemq_broker_test_password',
 } ->
 class { 'tic': }
