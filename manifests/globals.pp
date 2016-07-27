@@ -7,6 +7,7 @@
 class tic::globals(
 
   $activemq_broker_url                                             = undef,
+  $activemq_broker_password                                        = undef,
   $cms_db_password                                                 = undef,
   $cms_node                                                        = undef,
   $config_db_password                                              = undef,
