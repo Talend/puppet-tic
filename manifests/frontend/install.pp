@@ -10,7 +10,7 @@ class tic::frontend::install {
     quote_char    => '"',
     value         => [
       '$JAVA_OPTS',
-      "-Xmx${tic::java_xmx}m",
+      "-Xmx${::tic::frontend::java_xmx}m",
       '-XX:MaxPermSize=256m',
       '-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf',
       '-Djava.awt.headless=true',
@@ -48,20 +48,19 @@ class tic::frontend::install {
 
   package {
     'talend-ipaas-web':
-      ensure => $tic::version;
+      ensure => $::tic::frontend::version;
 
     'talend-ipaas-web-admin':
       ensure => absent;
 
     'talend-ipaas-web-services':
-      ensure => $tic::version;
+      ensure => $::tic::frontend::version;
 
     'talend-ipaas-web-server':
-      ensure => $tic::version;
-
-    'talend-ipaas-web-memcache-libs':
+      ensure => $::tic::frontend::version;
+  } ->
+  package { 'talend-ipaas-web-memcache-libs':
       ensure  => '0.2-2', # version with tomcat8 libraries
-      require => Package['talend-ipaas-web-server']
   }
 
 }
