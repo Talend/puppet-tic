@@ -14,4 +14,6 @@ class { '::tic::frontend':
   web_use_ssl             => true,
   cms_node                => 'testcmsnode',
   elasticache_address     => 'some_elasticache_address',
+  flow_manager_nodes      => 'flow_manager_node',
+  flow_manager_url        => 'http://flow_manager_url',
 }
