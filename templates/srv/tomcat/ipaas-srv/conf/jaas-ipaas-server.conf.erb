@@ -4,6 +4,6 @@ ipaas {
         wsdl.location="http://<%= @sts_host %>:8080/sts/SecurityTokenService/UT?wsdl"
         service.name="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}SecurityTokenService"
         endpoint.name="{http://docs.oasis-open.org/ws-sx/ws-trust/200512/}UT_Port"
-        ws-security.username="tadmin"
-        ws-security.password="tadmin";
+        ws-security.username="<%= @sts_username %>"
+        ws-security.password="<%= @sts_password %>";
 };
