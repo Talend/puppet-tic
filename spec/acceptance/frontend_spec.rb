@@ -45,7 +45,11 @@ describe 'TIC Frontend' do
       it { should include 'redirectPort="8443"' }
     end
 
-    %w(talend-ipaas-web talend-ipaas-web-server talend-ipaas-web-services).each do |p|
+    %w(
+    talend-ipaas-web
+    talend-ipaas-web-services
+    talend-ipaas-web-server
+    talend-ipaas-web-memcache-libs).each do |p|
       describe package(p) do
         it { should be_installed }
       end
@@ -85,16 +89,6 @@ describe 'TIC Frontend' do
     ).each do |f|
       describe file(f) do
         it { should be_file }
-      end
-    end
-
-    %w(
-    talend-ipaas-web
-    talend-ipaas-web-services
-    talend-ipaas-web-server
-    talend-ipaas-web-memcache-libs).each do |p|
-      describe package(p) do
-        it { should be_installed }
       end
     end
 
