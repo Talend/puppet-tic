@@ -21,7 +21,7 @@ class tic::services::bookkeeper_service {
       value   => $tic::zookeeper_connection;
     }
   } else {
-    warning("got ${tic::zookeeper_nodes_count} activemq nodes, expected ${tic::min_zookeeper_nodes}")
+    warning("got ${tic::zookeeper_nodes_count} zookeeper nodes, expected ${tic::min_zookeeper_nodes}")
   }
 }
 
