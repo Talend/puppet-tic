@@ -1,10 +1,12 @@
 class tic::services::features::dispatcher_client {
 
+  $config_dir = "${tic::services::params::karaf_base_path}/etc"
+
   tic::ini_settings { 'dispatcher_client':
-    path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.dispatcher.client.cfg",
+    path     => "${config_dir}/org.talend.ipaas.rt.dispatcher.client.cfg",
     settings => {
-      'dispatcher.input.queue'    => "ipaas.${tic::subenv_prefix}.dispatcher.input.queue",
-      'dispatcher.response.queue' => "ipaas.${tic::subenv_prefix}.dispatcher.response.queue",
+      'dispatcher.input.queue'    => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.input.queue",
+      'dispatcher.response.queue' => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.response.queue",
     }
   }
 
