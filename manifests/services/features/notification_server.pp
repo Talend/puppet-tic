@@ -1,4 +1,5 @@
-class tic::services::notification_server {
+class tic::services::features::notification_server {
+
   tic::ini_settings { 'notification_server':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.notification.server.cfg",
     settings => {
@@ -15,4 +16,5 @@ class tic::services::notification_server {
       'notification.server.sendgrid.template.flow.execution.failed'        => $tic::notification_server_sendgrid_flow_execution_failed,
     }
   }
+
 }

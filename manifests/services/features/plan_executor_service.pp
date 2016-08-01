@@ -1,4 +1,5 @@
-class tic::services::plan_execution_service {
+
+class tic::services::features::plan_executor_service {
   tic::ini_settings { 'plan_execution_service':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.pe.datasource.cfg",
     settings => {
@@ -6,4 +7,5 @@ class tic::services::plan_execution_service {
       'datasource.password'   => $tic::pe_db_password,
     }
   }
+
 }

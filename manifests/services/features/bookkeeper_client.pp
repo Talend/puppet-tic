@@ -1,4 +1,4 @@
-class tic::services::bookkeeper_client {
+class tic::services::features::bookkeeper_client {
 
   $config_dir = $tic::services::config::config_dir
 

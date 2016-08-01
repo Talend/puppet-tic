@@ -1,4 +1,4 @@
-class tic::services::scheduler_client {
+class tic::services::features::scheduler_client {
 
   $config_dir = $tic::services::config::config_dir
 

@@ -1,4 +1,4 @@
-class tic::services::schema_discovery_service {
+class tic::services::features::schema_discovery_service_core {
 
   $config_dir = $tic::services::config::config_dir
 

@@ -1,4 +1,4 @@
-class tic::services::account_manager_client {
+class tic::services::features::account_manager_client {
 
   $config_dir = $tic::services::config::config_dir
 

@@ -1,4 +1,4 @@
-class tic::services::configuration_management_service {
+class tic::services::features::configuration_service_core {
   tic::ini_settings { 'configuration_management_service':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.config.core.cfg",
     settings => {

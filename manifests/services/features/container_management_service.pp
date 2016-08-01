@@ -1,4 +1,5 @@
-class tic::services::container_management_service {
+class tic::services::features::container_management_service {
+
   $config_dir = $tic::services::config::config_dir
 
   tic::ini_settings { 'container_management_service_datasource':
@@ -21,4 +22,5 @@ class tic::services::container_management_service {
       'karaf/org.ops4j.pax.url.mvn/org.ops4j.pax.url.mvn.repositories'        => $tic::cms_nexus_url,
     }
   }
+
 }

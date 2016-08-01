@@ -1,4 +1,5 @@
-class tic::services::plan_execution_client {
+class tic::services::features::plan_executor_client {
+
   tic::ini_settings { 'plan_execution_client':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.pe.client.cfg",
     settings => {
@@ -7,4 +8,5 @@ class tic::services::plan_execution_client {
       'pe.service.password' => $tic::pe_service_password,
     }
   }
+
 }

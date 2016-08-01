@@ -1,4 +1,5 @@
-class tic::services::notification_client {
+class tic::services::features::notification_client {
+
   tic::ini_settings { 'notification_client':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.notification.client.cfg",
     settings => {
@@ -6,4 +7,5 @@ class tic::services::notification_client {
       'notification.client.failures.log' => $tic::notification_client_failures_log,
     }
   }
+
 }

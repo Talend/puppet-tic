@@ -1,4 +1,5 @@
-class tic::services::notification_manager {
+class tic::services::features::notification_manager {
+
   tic::ini_settings { 'notification_manager':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.notification.manager.cfg",
     settings => {
@@ -6,4 +7,5 @@ class tic::services::notification_manager {
       'notification.manager.destination.queue' => $tic::notification_manager_destination_queue,
     }
   }
+
 }

@@ -1,4 +1,5 @@
-class tic::services::data_transfer_service {
+class tic::services::features::data_transfer_service_core {
+
   tic::ini_settings { 'data_transfer_service':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.dts.core.cfg",
     settings => {
@@ -11,4 +12,5 @@ class tic::services::data_transfer_service {
       'object.key.prefix'            => $tic::dts_s3_prefix,
     }
   }
+
 }

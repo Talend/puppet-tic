@@ -1,4 +1,5 @@
-class tic::services::dispatcher {
+class tic::services::features::dispatcher_core {
+
   file {'/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg':
     content => template('tic/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg.erb'),
     owner   => 'ipaassrv',
@@ -13,4 +14,5 @@ class tic::services::dispatcher {
       'queue.response.name' => "ipaas.${tic::subenv_prefix}.dispatcher.response.queue",
     }
   }
+
 }

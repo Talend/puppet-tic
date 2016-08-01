@@ -1,4 +1,4 @@
-class tic::services::crypto_service_client {
+class tic::services::features::crypto_service_client {
 
   $config_dir = $tic::services::config::config_dir
 
@@ -11,4 +11,3 @@ class tic::services::crypto_service_client {
   }
 
 }
-

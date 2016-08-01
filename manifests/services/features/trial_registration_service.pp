@@ -1,4 +1,5 @@
-class tic::services::trial_registration_service {
+class tic::services::features::trial_registration_service {
+
   $config_dir = $tic::services::config::config_dir
 
   tic::ini_settings { 'trial_registration_service_service':
@@ -25,4 +26,5 @@ class tic::services::trial_registration_service {
       'datasource.password'   => $tic::trial_db_password,
     }
   }
+
 }

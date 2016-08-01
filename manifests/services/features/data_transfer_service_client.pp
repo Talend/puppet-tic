@@ -1,4 +1,4 @@
-class tic::services::data_transfer_service_client {
+class tic::services::features::data_transfer_service_client {
 
   $config_dir = $tic::services::config::config_dir
 
@@ -10,5 +10,5 @@ class tic::services::data_transfer_service_client {
       setting => 'dts.service.url',
       value   => $tic::dts_service_url;
   }
-}
 
+}

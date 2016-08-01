@@ -1,4 +1,5 @@
-class tic::services::custom_resources_service {
+class tic::services::features::custom_resources_service {
+
   tic::ini_settings { 'custom_resources_service':
     path     => "${tic::services::config::config_dir}/org.talend.ipaas.rt.cr.service.cfg",
     settings => {
@@ -10,4 +11,5 @@ class tic::services::custom_resources_service {
       'size.limit.per.account'           => $tic::cr_size_limit_per_account,
     }
   }
+
 }

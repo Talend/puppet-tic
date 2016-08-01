@@ -1,4 +1,5 @@
-class tic::services::crypto_service {
+class tic::services::features::crypto_service {
+
   file {
     '/opt/talend/ipaas/.crypto':
       ensure => directory,
@@ -17,4 +18,5 @@ class tic::services::crypto_service {
       'db.password'       => $tic::crypto_db_password,
     }
   }
+
 }

@@ -1,4 +1,4 @@
-class tic::services::container_management_service_client {
+class tic::services::features::container_management_service_client {
 
   $config_dir = $tic::services::config::config_dir
 
@@ -9,7 +9,6 @@ class tic::services::container_management_service_client {
       section => '',
       setting => 'container.management.service.url',
       value   => $tic::cms_url;
-
   }
 
 }

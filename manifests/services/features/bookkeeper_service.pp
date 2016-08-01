@@ -1,4 +1,4 @@
-class tic::services::bookkeeper_service {
+class tic::services::features::bookkeeper_service {
 
   $zookeeper_prefix = "/subenv/${tic::subenv_prefix}/role/bookkeeper"
 

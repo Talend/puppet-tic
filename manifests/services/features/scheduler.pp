@@ -1,4 +1,5 @@
-class tic::services::scheduler {
+
+class tic::services::features::scheduler {
   $config_dir = $tic::services::config::config_dir
 
   tic::ini_settings { 'scheduler_quartz':
@@ -20,4 +21,5 @@ class tic::services::scheduler {
       setting => 'queue.input.name',
       value   => "ipaas.${tic::subenv_prefix}.scheduler.input.queue";
   }
+
 }

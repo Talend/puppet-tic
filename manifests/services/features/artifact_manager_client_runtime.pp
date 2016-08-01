@@ -1,4 +1,4 @@
-class tic::services::artifact_manager_client {
+class tic::services::features::artifact_manager_client_runtime {
 
   $config_dir = $tic::services::config::config_dir
 
