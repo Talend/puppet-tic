@@ -1,4 +1,4 @@
-class tic::services::features::crypto_service {
+class tic::services::features::crypto_service_core {
 
   file {
     '/opt/talend/ipaas/.crypto':
