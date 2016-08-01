@@ -32,8 +32,4 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.eventsource.amq.cfg') do
     its(:content) { should include 'activemq.broker.username=activemq_broker_test_username' }
   end
-
-  describe command('. /etc/profile && /usr/bin/echo $PATH') do
-    its(:stdout) { should include '/usr/java/jre1.8.0_60' }
-  end
 end
