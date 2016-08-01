@@ -1,5 +1,7 @@
 class tic::frontend::install {
 
+  require ::tic::frontend::params
+
   tomcat::install { '/srv/tomcat':
     catalina_home => '/opt/apache-tomcat',
     source_url    => 'http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz',
