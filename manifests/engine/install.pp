@@ -1,5 +1,7 @@
 class tic::engine::install {
 
+  require ::tic::engine::params
+
   if $tic::engine::params::manage_packages {
     package { 'talend-ipaas-rt-flow':
       ensure => $tic::engine::params::version

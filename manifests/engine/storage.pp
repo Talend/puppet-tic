@@ -1,5 +1,7 @@
 class tic::engine::storage {
 
+  require ::tic::engine::install
+
   file {
     '/mnt/ephemeral0':
       ensure => directory,

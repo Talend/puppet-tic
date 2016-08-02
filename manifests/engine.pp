@@ -30,6 +30,8 @@ class tic::engine (
   $dispatcher_response_queue = undef,
 
   $nexus_urls                     = undef,
+  $nexus_user                     = undef,
+  $nexus_password                 = undef,
   $userdata_nexus_password_secret = undef,
 
   $queue_input_name              = undef,
@@ -41,6 +43,7 @@ class tic::engine (
 
 ) {
 
+  contain tic::engine::params
   contain tic::engine::install
   contain tic::engine::storage
 
@@ -49,7 +52,7 @@ class tic::engine (
     contain tic::engine::lxc
   } else {
     contain tic::engine::config
-    contain tic::engine::lxc_dns
+    # TODO : contain tic::engine::lxc_dns
     contain tic::engine::service
   }
 

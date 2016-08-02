@@ -7,7 +7,7 @@ class tic::engine::params {
   $rt_flow_lxc_enable      = pick($tic::engine::rt_flow_lxc_enable,      true)
   $rt_flow_purge_puppet    = pick($tic::engine::rt_flow_purge_puppet,    true)
   $wrapper_diable_restarts = pick($tic::engine::wrapper_diable_restarts, true)
-  $logging_level           = pick($tic::engine::logging_level,         'INFO')
+  $logging_level           = pick($tic::engine::logging_level,           'INFO')
   $karaf_base_path         = pick($tic::engine::karaf_base_path,         '/opt/talend/ipaas/rt-flow')
   $jmx_enabled             = pick($tic::engine::jmx_enabled,             false)
   $heartbeat_interval      = pick($tic::engine::heartbeat_interval,      '180')
@@ -22,9 +22,9 @@ class tic::engine::params {
   $account_id   = pick($tic::engine::account_id,   'talend')
   $container_id = pick($tic::engine::container_id, 'default_container_id')
 
-  $activemq_nodes           = pick($tic::engine::activemq_nodes,           'localhost')
-  $nexus_nodes              = pick($tic::engine::nexus_nodes,              'localhost')
-  $dts_service_node         = pick($tic::engine::dts_service_node,         'localhost')
+  $activemq_nodes           = pick($tic::engine::activemq_nodes,   'localhost')
+  $nexus_nodes              = pick($tic::engine::nexus_nodes,      'localhost')
+  $dts_service_node         = pick($tic::engine::dts_service_node, 'localhost')
 
   $activemq_nodes_list      = split($activemq_nodes, ',')
   $activemq_broker_url      = pick($tic::engine::activemq_broker_url, inline_template("<%= 'failover:(tcp://' + @activemq_nodes_list.sort().inject { |url,n| url + ':61616?keepAlive=true,' + 'tcp://' + n } + ':61616?keepAlive=true)?jms.prefetchPolicy.queuePrefetch=5'%>"))
@@ -35,7 +35,9 @@ class tic::engine::params {
   $dispatcher_response_queue = pick($tic::engine::dispatcher_response_queue, 'ipaas.dispatcher.response.queue')
 
   $nexus_urls                     = pick($tic::engine::nexus_urls, inline_template('<%= @nexus_nodes.split(",").map { |a| "http://"+a+":8081/nexus" }.join(",") %>'))
-  $userdata_nexus_password_secret = pick($tic::engine::userdata_nexus_password_secret,           'missing')
+  $nexus_user                     = pick($tic::engine::nexus_user,                     'admin')
+  $nexus_password                 = pick($tic::engine::nexus_password,                 'missing')
+  $userdata_nexus_password_secret = pick($tic::engine::userdata_nexus_password_secret, 'missing')
 
   $queue_input_name              = pick($tic::engine::queue_input_name,              'missing')
   $queue_response_name           = pick($tic::engine::queue_response_name,           'missing')

@@ -1,13 +1,17 @@
 # config class for the rt_flow
 class tic::engine::config {
 
+  require ::tic::engine::install
+
   $config_dir = "${tic::engine::params::karaf_base_path}/etc"
 
   $mvn_repositories = "${tic::engine::params::nexus_urls}/content/repositories/${tic::engine::params::account_id}@id=${tic::engine::params::account_id}.release, ${tic::engine::params::nexus_urls}/content/repositories/${tic::engine::params::account_id}-snapshots@snapshots@id=${tic::engine::params::account_id}.snapshot, file:/opt/talend/ipaas/rt-flow/data/kar@id=kar.repository@multi"
 
-  #Decrypt
-  $nexus_password = $tic::engine::params::userdata_nexus_password_secret
+  # Decrypt
+  #TODO: $nexus_password = $tic::engine::params::userdata_nexus_password_secret
   $nexus_urls     = $tic::engine::params::nexus_urls
+  $nexus_user     = $tic::engine::params::nexus_user
+  $nexus_password = $tic::engine::params::nexus_password
   $account_id     = $tic::engine::params::account_id
 
   file {

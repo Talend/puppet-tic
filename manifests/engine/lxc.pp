@@ -75,7 +75,7 @@ class tic::engine::lxc {
     $karaf_conf_properties = $karaf_conf_properties_base
   }
 
-  tic::engine::params::karaf_service_install { 'rt-flow-service-lxc':
+  tic::karaf_service_install { 'rt-flow-service-lxc':
     java_home       => $tic::engine::params::java_home,
     karaf_base      => $tic::engine::params::karaf_base_path,
     owner           => 'ipaassrv',

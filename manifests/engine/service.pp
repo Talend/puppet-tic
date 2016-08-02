@@ -47,25 +47,20 @@ class tic::engine::service {
         ensure  => absent,
         recurse => true,
         force   => true,
-        require => Service['rt-flow-service']
     }
 
     package {
       'talend-puppet-modules-site-trunk':
-        ensure  => absent,
-        require => Service['rt-flow-service'];
+        ensure  => absent;
 
       'talend-puppet-modules-dist-trunk':
-        ensure  => absent,
-        require => Service['rt-flow-service'];
+        ensure  => absent;
 
       'talend-puppet-manifests-trunk':
-        ensure  => absent,
-        require => Service['rt-flow-service'];
+        ensure  => absent;
 
       'talend-hiera-data-trunk':
-        ensure  => absent,
-        require => Service['rt-flow-service'];
+        ensure  => absent;
     }
   }
 
