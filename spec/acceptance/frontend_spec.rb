@@ -107,7 +107,7 @@ describe 'TIC Frontend' do
     end
   end
 
-  context 'When TIC Frontend running' do
+  context 'When TIC Frontend is running' do
     describe port(8081) do
       it { should be_listening.on('0.0.0.0') }
     end
