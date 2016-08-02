@@ -8,6 +8,8 @@ define tic::services::features::install (
 
   $feature_class_name = regsubst(delete($feature, 'tipaas-'), '[^0-9a-zA-Z\_]', '_', 'G')
 
-  contain "tic::services::features::${feature_class_name}"
+  if defined("tic::services::features::${feature_class_name}") {
+    contain "tic::services::features::${feature_class_name}"
+  }
 
 }
