@@ -1,7 +1,11 @@
-class tic::common {
+class tic::common (
+
+  $java_home = undef,
+
+) {
 
   file {'/etc/profile.d/java_home.sh':
-    content => "export JAVA_HOME=${tic::java_home}\nexport PATH=\$JAVA_HOME/bin:\$PATH\n"
+    content => "export JAVA_HOME=${java_home}\nexport PATH=\$JAVA_HOME/bin:\$PATH\n"
   }
 
   if $::t_subenv == 'build' {

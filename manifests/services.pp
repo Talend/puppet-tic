@@ -151,15 +151,24 @@ class tic::services (
 
 ) {
 
-  #require ::tic::common TODO: solve this
+  contain ::tic::services::params
 
-  contain tic::services::params
-  contain tic::services::install
+  class { '::tic::common':
+    java_home => $tic::services::params::java_home
+  }
+
+  contain ::tic::services::install
 
   # in case we are in build subenv we don't instantiate the config and service classes
   if $::t_subenv != 'build' {
-    contain tic::services::config
-    contain tic::services::service
+    contain ::tic::services::config
+    contain ::tic::services::service
   }
+
+  Class['::tic::services::params'] ~>
+  Class['::tic::common'] ~>
+  Class['::tic::services::install'] ~>
+  Class['::tic::services::config'] ~>
+  Class['::tic::services::service']
 
 }

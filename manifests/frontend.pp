@@ -59,12 +59,20 @@ class tic::frontend (
 
 ) {
 
- #require ::tic::common TODO: solve this
+  contain ::tic::frontend::params
 
- contain ::tic::frontend::params
+  class { '::tic::common':
+    java_home => $tic::frontend::params::java_home
+  }
 
- contain ::tic::frontend::install
- contain ::tic::frontend::config
- contain ::tic::frontend::service
+  contain ::tic::frontend::install
+  contain ::tic::frontend::config
+  contain ::tic::frontend::service
+
+  Class['::tic::frontend::params'] ~>
+  Class['::tic::common'] ~>
+  Class['::tic::frontend::install'] ~>
+  Class['::tic::frontend::config'] ~>
+  Class['::tic::frontend::service']
 
 }
