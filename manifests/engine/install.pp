@@ -20,13 +20,13 @@ class tic::engine::install {
       source  => 'puppet:///modules/tic/opt/talend/ipaas/rt-flow/scripts/oomkiller4j.sh',
       mode    => '0750',
       owner   => 'ipaassrv',
-      group   => 'ipaasgrp',
+      group   => 'ipaasgrp';
 
     '/opt/talend/ipaas/rt-flow/scripts/unregister':
       content => template('tic/opt/talend/ipaas/rt-flow/scripts/unregister.erb'),
       mode    => '0750',
       owner   => 'ipaassrv',
-      group   => 'ipaasgrp',
+      group   => 'ipaasgrp';
   }
 
 }
