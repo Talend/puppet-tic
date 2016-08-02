@@ -23,8 +23,7 @@ class tic::services::config {
       }
     }
 
-    tic::ini_settings { 'eventlogging.collector':
-      path     => "${config_dir}/org.talend.eventlogging.collector.jms.cfg",
+    tic::ini_settings { "${config_dir}/org.talend.eventlogging.collector.jms.cfg":
       settings => {
         'collector.jms.url' => $tic::services::params::activemq_broker_url,
       }
@@ -33,37 +32,32 @@ class tic::services::config {
     warning("got ${tic::services::params::activemq_nodes_count} activemq nodes, expected ${tic::services::params::min_activemq_brokers}")
   }
 
-  tic::ini_settings { 'karaf.features':
-    path     => "${config_dir}/org.apache.karaf.features.cfg",
+  tic::ini_settings { "${config_dir}/org.apache.karaf.features.cfg":
     settings => {
       'featuresBoot' => $tic::services::params::karaf_boot_features_real,
     }
   }
 
-  tic::ini_settings { 'eventlogging.server':
-    path     => "${config_dir}/org.talend.eventlogging.server.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.eventlogging.server.cfg":
     settings => {
       'elasticsearch.host' => $tic::services::params::elasticsearch_host,
       'elasticsearch.port' => $tic::services::params::elasticsearch_port,
     }
   }
 
-  tic::ini_settings { 'debug_logging_flow':
-    path     => "${config_dir}/org.ops4j.pax.logging.cfg",
+  tic::ini_settings { "${config_dir}/org.ops4j.pax.logging.cfg":
     settings => {
       'log4j.logger.org.talend.ipaas' => $tic::services::params::logging_level,
     }
   }
 
-  tic::ini_settings { 'log_amq_messages_flow':
-    path     => "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg":
     settings => {
       'log.messages' => $tic::services::params::log_amq_messages,
     }
   }
 
-  tic::ini_settings { 'ams_datasource_credentials':
-    path     => "${config_dir}/org.talend.ipaas.rt.ams.datasource.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.ams.datasource.cfg":
     settings => {
       'datasource.servername'   => $tic::services::params::ams_postgres_server,
       'datasource.username'     => 'ams',
@@ -72,8 +66,7 @@ class tic::services::config {
     }
   }
 
-  tic::ini_settings { 'ams_core_credentials':
-    path     => "${config_dir}/org.talend.ipaas.rt.ams.core.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.ams.core.cfg":
     settings => {
       'mongodb.uri'                 => $tic::services::params::mongo_uri,
       'syncope.service.url'         => $tic::services::params::ams_syncope_url,

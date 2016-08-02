@@ -64,8 +64,7 @@ class tic::frontend::config {
     }
   }
 
-  tic::ini_settings { 'ipaas_server_properties':
-    path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties',
+  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties':
     settings => {
       'container_management_url'              => $tic::frontend::params::cms_url,
       'flow_manager_url'                      => $tic::frontend::params::flow_manager_url,
@@ -89,8 +88,7 @@ class tic::frontend::config {
     }
   }
 
-  tic::ini_settings { 'ipaas_services_properties':
-    path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties',
+  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
     settings => {
       'artifact_manager_url' => $tic::frontend::params::artifact_manager_url,
       'account_manager_url'  => $tic::frontend::params::ams_url,

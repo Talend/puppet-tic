@@ -2,8 +2,7 @@ class tic::services::features::notification_server {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::ini_settings { 'notification_server':
-    path     => "${config_dir}/org.talend.ipaas.rt.notification.server.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.notification.server.cfg":
     settings => {
       'notification.server.input.queue'                                    => $tic::services::params::notification_manager_destination_queue,
       'notification.server.sendgrid.api.key'                               => $tic::services::params::notification_server_sendgrid_api_key,

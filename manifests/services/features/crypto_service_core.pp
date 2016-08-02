@@ -9,8 +9,7 @@ class tic::services::features::crypto_service_core {
       mode   => '0600'
   }
 
-  tic::ini_settings { 'crypto_service':
-    path     => "${config_dir}/org.talend.ipaas.rt.crypto.core.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.crypto.core.cfg":
     settings => {
       'master.key.alias'  => $tic::services::params::kms_key_alias,
       'current.region'    => '',

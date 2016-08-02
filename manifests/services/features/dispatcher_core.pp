@@ -15,8 +15,7 @@ class tic::services::features::dispatcher_core {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::ini_settings { 'dispatcher':
-    path     => "${config_dir}/org.talend.ipaas.rt.dispatcher.core.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dispatcher.core.cfg":
     settings => {
       'queue.input.name'    => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.input.queue"   ,
       'queue.response.name' => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.response.queue",

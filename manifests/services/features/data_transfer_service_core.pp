@@ -2,8 +2,7 @@ class tic::services::features::data_transfer_service_core {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::ini_settings { 'data_transfer_service':
-    path     => "${config_dir}/org.talend.ipaas.rt.dts.core.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dts.core.cfg":
     settings => {
       's3.bucket.name.rejected.data' => $tic::services::params::dts_s3_bucket_rejected_data,
       's3.bucket.name.test.data'     => $tic::services::params::dts_s3_bucket_test_data,

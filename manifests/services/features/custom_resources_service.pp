@@ -2,8 +2,7 @@ class tic::services::features::custom_resources_service {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::ini_settings { 'custom_resources_service':
-    path     => "${config_dir}/org.talend.ipaas.rt.cr.service.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.cr.service.cfg":
     settings => {
       'bucket.name'                      => $tic::services::params::cr_bucket_name,
       'object.key.prefix'                => $tic::services::params::cr_object_key_prefix,

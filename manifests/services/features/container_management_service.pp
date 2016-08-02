@@ -2,8 +2,7 @@ class tic::services::features::container_management_service {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::ini_settings { 'container_management_service_datasource':
-    path     => "${config_dir}/org.talend.ipaas.rt.cms.datasource.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.cms.datasource.cfg":
     settings => {
       'datasource.servername'   => $tic::services::params::cms_db_host,
       'datasource.databasename' => 'cms',
@@ -12,8 +11,7 @@ class tic::services::features::container_management_service {
     }
   }
 
-  tic::ini_settings { 'container_management_service_config':
-    path     => "${config_dir}/org.talend.ipaas.rt.cms.config.cfg",
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.cms.config.cfg":
     settings => {
       'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.input.queue'    => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.input.queue",
       'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.response.queue' => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.response.queue",
