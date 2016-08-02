@@ -108,9 +108,9 @@ class tic::frontend::config {
       match => '<secure>(true)|(false)</secure>';
 
     'web_use_mini_js':
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
-      line   => "<welcome-file>${index_file}</welcome-file>",
-      match  => '<welcome-file>';
+      path  => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
+      line  => "<welcome-file>${index_file}</welcome-file>",
+      match => '<welcome-file>';
   }
 
 }
