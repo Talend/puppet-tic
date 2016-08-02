@@ -3,7 +3,6 @@ class tic::services::config {
   require ::tic::services::install
 
   validate_array($tic::services::params::karaf_features_install)
-  #validate_re($tic::services::params::ams_syncope_url, $tic::url_re, "syncope url is not valid url. ${tic::services::params::ams_syncope_url}")
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 

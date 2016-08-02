@@ -14,20 +14,6 @@ class tic::frontend::config {
 
   validate_bool($web_enable_test_context)
   validate_bool($web_use_ssl)
-  validate_re($sts_host,                                                $tic::url_re, "sts host is not valid url. ${sts_host}")
-  validate_re($workspace_url,                                           $tic::url_re, "workspace url is not valid url. ${workspace_url}")
-  validate_re($marketplace_url,                                         $tic::url_re, "marketplace url is not valid url. ${marketplace_url}")
-  validate_re($tic::frontend::params::flow_manager_url,               $tic::url_re, "flow manager url is not valid url. ${tic::frontend::params::flow_manager_url}")
-  validate_re($tic::frontend::params::crypto_service_url,             $tic::url_re, "crypto service url is not valid url. ${tic::frontend::params::crypto_service_url}")
-  validate_re($tic::frontend::params::artifact_manager_url,           $tic::url_re, "artifact manager service url is not valid url. ${tic::frontend::params::artifact_manager_url}")
-  validate_re($tic::frontend::params::ams_url,                        $tic::url_re, "account manager service url is not valid url. ${tic::frontend::params::ams_url}")
-  validate_re($tic::frontend::params::flow_execution_log_service_url, $tic::url_re, "flow_execution_log_service_url is not valid url. ${tic::frontend::params::flow_execution_log_service_url}")
-  validate_re($tic::frontend::params::ams_syncope_url,                $tic::url_re, "syncope url is not valid url. ${tic::frontend::params::ams_syncope_url}")
-  validate_re($tic::frontend::params::cms_url,                        $tic::url_re, "container management service url is not valid url. ${tic::frontend::params::cms_url}")
-  validate_re($tic::frontend::params::webhooks_service_url,           $tic::url_re, "webhooks_service url is not valid url. ${tic::frontend::params::webhooks_service_url}")
-  validate_re($tic::frontend::params::pe_service_url,                 $tic::url_re, "pe_service url is not valid url. ${tic::frontend::params::pe_service_url}")
-  validate_re($tic::frontend::params::custom_resources_url,           $tic::url_re, "custom_resources url is not valid url. ${tic::frontend::params::custom_resources_url}")
-  validate_re($tic::frontend::params::notifier_service_url,           $tic::url_re, "notification service url is not valid url. ${tic::frontend::params::notifier_service_url}")
 
   file {
     '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
