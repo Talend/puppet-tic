@@ -11,7 +11,7 @@
 
             <repositories>
 
-            <%- @nexus_url.split(',').each_with_index do |url, index| -%>
+            <%- @nexus_urls.split(',').each_with_index do |url, index| -%>
                 <repository>
                   <id>artifact-snapshots<%=index%></id>
                     <name>Snapshot artifacts</name>

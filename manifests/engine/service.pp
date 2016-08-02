@@ -1,7 +1,7 @@
 # init service definition for rt flow
 class tic::engine::service {
 
-  if $tic::rt_flow_lxc_enable {
+  if $tic::engine::params::rt_flow_lxc_enable {
     firewall {
       '000 block metadata from the lxc':
         destination => '169.254.169.254/32',
@@ -16,13 +16,13 @@ class tic::engine::service {
   } else {
     $karaf_conf_properties_base = {
       'wrapper.jvm_kill.delay'     => 5,
-      'wrapper.java.maxmemory'     => $tic::java_xmx,
-      'wrapper.disable_restarts'   => $tic::wrapper_diable_restarts,
+      'wrapper.java.maxmemory'     => $tic::engine::params::java_xmx,
+      'wrapper.disable_restarts'   => $tic::engine::params::wrapper_diable_restarts,
       'wrapper.java.additional.10' => '-XX:MaxPermSize=256m',
-      'wrapper.java.additional.11' => "-XX:OnOutOfMemoryError=${tic::karaf_base_path}/scripts/oomkiller4j.sh",
+      'wrapper.java.additional.11' => "-XX:OnOutOfMemoryError=${tic::engine::params::karaf_base_path}/scripts/oomkiller4j.sh",
     }
 
-    if $tic::jmx_enabled {
+    if $tic::engine::params::jmx_enabled {
       $karaf_conf_properties = merge( $karaf_conf_properties_base, {
         'wrapper.java.additional.12' => '-Dcom.sun.management.jmxremote.port=7199',
         'wrapper.java.additional.13' => '-Dcom.sun.management.jmxremote.authenticate=false',
@@ -33,15 +33,15 @@ class tic::engine::service {
     }
 
     tic::karaf_service_install { 'rt-flow-service':
-      java_home       => $tic::java_home,
-      karaf_base      => $tic::karaf_base_path,
+      java_home       => $tic::engine::params::java_home,
+      karaf_base      => $tic::engine::params::karaf_base_path,
       owner           => 'ipaassrv',
       conf_properties => $karaf_conf_properties
     }
   }
 
-  if $tic::rt_flow_purge_puppet {
-  #uninstall puppet modules after rt-flow karaf has been started
+  if $tic::engine::params::rt_flow_purge_puppet {
+    #uninstall puppet modules after rt-flow karaf has been started
     file {
       '/etc/puppet/secure':
         ensure  => absent,
@@ -51,7 +51,6 @@ class tic::engine::service {
     }
 
     package {
-
       'talend-puppet-modules-site-trunk':
         ensure  => absent,
         require => Service['rt-flow-service'];
@@ -68,8 +67,6 @@ class tic::engine::service {
         ensure  => absent,
         require => Service['rt-flow-service'];
     }
-
   }
 
 }
-

@@ -33,10 +33,6 @@ class tic::engine::lxc {
       enable  => true,
       require => [Package['libvirt'], Package['lxc']];
 
-    #'cgconfig':
-    #  enable  => true,
-    #  require => [Package['libvirt'], Package['lxc']];
-
     'lxc':
       enable => false
   }
@@ -56,20 +52,20 @@ class tic::engine::lxc {
       require => Exec["${chroot_cmd} /usr/sbin/groupadd -g 199 -r ipaasgrp"];
 
     'copy_java_home':
-      command => "/bin/cp --parents -a ${tic::java_home} /var/lib/lxc/rt-flow/rootfs",
-      creates => "/var/lib/lxc/rt-flow/rootfs/${tic::java_home}",
+      command => "/bin/cp --parents -a ${tic::engine::params::java_home} /var/lib/lxc/rt-flow/rootfs",
+      creates => "/var/lib/lxc/rt-flow/rootfs/${tic::engine::params::java_home}",
       require => Exec['lxc_create'];
   }
 
   $karaf_conf_properties_base = {
     'wrapper.jvm_kill.delay'     => 5,
-    'wrapper.java.maxmemory'     => $tic::java_xmx,
-    'wrapper.disable_restarts'   => $tic::wrapper_diable_restarts,
+    'wrapper.java.maxmemory'     => $tic::engine::params::java_xmx,
+    'wrapper.disable_restarts'   => $tic::engine::params::wrapper_diable_restarts,
     'wrapper.java.additional.10' => '-XX:MaxPermSize=256m',
-    'wrapper.java.additional.11' => "-XX:OnOutOfMemoryError=${tic::karaf_base_path}/scripts/oomkiller4j.sh",
+    'wrapper.java.additional.11' => "-XX:OnOutOfMemoryError=${tic::engine::params::karaf_base_path}/scripts/oomkiller4j.sh",
   }
 
-  if $tic::jmx_enabled {
+  if $tic::engine::params::jmx_enabled {
     $karaf_conf_properties = merge( $karaf_conf_properties_base, {
       'wrapper.java.additional.12' => '-Dcom.sun.management.jmxremote.port=7199',
       'wrapper.java.additional.13' => '-Dcom.sun.management.jmxremote.authenticate=false',
@@ -79,9 +75,9 @@ class tic::engine::lxc {
     $karaf_conf_properties = $karaf_conf_properties_base
   }
 
-  tic::karaf_service_install { 'rt-flow-service-lxc':
-    java_home       => $tic::java_home,
-    karaf_base      => $tic::karaf_base_path,
+  tic::engine::params::karaf_service_install { 'rt-flow-service-lxc':
+    java_home       => $tic::engine::params::java_home,
+    karaf_base      => $tic::engine::params::karaf_base_path,
     owner           => 'ipaassrv',
     conf_properties => $karaf_conf_properties
   }
@@ -144,7 +140,7 @@ class tic::engine::lxc {
 
   }
 
-  #file_line is used instaned of ini_setting because of duplicate setting
+  # file_line is used instead of ini_setting because of duplicate setting
   file_line {
     'lxc_mount_temp':
       line    => 'lxc.mount.entry = /mnt/ephemeral0 tmp none rw,bind 0 0',
@@ -158,4 +154,3 @@ class tic::engine::lxc {
   }
 
 }
-

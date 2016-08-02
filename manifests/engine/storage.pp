@@ -21,12 +21,10 @@ class tic::engine::storage {
   $blockdevices_list = split($::blockdevices, ',')
 
   if member($blockdevices_list, 'xvdb') {
-
     filesystem { '/dev/xvdb':
       ensure  => present,
       fs_type => 'ext3';
     } ->
-
     mount { '/mnt/ephemeral0':
       ensure  => 'mounted',
       device  => '/dev/xvdb',
@@ -41,6 +39,6 @@ class tic::engine::storage {
       command     => '/bin/chmod 1777 /mnt/ephemeral0',
       refreshonly => true;
     }
-
   }
+
 }

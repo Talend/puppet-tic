@@ -5,6 +5,6 @@ if [ -z "$1" -o "$1" == "-h" ]; then
   exit 0
 fi
 
-cd <%=@karaf_base_path%>
-<%=@java_home%>/bin/java -Daccount_id=<%=@account_id%> -Dcontainer_id=<%=@container_id%> -Dbroker_user=<%=@activemq_broker_username%> -Dbroker_pass=<%=@activemq_broker_password%> -Dbroker_url="<%=@activemq_broker_url%>" -Ddispatcher_queue=<%=@dispatcher_response_queue%> -jar scripts/tipaas-event-sender.jar $1
+cd <%= @karaf_base_path %>
+<%= @java_home %>/bin/java -Daccount_id=<%= @account_id %> -Dcontainer_id=<%= @container_id %> -Dbroker_user=<%= @activemq_broker_username %> -Dbroker_pass=<%= @activemq_broker_password %> -Dbroker_url="<%= @activemq_broker_url %>" -Ddispatcher_queue=<%= @dispatcher_response_queue %> -jar scripts/tipaas-event-sender.jar $1
 
