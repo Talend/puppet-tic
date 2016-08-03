@@ -1,9 +1,5 @@
 class tic::frontend::params {
 
-  $userdata        = parsejson(pick($tic::frontend::ec2_userdata, $::ec2_userdata, '{}'))
-  $rt_infra_config = pick($userdata['rt_infra_config'],             {})
-  $webapp_config   = pick($userdata['webapp_config'],               {})
-
   $tomcat_service_ensure = $::t_subenv ? {
     build   => stopped,
     default => pick($tic::frontend::tomcat_service_ensure, running)
@@ -13,7 +9,7 @@ class tic::frontend::params {
   $java_xmx  = pick($tic::frontend::java_xmx,  '1024')
   $version   = pick($tic::frontend::version,   'latest')
 
-  $elasticache_address          = pick($webapp_config['elasti_cache_endpoint'],      $tic::frontend::elasticache_address, false)
+  $elasticache_address          = pick($tic::frontend::elasticache_address,          false)
   $web_enable_test_context      = pick($tic::frontend::web_enable_test_context,      false)
   $web_use_ssl                  = pick($tic::frontend::web_use_ssl,                  true)
   $cms_node                     = pick($tic::frontend::cms_node,                     'localhost')
