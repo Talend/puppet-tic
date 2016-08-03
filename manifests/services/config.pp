@@ -6,7 +6,8 @@ class tic::services::config {
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
-  tic::services::features::install { $tic::services::params::karaf_features_install: }
+  $features = unique($tic::services::params::karaf_features_install)
+  tic::services::features::install { $features: }
 
   if $tic::services::params::karaf_service_ensure == 'running' {
       #Ini_setting { notify => Service['rt-infra-service'] }
