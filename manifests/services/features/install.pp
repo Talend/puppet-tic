@@ -1,15 +1,11 @@
-define tic::services::features::install (
+define tic::services::features::install {
 
-  $feature = undef,
+  validate_string($name)
 
-) {
+  $feature = regsubst(delete($name, 'tipaas-'), '[^0-9a-zA-Z\_]', '_', 'G')
 
-  validate_string($feature)
-
-  $feature_class_name = regsubst(delete($feature, 'tipaas-'), '[^0-9a-zA-Z\_]', '_', 'G')
-
-  if defined("tic::services::features::${feature_class_name}") {
-    contain "tic::services::features::${feature_class_name}"
+  if defined("tic::services::features::${feature}") {
+    contain "tic::services::features::${feature}"
   }
 
 }
