@@ -4,9 +4,9 @@ class tic::services::features::webhooks_service {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.webhooks.service.cfg":
     settings => {
-      'hook.url.prefix' => $tic::webhooks_external_url,
-      'db.host'         => $tic::webhooks_redis_host,
-      'db.port'         => $tic::webhooks_redis_port,
+      'hook.url.prefix' => $tic::services::params::webhooks_external_url,
+      'db.host'         => $tic::services::params::webhooks_redis_host,
+      'db.port'         => $tic::services::params::webhooks_redis_port,
     }
   }
 
