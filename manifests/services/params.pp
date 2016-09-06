@@ -42,6 +42,8 @@ class tic::services::params {
 
   $postgres_db_host    = pick($postgres_nodes,  'localhost')
 
+  $ams_syncope_password = pick($tic::services::ams_syncope_password, 'missing')
+
   $activemq_broker_username = pick($tic::services::activemq_broker_username, 'tadmin')
   $activemq_broker_password = pick($tic::services::activemq_broker_password, 'missing')
   $activemq_nodes_list      = split($activemq_nodes, ',')
@@ -142,6 +144,13 @@ class tic::services::params {
 
   $ams_postgres_server     = pick($tic::services::ams_postgres_server,   $postgres_db_host)
   $ams_postgres_password   = pick($tic::services::ams_postgres_password, 'missing')
+
+  $ams_mail_config_update_period   = pick($tic::services::ams_mail_config_update_period, '1800000')
+  $ams_mail_config_password_reset  = pick($tic::services::ams_mail_config_password_reset, 'templates/password_reset_email_description.xml')
+  $ams_mail_config_user_created    = pick($tic::services::ams_mail_config_user_created, 'templates/user_created_email_description.xml')
+  $ams_password_reset_url_template = pick($tic::services::ams_password_reset_url_template, 'http://daily-web.tipaas.com/#/reset_password?token=')
+  $ams_current_region              = pick($tic::services::ams_current_region, 'undef')
+  $ams_disaster_region             = pick($tic::services::ams_disaster_region, 'undef')
 
   $pe_db_host     = pick($tic::services::pe_db_host, $postgres_db_host)
   $pe_db_password = pick($tic::services::pe_db_host, 'missing')

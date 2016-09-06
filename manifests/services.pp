@@ -71,6 +71,15 @@ class tic::services (
   $cms_db_host     = undef,
   $cms_db_password = undef,
 
+  $ams_syncope_password = undef,
+
+  $ams_mail_config_update_period   = undef,
+  $ams_mail_config_password_reset  = undef,
+  $ams_mail_config_user_created    = undef,
+  $ams_password_reset_url_template = undef,
+  $ams_current_region              = undef,
+  $ams_disaster_region             = undef,
+
   $kms_key_alias            = undef,
   $crypto_secondary_regions = undef,
   $crypto_db_host           = undef,
