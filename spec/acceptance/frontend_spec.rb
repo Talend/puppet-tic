@@ -78,7 +78,7 @@ describe 'TIC Frontend' do
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml') do
-      its(:content) { should include 'memcachedNodes="some_elasticache_address"' }
+      its(:content) { should include 'memcachedNodes="some_elasticache_address:11211"' }
     end
 
     %w(
