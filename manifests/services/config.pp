@@ -25,7 +25,9 @@ class tic::services::config {
 
     tic::ini_settings { "${config_dir}/org.talend.eventlogging.collector.jms.cfg":
       settings => {
-        'collector.jms.url' => $tic::services::params::activemq_broker_url,
+        'collector.jms.url'      => $tic::services::params::activemq_broker_url,
+        'collector.jms.username' => $tic::services::params::activemq_broker_username,
+        'collector.jms.password' => $tic::services::params::activemq_broker_password,
       }
     }
   } else {
