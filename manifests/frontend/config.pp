@@ -5,6 +5,7 @@ class tic::frontend::config {
   $workspace_url           = $tic::frontend::params::workspace_url
   $marketplace_url         = $tic::frontend::params::marketplace_url
   $elasticache_address     = $tic::frontend::params::elasticache_address
+  $elasticache_port        = $tic::frontend::params::elasticache_port
   $tomcat_service_ensure   = $tic::frontend::params::tomcat_service_ensure
   $sts_host                = $tic::frontend::params::sts_host
   $sts_username            = $tic::frontend::params::sts_username

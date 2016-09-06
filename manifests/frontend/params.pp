@@ -10,6 +10,7 @@ class tic::frontend::params {
   $version   = pick($tic::frontend::version,   'latest')
 
   $elasticache_address          = pick($tic::frontend::elasticache_address,          false)
+  $elasticache_port             = pick($tic::frontend::elasticache_port,             '11211')
   $web_enable_test_context      = pick($tic::frontend::web_enable_test_context,      false)
   $web_use_ssl                  = pick($tic::frontend::web_use_ssl,                  true)
   $cms_node                     = pick($tic::frontend::cms_node,                     'localhost')

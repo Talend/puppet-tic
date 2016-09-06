@@ -11,7 +11,7 @@
 
         <% if @elasticache_address -%>
         <Manager className="de.javakaffee.web.msm.MemcachedBackupSessionManager"
-                memcachedNodes="<%= @elasticache_address %>"
+                memcachedNodes="<%= @elasticache_address %>:<%= @elasticache_port %>"
                 requestUriIgnorePattern=".*\.(ico|png|gif|jpg|css|js)$"
                 transcoderFactoryClass="de.javakaffee.web.msm.serializer.kryo.KryoTranscoderFactory"
                 sessionBackupAsync="false"

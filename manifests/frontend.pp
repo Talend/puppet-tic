@@ -5,6 +5,7 @@ class tic::frontend (
   $java_xmx                     = undef,
   $version                      = undef,
   $elasticache_address          = undef,
+  $elasticache_port             = undef,
   $web_enable_test_context      = undef,
   $web_use_ssl                  = undef,
   $tomcat_service_ensure        = undef,
