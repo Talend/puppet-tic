@@ -77,8 +77,9 @@ class tic::frontend::config {
 
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
     settings => {
-      'artifact_manager_url' => $tic::frontend::params::artifact_manager_url,
       'account_manager_url'  => $tic::frontend::params::ams_url,
+      'artifact_manager_url' => $tic::frontend::params::artifact_manager_url,
+      'custom_resources_url' => $tic::frontend::params::custom_resources_url,
     }
   }
 
