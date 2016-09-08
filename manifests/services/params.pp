@@ -153,7 +153,7 @@ class tic::services::params {
   $ams_disaster_region             = pick($tic::services::ams_disaster_region, 'undef')
 
   $pe_db_host     = pick($tic::services::pe_db_host, $postgres_db_host)
-  $pe_db_password = pick($tic::services::pe_db_host, 'missing')
+  $pe_db_password = pick($tic::services::pe_db_password, 'missing')
 
   $quartz_db_host     = pick($tic::services::quartz_db_host,     $postgres_db_host)
   $quartz_db_port     = pick($tic::services::quartz_db_port,     5432)
