@@ -34,7 +34,7 @@ class tic::engine::params {
   $dispatcher_input_queue    = pick($tic::engine::dispatcher_input_queue,    'ipaas.dispatcher.input.queue')
   $dispatcher_response_queue = pick($tic::engine::dispatcher_response_queue, 'ipaas.dispatcher.response.queue')
 
-  $nexus_urls                     = pick($tic::engine::nexus_urls, inline_template('<%= @nexus_nodes.split(",").map { |a| "http://"+a+":8081/nexus" }.join(",") %>'))
+  $nexus_urls                     = pick($tic::engine::nexus_urls, inline_template('<%= @nexus_nodes.split(",").map { |a| "http://#{a}/nexus" }.join(",") %>'))
   $nexus_user                     = pick($tic::engine::nexus_user,                     'admin')
   $nexus_password                 = pick($tic::engine::nexus_password,                 'missing')
   $userdata_nexus_password_secret = pick($tic::engine::userdata_nexus_password_secret, 'missing')
