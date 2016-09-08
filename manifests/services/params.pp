@@ -103,8 +103,8 @@ class tic::services::params {
 
   $cr_bucket_name                      = pick($tic::services::cr_bucket_name,                      'undef')
   $cr_object_key_prefix                = pick($tic::services::cr_object_key_prefix,                'undef')
-  $cr_presignedurl_upload_timetolive   = pick($tic::services::cr_presignedurl_upload_timetolive,   'undef')
-  $cr_presignedurl_download_timetolive = pick($tic::services::cr_presignedurl_download_timetolive, 'undef')
+  $cr_presignedurl_upload_timetolive   = pick($tic::services::cr_presignedurl_upload_timetolive,   '1800')
+  $cr_presignedurl_download_timetolive = pick($tic::services::cr_presignedurl_download_timetolive, '1800')
   $cr_size_limit_per_resource          = pick($tic::services::cr_size_limit_per_resource,          104857600)
   $cr_size_limit_per_account           = pick($tic::services::cr_size_limit_per_account,           1073741824)
 
