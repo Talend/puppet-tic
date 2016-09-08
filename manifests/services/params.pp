@@ -135,9 +135,9 @@ class tic::services::params {
   $notification_server_sendgrid_flow_execution_failed        = pick($tic::services::notification_server_sendgrid_flow_execution_failed,        'missing')
 
   $notification_subscription_db_host            = pick($tic::services::notification_subscription_db_host,            $postgres_db_host)
-  $notification_subscription_db_port            = pick($tic::services::notification_subscription_db_port,            'missing')
+  $notification_subscription_db_port            = pick($tic::services::notification_subscription_db_port,            '5432')
   $notification_subscription_db_password        = pick($tic::services::notification_subscription_db_password,        'missing')
-  $notification_subscription_db_max_connections = pick($tic::services::notification_subscription_db_max_connections, 'missing')
+  $notification_subscription_db_max_connections = pick($tic::services::notification_subscription_db_max_connections, '10')
 
   $pe_service_username = pick($tic::services::pe_service_username, 'tadmin')
   $pe_service_password = pick($tic::services::pe_service_password, 'missing')
