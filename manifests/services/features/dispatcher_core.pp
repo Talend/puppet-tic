@@ -10,7 +10,6 @@ class tic::services::features::dispatcher_core {
     content => template('tic/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg.erb'),
     owner   => 'ipaassrv',
     group   => 'ipaasgrp',
-    #TODO : notify  => Service['rt-infra-service']
   }
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
