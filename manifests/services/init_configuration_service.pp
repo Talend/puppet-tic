@@ -22,6 +22,7 @@ class tic::services::init_configuration_service {
     command   => $init_configuration_service_cmd,
     tries     => 30,
     try_sleep => 10,
+    returns   => [0, 22], # TODO
     unless    => "/usr/bin/curl http://localhost:8181/services/configuration-service/default?p=nodeman.ami.version_1_3 ${service_auth} | grep ${ami_id}"
   }
 
