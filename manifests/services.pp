@@ -158,6 +158,18 @@ class tic::services (
   $webhooks_redis_host    = undef,
   $webhooks_redis_port    = undef,
 
+  $rt_flow_ami_id           = undef,
+  $rt_flow_security_groups  = undef,
+  $rt_flow_instance_type    = undef,
+  $rt_flow_subnet_id        = undef,
+  $rt_flow_instance_profile = undef,
+
+  $rt_flow_t_dc          = undef,
+  $rt_flow_t_environment = undef,
+  $rt_flow_t_release     = undef,
+  $rt_flow_t_profile     = undef,
+  $rt_flow_t_subenv      = undef,
+
 ) {
 
   contain ::tic::services::params

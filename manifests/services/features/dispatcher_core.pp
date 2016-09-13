@@ -6,6 +6,12 @@ class tic::services::features::dispatcher_core {
   $dts_service_url               = $tic::services::params::dts_service_url
   $activemq_broker_url           = $tic::services::params::activemq_broker_url
 
+  $t_dc          = $tic::services::params::rt_flow_t_dc
+  $t_environment = $tic::services::params::rt_flow_t_environment
+  $t_release     = $tic::services::params::rt_flow_t_release
+  $t_profile     = $tic::services::params::rt_flow_t_profile
+  $t_subenv      = $tic::services::params::rt_flow_t_subenv
+
   file {'/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg':
     content => template('tic/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg.erb'),
     owner   => 'ipaassrv',
