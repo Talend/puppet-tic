@@ -37,4 +37,8 @@ describe 'services' do
     its(:content) { should include 'pe.service.username=pe_service_test_username' }
     its(:content) { should include 'pe.service.password=missing' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg') do
+    its(:content) { should include '"t_environment": "test_env"' }
+  end
 end

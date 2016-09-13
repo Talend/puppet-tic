@@ -12,9 +12,15 @@ class { '::tic::services':
   activemq_broker_username => 'activemq_broker_test_username',
   activemq_broker_password => 'activemq_broker_test_password',
   pe_service_username      => 'pe_service_test_username',
+  rt_flow_ami_id           => 'test-ami-id',
+  rt_flow_security_groups  => 'test-security-groups',
+  rt_flow_instance_type    => 'test-instance-type',
+  rt_flow_subnet_id        => 'test-subnet-id',
+  rt_flow_t_environment    => 'test_env',
   karaf_features_install   => [
     'plan_executor_client',
     'plan_executor_client',
-    'non_existing_feature'
+    'non_existing_feature',
+    'dispatcher_core'
   ],
 }
