@@ -1,0 +1,65 @@
+{
+  "nodeman.ami.version_1_2": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "ami-533f4336"
+  },
+  "nodeman.ami.version_1_3": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "<%= @ami_id %>"
+  },
+  "nodeman.security.group.ids": {
+    "level": "NONE",
+    "type": "STRING_LIST",
+    <% if @security_groups.is_a? Array -%>
+    "value": <%= @security_groups %>
+    <% elsif @security_groups.is_a? String -%>
+    "value": <%= @security_groups.split(',') %>
+    <% else -%>
+    "value": ""
+    <% end -%>
+  },
+  "nodeman.instance.type": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "<%= @instance_type %>"
+  },
+  "nodeman.subnet.id": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "<%= @subnet_id %>"
+  },
+<% if @instance_profile -%>
+  "nodeman.instance.profile": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "<%= @instance_profile %>"
+  },
+<% end -%>
+  "nodeman.public.interface": {
+    "level": "NONE",
+    "type": "BOOLEAN",
+    "value": "true"
+  },
+  "nodeman.number.of.tries": {
+    "level": "NONE",
+    "type": "INTEGER",
+    "value": "5"
+  },
+  "nodeman.delay.between.tries": {
+    "level": "NONE",
+    "type": "LONG",
+    "value": "4000"
+  },
+  "nodeman.env.puppet.version_1_2": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "release120"
+  },
+  "nodeman.env.puppet.version_1_3": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "trunk"
+  }
+}
