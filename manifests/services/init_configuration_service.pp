@@ -1,4 +1,9 @@
-class tic::services::init_configuration_service {
+class tic::services::init_configuration_service (
+
+  $username = undef,
+  $password = undef,
+
+) {
 
   $ami_id           = $tic::services::params::rt_flow_ami_id
   $security_groups  = $tic::services::params::rt_flow_security_groups
@@ -6,7 +11,7 @@ class tic::services::init_configuration_service {
   $subnet_id        = $tic::services::params::rt_flow_subnet_id
   $instance_profile = $tic::services::params::rt_flow_instance_profile
 
-  $service_auth = "-u ${::services_username}:${::services_password}"
+  $service_auth = "-u ${username}:${password}"
 
   $init_configuration_service_cmd = "/usr/bin/curl --fail \
   -X PUT \
