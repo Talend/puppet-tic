@@ -81,6 +81,7 @@ class tic::services (
   $ams_disaster_region             = undef,
 
   $kms_key_alias            = undef,
+  $crypto_current_region    = undef,
   $crypto_secondary_regions = undef,
   $crypto_db_host           = undef,
   $crypto_db_password       = undef,

@@ -97,6 +97,7 @@ class tic::services::params {
   $cms_db_password = pick($tic::services::cms_db_password, 'missing')
 
   $kms_key_alias            = pick($tic::services::kms_key_alias,            'ipaas_master_key')
+  $crypto_current_region    = pick($tic::services::crypto_current_region,    'us-east-1')
   $crypto_secondary_regions = pick($tic::services::crypto_secondary_regions, 'us-west-2,eu-west-1')
   $crypto_db_host           = pick($tic::services::crypto_db_host,           $postgres_db_host)
   $crypto_db_password       = pick($tic::services::crypto_db_password,       'missing')
