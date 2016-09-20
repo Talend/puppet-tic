@@ -12,10 +12,12 @@ class tic::services::features::dispatcher_core {
   $t_profile     = $tic::services::params::rt_flow_t_profile
   $t_subenv      = $tic::services::params::rt_flow_t_subenv
 
-  file {'/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg':
-    content => template('tic/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg.erb'),
-    owner   => 'ipaassrv',
-    group   => 'ipaasgrp',
+  if $tic::services::params::activemq_nodes_count >= $tic::services::params::min_activemq_brokers {
+    file {'/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg':
+      content => template('tic/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg.erb'),
+      owner   => 'ipaassrv',
+      group   => 'ipaasgrp',
+    }
   }
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
