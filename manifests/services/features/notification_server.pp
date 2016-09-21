@@ -16,7 +16,7 @@ class tic::services::features::notification_server {
       'notification.server.sendgrid.template.flow.execution.rejected.rows' => $tic::services::params::notification_server_sendgrid_flow_execution_rejected_rows,
       'notification.server.sendgrid.template.flow.execution.failed'        => $tic::services::params::notification_server_sendgrid_flow_execution_failed,
       'notification.server.sendgrid.template.plan.execution.success' => $tic::services::params::notification_server_sendgrid_template_plan_execution_success,
-			'notification.server.sendgrid.template.plan.execution.failed'  => $tic::services::params::notification_server_sendgrid_template_plan_execution_failed,
+      'notification.server.sendgrid.template.plan.execution.failed'  => $tic::services::params::notification_server_sendgrid_template_plan_execution_failed,
     }
   }
 
