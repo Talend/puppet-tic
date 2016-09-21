@@ -64,4 +64,7 @@ class tic::frontend::params {
   $trial_service_url              = pick($tic::frontend::trial_service_url,              inline_template('http://<%= @trial_service_nodes.split(",")[0] %>:8181/services/trial-registration-service'))
   $webhooks_service_url           = pick($tic::frontend::webhooks_service_url,           inline_template('http://<%= @webhooks_service_nodes.split(",")[0] %>:8181/services/webhooks-service'))
 
+  $custom_resources_username = pick($tic::frontend::custom_resources_username, 'tadmin')
+  $custom_resources_password = pick($tic::frontend::custom_resources_password, 'missing')
+
 }

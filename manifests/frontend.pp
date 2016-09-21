@@ -58,6 +58,9 @@ class tic::frontend (
   $trial_service_url              = undef,
   $notification_subscription_url  = undef,
 
+  $custom_resources_username = undef,
+  $custom_resources_password = undef,
+
 ) {
 
   contain ::tic::frontend::params

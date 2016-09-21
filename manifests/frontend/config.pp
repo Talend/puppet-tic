@@ -68,6 +68,8 @@ class tic::frontend::config {
       'samples_account_name'                  => $tic::frontend::params::web_samples_account_name,
       'samples_workspace_type'                => $tic::frontend::params::web_samples_workspace_type,
       'custom_resources_url'                  => $tic::frontend::params::custom_resources_url,
+      'custom_resources_username'             => $tic::frontend::params::custom_resources_username,
+      'custom_resources_password'             => $tic::frontend::params::custom_resources_password,
       'plan_executor_service_url'             => $tic::frontend::params::pe_service_url,
       'webhooks_service_url'                  => $tic::frontend::params::webhooks_service_url,
       'notifier_service_url'                  => $tic::frontend::params::notifier_service_url,
@@ -82,6 +84,8 @@ class tic::frontend::config {
       'account_manager_url'  => $tic::frontend::params::ams_url,
       'artifact_manager_url' => $tic::frontend::params::artifact_manager_url,
       'custom_resources_url' => $tic::frontend::params::custom_resources_url,
+      'custom_resources_username' => $tic::frontend::params::custom_resources_username,
+      'custom_resources_password' => $tic::frontend::params::custom_resources_password,
     }
   }
 
