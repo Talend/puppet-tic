@@ -75,6 +75,7 @@ class tic::frontend::config {
       'notifier_service_url'                  => $tic::frontend::params::notifier_service_url,
       'notification_subscription_service_url' => $tic::frontend::params::notification_subscription_url,
       'downloads_config'                      => $tic::frontend::params::s3_download_contentfile_name,
+      'log_transfer_service_url'              => $tic::frontend::params::logs_log_transfer_service_url,
     }
   }
 
@@ -105,6 +106,17 @@ class tic::frontend::config {
       path  => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
       line  => "<welcome-file>${index_file}</welcome-file>",
       match => '<welcome-file>';
+  }
+
+  # parse aws account id for the tic_s3_access.template.erb template
+  if $::ec2_metadata =~ /owner\-id\".*?\"(\d+)\"/ {
+    $aws_account_id = "$1"
+  } else {
+    $aws_account_id = "undef"
+  }
+
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template':
+    content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template.erb'),
   }
 
 }

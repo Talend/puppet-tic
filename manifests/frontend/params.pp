@@ -43,6 +43,7 @@ class tic::frontend::params {
   $schema_discovery_service_nodes  = pick($tic::frontend::schema_discovery_service_nodes,  'localhost')
   $trial_service_nodes             = pick($tic::frontend::trial_service_nodes,             'localhost')
   $webhooks_service_nodes          = pick($tic::frontend::webhooks_service_nodes,          'localhost')
+  $logs_log_transfer_service_nodes = pick($tic::frontend::logs_log_transfer_service_nodes, 'localhost')
 
   $web_samples_account_name   = pick($tic::frontend::web_samples_account_name,   'examples.talend.com')
   $web_samples_workspace_type = pick($tic::frontend::web_samples_workspace_type, 'Shared')
@@ -63,6 +64,7 @@ class tic::frontend::params {
   $schema_discovery_service_url   = pick($tic::frontend::schema_discovery_service_url,   inline_template('http://<%= @schema_discovery_service_nodes.split(",")[0] %>:8181/services/schema-discovery-service'))
   $trial_service_url              = pick($tic::frontend::trial_service_url,              inline_template('http://<%= @trial_service_nodes.split(",")[0] %>:8181/services/trial-registration-service'))
   $webhooks_service_url           = pick($tic::frontend::webhooks_service_url,           inline_template('http://<%= @webhooks_service_nodes.split(",")[0] %>:8181/services/webhooks-service'))
+  $logs_log_transfer_service_url  = pick($tic::frontend::logs_log_transfer_service_url,  inline_template('http://<%= @logs_log_transfer_service_nodes.split(",")[0] %>:8181/services/logs-transfer-service'))
 
   $custom_resources_username = pick($tic::frontend::custom_resources_username, 'tadmin')
   $custom_resources_password = pick($tic::frontend::custom_resources_password, 'missing')

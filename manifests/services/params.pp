@@ -196,4 +196,8 @@ class tic::services::params {
   $rt_flow_t_profile     = pick_default($tic::services::rt_flow_t_profile,     '')
   $rt_flow_t_subenv      = pick_default($tic::services::rt_flow_t_subenv,      '')
 
+  $logs_transfer_presignedurl_timetolive = pick($tic::services::logs_transfer_presignedurl_timetolive, 86400)
+  $logs_datasource_servername            = pick($tic::services::logs_datasource_servername,            'undef')
+  $logs_datasource_password              = pick($tic::services::logs_datasource_password,              'undef')
+
 }

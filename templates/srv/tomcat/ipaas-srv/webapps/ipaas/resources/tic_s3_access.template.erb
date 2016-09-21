@@ -1,0 +1,115 @@
+{
+    "Outputs": {
+        "RoleARN": {
+            "Description": "ARN of the role",
+            "Value": {
+                "Fn::GetAtt": [
+                    "TalendIntegrationCloudAccess",
+                    "Arn"
+                ]
+            }
+        }
+    },
+    "Parameters": {
+        "ExternalID": {
+            "Description": "The External ID that you need to input in the Talend Integration Cloud admin UI",
+            "AllowedPattern": "[a-zA-Z_0-9+=,.@:/-]+",
+            "MinLength": 2,
+            "MaxLength": 100,
+            "NoEcho": true,
+            "Type": "String"
+        },
+        "S3BucketName": {
+            "Description": "The name of the bucket to which Talend Integration Cloud should upload logs",
+            "AllowedPattern": "[a-z0-9][a-z0-9-]+[a-z0-9]",
+            "MinLength": 3,
+            "MaxLength": 63,
+            "Type": "String"
+        },
+        "S3Prefix": {
+            "Description": "The prefix of the log files (optional)",
+            "AllowedPattern": "[a-zA-Z_0-9.-]*",
+            "MaxLength": 100,
+            "Type": "String"
+        }
+    },
+    "Conditions": {
+        "NotUseS3Prefix": {
+            "Fn::Equals": [
+                {
+                    "Ref": "S3Prefix"
+                },
+                ""
+            ]
+        }
+    },
+    "Resources": {
+        "TalendIntegrationCloudAccess": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Condition": {
+                                "StringEquals": {
+                                    "sts:ExternalId": [
+                                        {
+                                            "Ref": "ExternalID"
+                                        }
+                                    ]
+                                }
+                            },
+                            "Effect": "Allow",
+                            "Principal": {
+                                "AWS": "arn:aws:iam::<%= @aws_account_id %>:root"
+                            }
+                        }
+                    ]
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "s3:PutObject"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": [
+                                        {
+                                            "Fn::Join": [
+                                                "",
+                                                [
+                                                    "arn:aws:s3:::",
+                                                    {
+                                                        "Ref": "S3BucketName"
+                                                    },
+                                                    {
+                                                        "Fn::If": [
+                                                            "NotUseS3Prefix",
+                                                            "",
+                                                            "/"
+                                                        ]
+                                                    },
+                                                    {
+                                                        "Ref": "S3Prefix"
+                                                    },
+                                                    "/*"
+                                                ]
+                                            ]
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        "PolicyName": "TalendTICS3LogsUploadAccess"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        }
+    }
+}
