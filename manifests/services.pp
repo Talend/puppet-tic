@@ -173,6 +173,10 @@ class tic::services (
   $rt_flow_t_profile     = undef,
   $rt_flow_t_subenv      = undef,
 
+  $logs_transfer_presignedurl_timetolive = undef,
+  $logs_datasource_servername            = undef,
+  $logs_datasource_password              = undef,
+
 ) {
 
   contain ::tic::services::params
