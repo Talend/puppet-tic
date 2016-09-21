@@ -108,4 +108,15 @@ class tic::frontend::config {
       match => '<welcome-file>';
   }
 
+  # parse aws account id for the tic_s3_access.template.erb template
+  if $::ec2_metadata =~ /owner\-id\".*?\"(\d+)\"/ {
+    $aws_account_id = "$1"
+  } else {
+    $aws_account_id = "undef"
+  }
+
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template':
+    content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template.erb'),
+  }
+
 }
