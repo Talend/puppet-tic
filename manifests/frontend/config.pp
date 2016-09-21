@@ -75,6 +75,7 @@ class tic::frontend::config {
       'notifier_service_url'                  => $tic::frontend::params::notifier_service_url,
       'notification_subscription_service_url' => $tic::frontend::params::notification_subscription_url,
       'downloads_config'                      => $tic::frontend::params::s3_download_contentfile_name,
+      'log_transfer_service_url'              => $tic::frontend::params::logs_log_transfer_service_url,
     }
   }
 

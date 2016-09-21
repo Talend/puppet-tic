@@ -37,6 +37,7 @@ class tic::frontend (
   $schema_discovery_service_nodes  = undef,
   $trial_service_nodes             = undef,
   $notification_subscription_nodes = undef,
+  $logs_log_transfer_service_nodes = undef,
 
   $web_samples_account_name   = undef,
   $web_samples_workspace_type = undef,
@@ -57,6 +58,7 @@ class tic::frontend (
   $schema_discovery_service_url   = undef,
   $trial_service_url              = undef,
   $notification_subscription_url  = undef,
+  $logs_log_transfer_service_url  = undef,
 
   $custom_resources_username = undef,
   $custom_resources_password = undef,
