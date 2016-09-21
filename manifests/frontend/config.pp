@@ -51,6 +51,7 @@ class tic::frontend::config {
     }
   }
 
+  # ipaas-server
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties':
     settings => {
       'container_management_url'              => $tic::frontend::params::cms_url,
@@ -75,6 +76,7 @@ class tic::frontend::config {
     }
   }
 
+  # ipaas-services
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
     settings => {
       'account_manager_url'  => $tic::frontend::params::ams_url,
