@@ -115,6 +115,9 @@ class tic::frontend::config {
     $aws_account_id = "undef"
   }
 
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas/resources':
+    ensure => directory,
+  } ->
   file { '/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template':
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template.erb'),
   }
