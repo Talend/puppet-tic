@@ -3,6 +3,7 @@ class tic::services::service {
   require ::tic::services::config
 
   tic::karaf_service_install { 'rt-infra-service':
+    service_ensure  => $tic::services::params::karaf_service_ensure,
     java_home       => $tic::services::params::java_home,
     karaf_base      => $tic::services::params::karaf_base_path,
     owner           => 'ipaassrv',
