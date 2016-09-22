@@ -9,10 +9,6 @@ class tic::services::config {
   $features = unique($tic::services::params::karaf_features_install)
   tic::services::features::install { $features: }
 
-  if $tic::services::params::karaf_service_ensure == 'running' {
-      #Ini_setting { notify => Service['rt-infra-service'] }
-  }
-
   if $tic::services::params::activemq_nodes_count >= $tic::services::params::min_activemq_brokers {
     tic::ini_settings { 'eventsource.amq':
       path     => "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg",

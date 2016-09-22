@@ -8,10 +8,7 @@ class tic::services::params {
   $version                 = pick($tic::services::version, 'latest')
   $karaf_base_path         = pick($tic::services::karaf_base_path, '/opt/talend/ipaas/rt-infra')
 
-  $karaf_service_ensure = $::t_subenv ? {
-    build   => stopped,
-    default => pick($tic::services::karaf_service_ensure, running)
-  }
+  $karaf_service_ensure = pick($tic::services::karaf_service_ensure, 'running')
 
   $karaf_features_install = pick(
     $tic::services::karaf_features_install,
