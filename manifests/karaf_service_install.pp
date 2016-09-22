@@ -1,5 +1,6 @@
 define tic::karaf_service_install (
 
+  $service_ensure  = running,
   $java_home       = undef,
   $karaf_base      = undef,
   $owner           = 'root',
@@ -26,7 +27,7 @@ define tic::karaf_service_install (
     settings => $conf_properties
   } ~>
   service { $name:
-    ensure   => running,
+    ensure   => $service_ensure,
     provider => 'systemd',
     enable   => true
   }
