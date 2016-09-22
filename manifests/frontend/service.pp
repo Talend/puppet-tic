@@ -6,7 +6,7 @@ class tic::frontend::service {
     source => 'puppet:///modules/tic/usr/lib/systemd/system/tomcat.service',
   } ->
   service { 'tomcat-ipaas-srv':
-    ensure   => running,
+    ensure   => $tic::frontend::params::tomcat_service_ensure,
     enable   => true,
     provider => 'systemd',
   }
