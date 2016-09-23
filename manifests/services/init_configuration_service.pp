@@ -2,6 +2,7 @@ class tic::services::init_configuration_service (
 
   $username = undef,
   $password = undef,
+  $ensure_init = true,
 
 ) {
 
@@ -20,15 +21,17 @@ class tic::services::init_configuration_service (
   ${service_auth} \
   http://localhost:8181/services/configuration-service/default"
 
-  file { '/var/tmp/init_configuration_service.json':
-    content => template('tic/var/tmp/init_configuration_service.json.erb'),
-  } ->
-  exec { 'init configuration-service':
-    command   => $init_configuration_service_cmd,
-    tries     => 30,
-    try_sleep => 30,
-    returns   => [0, 22], # TODO
-    unless    => "/usr/bin/curl http://localhost:8181/services/configuration-service/default?p=nodeman.ami.version_1_3 ${service_auth} | grep ${ami_id}"
+  if $ensure_init {
+    file { '/var/tmp/init_configuration_service.json':
+      content => template('tic/var/tmp/init_configuration_service.json.erb'),
+    } ->
+    exec { 'init configuration-service':
+      command   => $init_configuration_service_cmd,
+      tries     => 30,
+      try_sleep => 30,
+      returns   => [0, 22], # TODO
+      unless    => "/usr/bin/curl http://localhost:8181/services/configuration-service/default?p=nodeman.ami.version_1_3 ${service_auth} | grep ${ami_id}"
+    }
   }
 
 }
