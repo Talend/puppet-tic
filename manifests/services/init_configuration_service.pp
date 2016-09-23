@@ -1,7 +1,7 @@
 class tic::services::init_configuration_service (
 
-  $username = undef,
-  $password = undef,
+  $username    = undef,
+  $password    = undef,
   $ensure_init = true,
 
 ) {
