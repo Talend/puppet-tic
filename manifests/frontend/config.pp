@@ -90,6 +90,14 @@ class tic::frontend::config {
     }
   }
 
+  # ipaas-api
+  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties':
+    settings => {
+      'account_manager_url'       => $tic::frontend::params::ams_url,
+      'flow_manager_url'          => $tic::frontend::params::flow_manager_url,
+    }
+  }
+
   if $::t_environment == 'dv' and $::t_subenv != 'build' {
     $index_file = 'index.jsp'
   } else {
