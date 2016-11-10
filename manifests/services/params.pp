@@ -58,6 +58,7 @@ class tic::services::params {
   $bookkeeper_service_url = pick($tic::services::bookkeeper_service_url, inline_template('http://<%= @bookkeeper_service_nodes.split(",")[0] %>:8181/services/bookkeeper-service'))
   $cms_amq_broker_url     = pick($tic::services::cms_amq_broker_url, 'unconfigured')
   $cms_dts_service_url    = pick($tic::services::cms_dts_service_url, 'unconfigured')
+  $cms_lts_service_url    = pick($tic::services::cms_lts_service_url, 'unconfigured')
   $cms_nexus_url          = pick($tic::services::cms_nexus_url, 'unconfigured')
   $cms_url                = pick($tic::services::cms_url, "http://${cms_node}:8181/services/container-management-service")
   $config_service_url     = pick($tic::services::config_service_url, "http://${config_service_node}:8181/services/configuration-service")
