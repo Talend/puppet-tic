@@ -4,6 +4,7 @@ class tic::services::features::dispatcher_core {
   $subenv_prefix                 = $tic::services::params::subenv_prefix
   $flow_undeploy_after_completed = $tic::services::params::flow_undeploy_after_completed
   $dts_service_url               = $tic::services::params::dts_service_url
+  $lts_service_url               = $tic::services::params::lts_service_url
   $activemq_broker_url           = $tic::services::params::activemq_broker_url
 
   $t_dc          = $tic::services::params::rt_flow_t_dc
