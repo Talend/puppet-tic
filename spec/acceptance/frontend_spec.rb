@@ -103,6 +103,7 @@ describe 'TIC Frontend' do
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties') do
       its(:content) { should include 'container_management_url=http://testcmsnode:8181/services/container-management-service' }
       its(:content) { should include 'flow_manager_url=http://flow_manager_url' }
+      its(:content) { should include 'memcached.addresses = some_elasticache_address:11211' }
       its(:content) { should_not include 'flow_manager_node' }
     end
 
