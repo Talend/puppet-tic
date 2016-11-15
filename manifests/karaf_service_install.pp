@@ -20,10 +20,23 @@ define tic::karaf_service_install (
     command     => "${karaf_base}/bin/shell 'wrapper:install -s ${start_type} -n ${name} -d ${display} -D \"${description}\"'",
     user        => $owner,
     creates     => "${karaf_base}/bin/${name}.service"
-  } ->
+  }
+
+  if 'DEMAND_START' == $start_type {
+    file_line { 'remove WantedBy=default.target line':
+      ensure            => absent,
+      path              => "${karaf_base}/bin/${name}.service",
+      line              => 'WantedBy=default.target',
+      match             => 'WantedBy=default.target',
+      match_for_absence => true,
+      before            => Exec["enable service : ${name}"],
+      require           => Exec["wrapper install : ${name}"],
+    }
+  }
+
   exec { "enable service : ${name}":
     command => "/usr/bin/systemctl enable ${karaf_base}/bin/${name}.service",
-    creates => "/etc/systemd/system/${name}"
+    require => Exec["wrapper install : ${name}"],
   } ->
   tic::ini_settings { "update properties : ${name}":
     path     => "${karaf_base}/etc/${name}-wrapper.conf",
