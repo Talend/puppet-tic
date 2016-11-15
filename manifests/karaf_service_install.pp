@@ -11,6 +11,7 @@ define tic::karaf_service_install (
   $conf_properties = {},
 
 ) {
+
   validate_string($karaf_base)
   validate_hash($conf_properties)
 
@@ -33,4 +34,5 @@ define tic::karaf_service_install (
     provider => 'systemd',
     enable   => $service_enable,
   }
+
 }
