@@ -7,6 +7,7 @@ define tic::karaf_service_install (
   $owner           = 'root',
   $display         = $name,
   $description     = "Karaf Service : ${name}",
+  $start_type      = 'DEMAND_START',
   $conf_properties = {},
 
 ) {
@@ -15,7 +16,7 @@ define tic::karaf_service_install (
 
   exec { "wrapper install : ${name}":
     environment => ["JAVA_HOME=${java_home}"],
-    command     => "${karaf_base}/bin/shell 'wrapper:install -n ${name} -d ${display} -D \"${description}\"'",
+    command     => "${karaf_base}/bin/shell 'wrapper:install -s ${start_type} -n ${name} -d ${display} -D \"${description}\"'",
     user        => $owner,
     creates     => "${karaf_base}/bin/${name}.service"
   } ->
