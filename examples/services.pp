@@ -23,4 +23,6 @@ class { '::tic::services':
     'non_existing_feature',
     'dispatcher_core'
   ],
+  karaf_service_ensure => 'running',
+  karaf_service_enable => true,
 }
