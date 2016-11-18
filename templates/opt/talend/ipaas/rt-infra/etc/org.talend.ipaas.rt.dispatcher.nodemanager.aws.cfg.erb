@@ -23,7 +23,7 @@ json.template={ "rt_flow_config": {\
         "flow_undeploy_after_completed":"<%= @flow_undeploy_after_completed %>",\
         "dts_service_url":"<%= @dts_service_url %>",\
         "lts_service_url":"<%= @lts_service_url %>",\
-        "nexus_urls":"{$nexus_urls}",\
+        "nexus_urls":"<%= @cms_nexus_url %>",\
         "nexus_user":"{$nexus_user}",\
         "nexus_password_secret":"{$nexus_password_secret}",\
         <% if defined?(@extra_field1) -%>
