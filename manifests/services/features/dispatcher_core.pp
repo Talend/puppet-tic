@@ -7,6 +7,7 @@ class tic::services::features::dispatcher_core {
   $lts_service_url               = $tic::services::params::lts_service_url
   $activemq_broker_url           = $tic::services::params::activemq_broker_url
   $cms_nexus_url                 = $tic::services::params::cms_nexus_url
+  $dispatcher_nexus_url          = $tic::services::params::dispatcher_nexus_url
 
   $t_dc          = $tic::services::params::rt_flow_t_dc
   $t_environment = $tic::services::params::rt_flow_t_environment

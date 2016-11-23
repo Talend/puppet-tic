@@ -51,6 +51,7 @@ class tic::services (
   $cms_dts_service_url    = undef,
   $cms_lts_service_url    = undef,
   $cms_nexus_url          = undef,
+  $dispatcher_nexus_url   = undef,
   $cms_url                = undef,
   $config_service_url     = undef,
   $crypto_service_url     = undef,
