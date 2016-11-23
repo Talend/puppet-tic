@@ -201,4 +201,5 @@ class tic::services::params {
   $logs_datasource_servername            = pick($tic::services::logs_datasource_servername,            'undef')
   $logs_datasource_password              = pick($tic::services::logs_datasource_password,              'undef')
 
+  $dispatcher_nexus_url                  = pick($tic::services::dispatcher_nexus_url, 'unconfigured')
 }
