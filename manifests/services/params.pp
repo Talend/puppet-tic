@@ -140,6 +140,8 @@ class tic::services::params {
 
   $notification_subscription_db_host            = pick($tic::services::notification_subscription_db_host,            $postgres_db_host)
   $notification_subscription_db_port            = pick($tic::services::notification_subscription_db_port,            '5432')
+  $notification_subscription_db_name            = pick($tic::services::notification_subscription_db_name,            'notification_subscription')
+  $notification_subscription_db_username        = pick($tic::services::notification_subscription_db_username,        'notification_subscription')
   $notification_subscription_db_password        = pick($tic::services::notification_subscription_db_password,        'missing')
   $notification_subscription_db_max_connections = pick($tic::services::notification_subscription_db_max_connections, '10')
 
