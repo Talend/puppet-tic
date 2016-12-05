@@ -86,4 +86,10 @@ class tic::services::config {
     value   => 'tipaas'
   }
 
+  tic::ini_settings { "${config_dir}/org.ops4j.pax.web.cfg":
+    settings => {
+      'org.osgi.service.http.port' => $tic::services::params::osgi_http_service_port,
+    }
+  }
+
 }
