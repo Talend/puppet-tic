@@ -41,4 +41,8 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg') do
     its(:content) { should include '"t_environment": "test_env"' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.ops4j.pax.web.cfg') do
+    its(:content) { should include 'org.osgi.service.http.port=8282' }
+  end
 end
