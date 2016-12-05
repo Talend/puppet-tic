@@ -19,6 +19,7 @@ class { '::tic::services':
   rt_flow_t_environment    => 'test_env',
   karaf_service_ensure     => 'running',
   karaf_service_enable     => true,
+  osgi_http_service_port   => 8282,
   karaf_features_install   => [
     'plan_executor_client',
     'plan_executor_client',
