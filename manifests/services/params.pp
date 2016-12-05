@@ -8,8 +8,9 @@ class tic::services::params {
   $version                 = pick($tic::services::version, 'latest')
   $karaf_base_path         = pick($tic::services::karaf_base_path, '/opt/talend/ipaas/rt-infra')
 
-  $karaf_service_ensure = pick($tic::services::karaf_service_ensure, 'running')
-  $karaf_service_enable = pick($tic::services::karaf_service_enable, true)
+  $karaf_service_ensure   = pick($tic::services::karaf_service_ensure, 'running')
+  $karaf_service_enable   = pick($tic::services::karaf_service_enable, true)
+  $osgi_http_service_port = pick($tic::services::osgi_http_service_port, 8181)
 
   $karaf_features_install = pick(
     $tic::services::karaf_features_install,

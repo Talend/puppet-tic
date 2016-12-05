@@ -8,8 +8,9 @@ class tic::services (
   $version                 = undef,
   $karaf_base_path         = undef,
 
-  $karaf_service_ensure = undef,
-  $karaf_service_enable = undef,
+  $karaf_service_ensure   = undef,
+  $karaf_service_enable   = undef,
+  $osgi_http_service_port = undef,
 
   $karaf_features_install = undef,
 
