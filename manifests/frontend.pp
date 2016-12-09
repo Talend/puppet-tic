@@ -10,6 +10,7 @@ class tic::frontend (
   $web_use_ssl                  = undef,
   $tomcat_service_ensure        = undef,
   $tomcat_service_enable        = undef,
+  $ipaas_srv_http_port          = undef,
   $cms_node                     = undef,
   $s3_download_contentfile_name = undef,
 

@@ -3,6 +3,8 @@ class tic::frontend::params {
   $tomcat_service_ensure = pick($tic::frontend::tomcat_service_ensure, 'running')
   $tomcat_service_enable = pick($tic::frontend::tomcat_service_enable, true)
 
+  $ipaas_srv_http_port   = pick($tic::frontend::ipaas_srv_http_port, '8081')
+
   $java_home = pick($tic::frontend::java_home, undef)
   $java_xmx  = pick($tic::frontend::java_xmx,  '1024')
   $version   = pick($tic::frontend::version,   'latest')

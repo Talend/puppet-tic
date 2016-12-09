@@ -27,7 +27,7 @@ class tic::frontend::install {
 
   tomcat::config::server::connector { 'ipaas-srv-http':
     catalina_base         => '/srv/tomcat/ipaas-srv',
-    port                  => '8081',
+    port                  => $tic::frontend::params::ipaas_srv_http_port,
     protocol              => 'HTTP/1.1',
     purge_connectors      => true,
     additional_attributes => {
