@@ -83,6 +83,7 @@ class tic::frontend::config {
   # ipaas-services
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
     settings => {
+      'workspace_service_url'     => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
       'account_manager_url'       => $tic::frontend::params::ams_url,
       'artifact_manager_url'      => $tic::frontend::params::artifact_manager_url,
       'custom_resources_url'      => $tic::frontend::params::custom_resources_url,
