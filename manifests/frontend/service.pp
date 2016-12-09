@@ -7,7 +7,7 @@ class tic::frontend::service {
   } ->
   service { 'tomcat-ipaas-srv':
     ensure   => $tic::frontend::params::tomcat_service_ensure,
-    enable   => true,
+    enable   => $tic::frontend::params::tomcat_service_enable,
     provider => 'systemd',
   }
 

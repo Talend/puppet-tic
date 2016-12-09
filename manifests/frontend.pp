@@ -9,6 +9,7 @@ class tic::frontend (
   $web_enable_test_context      = undef,
   $web_use_ssl                  = undef,
   $tomcat_service_ensure        = undef,
+  $tomcat_service_enable        = undef,
   $cms_node                     = undef,
   $s3_download_contentfile_name = undef,
 

@@ -5,7 +5,6 @@
 
 [Unit]
 Description=Apache Tomcat Web Application Container
-After=syslog.target network.target
 
 [Service]
 Type=forking
@@ -17,4 +16,4 @@ User=tomcat
 Group=tomcat
 
 [Install]
-WantedBy=multi-user.target
+Alias=tomcat-ipaas-srv

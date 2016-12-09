@@ -1,6 +1,7 @@
 class tic::frontend::params {
 
   $tomcat_service_ensure = pick($tic::frontend::tomcat_service_ensure, 'running')
+  $tomcat_service_enable = pick($tic::frontend::tomcat_service_enable, true)
 
   $java_home = pick($tic::frontend::java_home, undef)
   $java_xmx  = pick($tic::frontend::java_xmx,  '1024')
