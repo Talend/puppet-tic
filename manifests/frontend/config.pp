@@ -92,6 +92,7 @@ class tic::frontend::config {
       'custom_resources_url'      => $tic::frontend::params::custom_resources_url,
       'custom_resources_username' => $tic::frontend::params::custom_resources_username,
       'custom_resources_password' => $tic::frontend::params::custom_resources_password,
+      'memcached.addresses'       => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
     }
   }
 
@@ -100,6 +101,7 @@ class tic::frontend::config {
     settings => {
       'account_manager_url' => $tic::frontend::params::ams_url,
       'flow_manager_url'    => $tic::frontend::params::flow_manager_url,
+      'memcached.addresses' => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
     }
   }
 
