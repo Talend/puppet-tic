@@ -69,6 +69,7 @@ describe 'TIC Frontend' do
     %w(
       /srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf
       /srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf
+      /srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf
     ).each do |f|
       describe file(f) do
         its(:content) { should include 'wsdl.location="http://missing:8080/sts/SecurityTokenService/UT?wsdl"' }
