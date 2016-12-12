@@ -23,6 +23,9 @@ class tic::frontend::config {
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf.erb');
 
+    '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf':
+      content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf.erb');
+
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf.erb');
 
