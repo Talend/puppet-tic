@@ -14,7 +14,6 @@ class tic::frontend::install {
       '$JAVA_OPTS',
       "-Xmx${tic::frontend::params::java_xmx}m",
       '-XX:MaxPermSize=256m',
-      '-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf',
       '-Djava.awt.headless=true',
     ]
   }
