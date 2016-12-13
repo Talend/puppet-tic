@@ -11,7 +11,6 @@ describe 'TIC Frontend' do
     describe 'Tomcat Environment Java Options' do
       subject { file('/opt/apache-tomcat/bin/setenv.sh').content }
       it { should include '-XX:MaxPermSize=256m' }
-      it { should include '-Djava.security.auth.login.config=$CATALINA_BASE/conf/jaas-ipaas-services.conf' }
       it { should include '-Djava.awt.headless=true' }
       it { should include '-Xmx1024m' }
     end
@@ -143,7 +142,6 @@ describe 'TIC Frontend' do
     end
 
     describe command('/usr/bin/ps ax | grep java') do
-      its(:stdout) { should include '-Djava.security.auth.login.config=/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf' }
       its(:stdout) { should include '-Djava.awt.headless=true' }
       its(:stdout) { should include '-Xmx1024m' }
       its(:stdout) { should include '-XX:MaxPermSize=256m' }
