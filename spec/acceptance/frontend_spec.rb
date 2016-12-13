@@ -61,6 +61,14 @@ describe 'TIC Frontend' do
   end
 
   context 'When TIC Frontend configured' do
+    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/conf/application-context.xml') do
+      it { should be_file }
+    end
+
+    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/inventory-service.xml') do
+      it { should be_file }
+    end
+
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js') do
       its(:content) { should include 'BASE_URL : \'/ipaas-server/services\',' }
       its(:content) { should include 'EXCHANGE_URL : \'https://exchange.talend.com\',' }
