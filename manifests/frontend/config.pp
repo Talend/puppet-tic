@@ -103,6 +103,7 @@ class tic::frontend::config {
   # ipaas-api
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties':
     settings => {
+      'ipaas_service_url'   => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
       'account_manager_url' => $tic::frontend::params::ams_url,
       'flow_manager_url'    => $tic::frontend::params::flow_manager_url,
       'memcached.addresses' => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
