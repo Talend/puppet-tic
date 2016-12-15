@@ -183,6 +183,11 @@ class tic::services (
   $logs_datasource_servername            = undef,
   $logs_datasource_password              = undef,
 
+  $logs_transfer_client_admin_url  = undef,
+  $logs_transfer_client_username   = undef,
+  $logs_transfer_client_password   = undef,
+  $logs_transfer_client_upload_url = undef,
+
 ) {
 
   contain ::tic::services::params
