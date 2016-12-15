@@ -45,4 +45,11 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/etc/org.ops4j.pax.web.cfg') do
     its(:content) { should include 'org.osgi.service.http.port=8282' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.lts.client.cfg') do
+    its(:content) { should include 'log.transfer.admin.url=logs_admin_url' }
+    its(:content) { should include 'log.transfer.admin.username=logs_admin_username' }
+    its(:content) { should include 'log.transfer.admin.password=logs_admin_password' }
+    its(:content) { should include 'log.transfer.upload.url=logs_upload_url' }
+  end
 end
