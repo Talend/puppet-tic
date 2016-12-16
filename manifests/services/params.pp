@@ -204,10 +204,10 @@ class tic::services::params {
   $logs_datasource_servername            = pick($tic::services::logs_datasource_servername,            'undef')
   $logs_datasource_password              = pick($tic::services::logs_datasource_password,              'undef')
 
-  $logs_transfer_client_admin_url  = pick($tic::services::logs_transfer_client_admin_url,  undef)
-  $logs_transfer_client_username   = pick($tic::services::logs_transfer_client_username,   undef)
-  $logs_transfer_client_password   = pick($tic::services::logs_transfer_client_password,   undef)
-  $logs_transfer_client_upload_url = pick($tic::services::logs_transfer_client_upload_url, undef)
+  $logs_transfer_client_admin_url  = pick($tic::services::logs_transfer_client_admin_url,  'missing')
+  $logs_transfer_client_username   = pick($tic::services::logs_transfer_client_username,   'missing')
+  $logs_transfer_client_password   = pick($tic::services::logs_transfer_client_password,   'missing')
+  $logs_transfer_client_upload_url = pick($tic::services::logs_transfer_client_upload_url, 'missing')
 
   $dispatcher_nexus_url                  = pick($tic::services::dispatcher_nexus_url, 'unconfigured')
 }
