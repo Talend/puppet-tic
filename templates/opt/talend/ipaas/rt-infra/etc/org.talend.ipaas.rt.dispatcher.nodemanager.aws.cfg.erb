@@ -18,8 +18,8 @@ json.template={ "rt_flow_config": {\
         "queue_response_name":"{$queue_response_name}",\
         "queue_response_consumers_count":"{$queue_response_consumers_count}",\
         "status_update_interval":"{$status_update_interval}",\
-        "dispatcher_input_queue":"ipaas.<%= @subenv_prefix %>.dispatcher.input.queue",\
-        "dispatcher_response_queue":"ipaas.<%= @subenv_prefix %>.dispatcher.response.queue",\
+        "dispatcher_input_queue":"ipaas.talend.dispatcher.input.queue",\
+        "dispatcher_response_queue":"ipaas.talend.dispatcher.response.queue",\
         "flow_undeploy_after_completed":"<%= @flow_undeploy_after_completed %>",\
         "dts_service_url":"<%= @dts_service_url %>",\
         "lts_service_url":"<%= @lts_service_url %>",\

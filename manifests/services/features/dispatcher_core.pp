@@ -1,7 +1,6 @@
 class tic::services::features::dispatcher_core {
 
   $rt_aws_region                 = $tic::services::params::rt_aws_region
-  $subenv_prefix                 = $tic::services::params::subenv_prefix
   $flow_undeploy_after_completed = $tic::services::params::flow_undeploy_after_completed
   $dts_service_url               = $tic::services::params::dts_service_url
   $lts_service_url               = $tic::services::params::lts_service_url
@@ -27,8 +26,8 @@ class tic::services::features::dispatcher_core {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dispatcher.core.cfg":
     settings => {
-      'queue.input.name'    => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.input.queue"   ,
-      'queue.response.name' => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.response.queue",
+      'queue.input.name'    => 'ipaas.talend.dispatcher.input.queue',
+      'queue.response.name' => 'ipaas.talend.dispatcher.response.queue',
     }
   }
 

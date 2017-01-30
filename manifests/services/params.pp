@@ -18,8 +18,6 @@ class tic::services::params {
   )
   $karaf_boot_features_real = join($karaf_features_install, ',')
 
-  $subenv_prefix = pick($tic::services::subenv_prefix, $::t_environment, $::t_subenv, 'test')
-
   $logging_level    = pick($tic::services::logging_level,    'INFO')
   $log_amq_messages = pick($tic::services::log_amq_messages, false)
 

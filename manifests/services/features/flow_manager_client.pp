@@ -4,7 +4,7 @@ class tic::services::features::flow_manager_client {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.flowmanager.client.cfg":
     settings => {
-      'flow.manager.response.queue' => "ipaas.${tic::services::params::subenv_prefix}.flowmanager.response.queue",
+      'flow.manager.response.queue' => 'ipaas.talend.flowmanager.response.queue',
       'flow.manager.service.url'    => $tic::services::params::flow_manager_url,
     }
   }

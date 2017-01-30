@@ -1,6 +1,6 @@
 class tic::services::features::bookkeeper_service {
 
-  $zookeeper_prefix = "/subenv/${tic::services::params::subenv_prefix}/role/bookkeeper"
+  $zookeeper_prefix = '/subenv/talend/role/bookkeeper'
 
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 

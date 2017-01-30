@@ -4,8 +4,8 @@ class tic::services::features::dispatcher_client {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dispatcher.client.cfg":
     settings => {
-      'dispatcher.input.queue'    => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.input.queue",
-      'dispatcher.response.queue' => "ipaas.${tic::services::params::subenv_prefix}.dispatcher.response.queue",
+      'dispatcher.input.queue'    => 'ipaas.talend.dispatcher.input.queue',
+      'dispatcher.response.queue' => 'ipaas.talend.dispatcher.response.queue',
     }
   }
 

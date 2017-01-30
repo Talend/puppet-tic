@@ -14,8 +14,6 @@ class tic::services (
 
   $karaf_features_install = undef,
 
-  $subenv_prefix = undef,
-
   $logging_level    = undef,
   $log_amq_messages = undef,
 
