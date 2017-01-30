@@ -32,3 +32,12 @@ class { '::tic::services':
     'dispatcher_core'
   ],
 }
+
+
+if ($ipaas_rt_infra_installed_version, '1.5') or versioncmp($ipaas_rt_infra_build_version, '1.5') {
+  class {
+    'tic::services20':
+      karaf_features_install => ['tipaas-account-manager-service'],
+      iam_service_node       => 'iam-test-node'
+  }
+}
