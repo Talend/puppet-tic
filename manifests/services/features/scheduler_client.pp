@@ -7,7 +7,7 @@ class tic::services::features::scheduler_client {
     path    => "${config_dir}/org.talend.ipaas.rt.scheduler.client.cfg",
     section => '',
     setting => 'scheduler.input.queue.name',
-    value   => "ipaas.talend.scheduler.input.queue";
+    value   => 'ipaas.talend.scheduler.input.queue';
   }
 
 }
