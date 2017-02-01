@@ -17,3 +17,10 @@ class { '::tic::frontend':
   flow_manager_nodes      => 'flow_manager_node',
   flow_manager_url        => 'http://flow_manager_url',
 }
+
+if versioncmp($ipaas_frontend_build_version, '1.5') > 0 {
+  class { 'tic::frontend20':
+    scim_service_node      => 'scim-test-node',
+  }
+}
+
