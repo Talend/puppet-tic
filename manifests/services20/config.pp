@@ -11,10 +11,7 @@ class tic::services20::config {
   if 'tipaas-account-manager-service' in $features {
     tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.ams.iam.cfg":
       settings => {
-        'iam.service.url' => "http://${tic::services20::iam_service_node}"
-      };
-    "${config_dir}/org.talend.ipaas.rt.ams.iam.cfg":
-      settings => {
+        'iam.service.url'  => "http://${tic::services20::iam_service_node}",
         'scim.service.url' => "http://${tic::services20::scim_service_node}"
       }
     }
