@@ -11,6 +11,7 @@ provisioner:
   custom_facts:
     packagecloud_tic_donotuse_token: <%= ENV['PACKAGECLOUD_TIC_DONOTUSE_TOKEN'] %>
     ipaas_rt_infra_build_version: "1.6"
+    ipaas_frontend_build_version: "1.6"
 
 transport:
   name: sftp
