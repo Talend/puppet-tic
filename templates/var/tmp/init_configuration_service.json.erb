@@ -35,6 +35,17 @@
     "type": "STRING",
     "value": "<%= @subnet_id %>"
   },
+  "nodeman.subnet.failover.<%= @rt_aws_region %>": {
+    "level": "NONE",
+    "type": "STRING_LIST",
+    <% if @failover_subnets_ids.is_a? Array -%>
+    "value": <%= @failover_subnets_ids %>
+    <% elsif @failover_subnets_ids.is_a? String -%>
+    "value": <%= @failover_subnets_ids.split(',') %>
+    <% else -%>
+    "value": ""
+    <% end -%>
+  },
 <% if @instance_profile -%>
   "nodeman.instance.profile": {
     "level": "NONE",

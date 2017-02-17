@@ -15,6 +15,8 @@ class tic::services::init_configuration_service (
   $rt_aws_region    = $tic::services::params::rt_aws_region
   $t_release        = pick($tic::services::params::rt_flow_t_release, 'trunk')
 
+  $failover_subnets_ids = pick($tic::services::params::rt_flow_failover_subnets_ids, '')
+
   $service_auth = "-u ${username}:${password}"
 
   $init_configuration_service_cmd = "/usr/bin/curl --fail \
