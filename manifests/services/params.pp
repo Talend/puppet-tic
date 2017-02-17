@@ -186,11 +186,11 @@ class tic::services::params {
   $webhooks_redis_host    = pick($tic::services::webhooks_redis_host,    'unconfigured')
   $webhooks_redis_port    = pick($tic::services::webhooks_redis_port,    6379)
 
-  $rt_flow_ami_id           = pick_default($tic::services::rt_flow_ami_id,           '')
-  $rt_flow_security_groups  = pick_default($tic::services::rt_flow_security_groups,  '')
-  $rt_flow_instance_type    = pick_default($tic::services::rt_flow_instance_type,    '')
-  $rt_flow_subnet_id        = pick_default($tic::services::rt_flow_subnet_id,        '')
-  $rt_flow_instance_profile = pick_default($tic::services::rt_flow_instance_profile, '')
+  $rt_flow_ami_id                = pick_default($tic::services::rt_flow_ami_id,               '')
+  $rt_flow_security_groups       = pick_default($tic::services::rt_flow_security_groups,      '')
+  $rt_flow_instance_type         = pick_default($tic::services::rt_flow_instance_type,        '')
+  $rt_flow_subnet_id             = pick_default($tic::services::rt_flow_subnet_id,            '')
+  $rt_flow_instance_profile      = pick_default($tic::services::rt_flow_instance_profile,     '')
   $rt_flow_failover_subnets_ids  = pick_default($tic::services::rt_flow_failover_subnets_ids, '')
 
   $rt_flow_t_dc          = pick_default($tic::services::rt_flow_t_dc,          '')
