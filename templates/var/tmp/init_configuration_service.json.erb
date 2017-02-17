@@ -30,6 +30,11 @@
     "type": "STRING",
     "value": "<%= @subnet_id %>"
   },
+  "nodeman.subnet.default.<%= @rt_aws_region %>": {
+    "level": "NONE",
+    "type": "STRING",
+    "value": "<%= @subnet_id %>"
+  },
 <% if @instance_profile -%>
   "nodeman.instance.profile": {
     "level": "NONE",
