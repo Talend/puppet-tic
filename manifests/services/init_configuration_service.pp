@@ -12,6 +12,8 @@ class tic::services::init_configuration_service (
   $subnet_id        = $tic::services::params::rt_flow_subnet_id
   $instance_profile = $tic::services::params::rt_flow_instance_profile
 
+  $t_release        = pick($tic::services::params::rt_flow_t_release, 'trunk')
+
   $service_auth = "-u ${username}:${password}"
 
   $init_configuration_service_cmd = "/usr/bin/curl --fail \
