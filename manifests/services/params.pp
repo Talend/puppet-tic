@@ -191,6 +191,7 @@ class tic::services::params {
   $rt_flow_instance_type    = pick_default($tic::services::rt_flow_instance_type,    '')
   $rt_flow_subnet_id        = pick_default($tic::services::rt_flow_subnet_id,        '')
   $rt_flow_instance_profile = pick_default($tic::services::rt_flow_instance_profile, '')
+  $rt_flow_failover_subnets_ids  = pick_default($tic::services::rt_flow_failover_subnets_ids, '')
 
   $rt_flow_t_dc          = pick_default($tic::services::rt_flow_t_dc,          '')
   $rt_flow_t_environment = pick_default($tic::services::rt_flow_t_environment, 'dv')

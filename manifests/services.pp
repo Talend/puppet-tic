@@ -170,6 +170,7 @@ class tic::services (
   $rt_flow_instance_type    = undef,
   $rt_flow_subnet_id        = undef,
   $rt_flow_instance_profile = undef,
+  $rt_flow_failover_subnets_ids = undef,
 
   $rt_flow_t_dc          = undef,
   $rt_flow_t_environment = undef,
