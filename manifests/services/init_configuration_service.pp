@@ -13,7 +13,7 @@ class tic::services::init_configuration_service (
   $instance_profile = $tic::services::params::rt_flow_instance_profile
 
   $rt_aws_region    = $tic::services::params::rt_aws_region
-  $t_release        = pick($tic::services::params::rt_flow_t_release, 'trunk')
+  $t_branch         = pick($tic::services::params::rt_flow_t_branch, 'trunk')
 
   $failover_subnets_ids = pick($tic::services::params::rt_flow_failover_subnets_ids, '')
 
