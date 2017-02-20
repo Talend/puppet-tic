@@ -196,6 +196,7 @@ class tic::services::params {
   $rt_flow_t_dc          = pick_default($tic::services::rt_flow_t_dc,          '')
   $rt_flow_t_environment = pick_default($tic::services::rt_flow_t_environment, 'dv')
   $rt_flow_t_release     = pick_default($tic::services::rt_flow_t_release,     '')
+  $rt_flow_t_branch      = pick_default($tic::services::rt_flow_t_branch,      '')
   $rt_flow_t_profile     = pick_default($tic::services::rt_flow_t_profile,     '')
   $rt_flow_t_subenv      = pick_default($tic::services::rt_flow_t_subenv,      '')
 

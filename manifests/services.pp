@@ -175,6 +175,7 @@ class tic::services (
   $rt_flow_t_dc          = undef,
   $rt_flow_t_environment = undef,
   $rt_flow_t_release     = undef,
+  $rt_flow_t_branch      = undef,
   $rt_flow_t_profile     = undef,
   $rt_flow_t_subenv      = undef,
 
