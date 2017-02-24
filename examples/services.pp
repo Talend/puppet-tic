@@ -24,7 +24,9 @@ class { '::tic::services':
   logs_transfer_client_username   => 'logs_admin_username',
   logs_transfer_client_password   => 'logs_admin_password',
   logs_transfer_client_upload_url => 'logs_upload_url',
+  zookeeper_prefix                => '/zookeeper/path/prefix',
   karaf_features_install          => [
+    'tipaas-bookkeeper-service',
     'plan_executor_client',
     'plan_executor_client',
     'non_existing_feature',

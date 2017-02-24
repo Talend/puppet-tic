@@ -52,8 +52,13 @@ describe 'services' do
     its(:content) { should include 'log.transfer.admin.password = logs_admin_password' }
     its(:content) { should include 'log.transfer.upload.url = logs_upload_url' }
   end
+
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.ams.iam.cfg') do
     its(:content) { should include 'http://iam-test-node' }
     its(:content) { should include 'http://scim-test-node' }
+  end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.bookkeeper.zk.backend.cfg') do
+    its(:content) { should include 'zk.path=/zookeeper/path/prefix' }
   end
 end
