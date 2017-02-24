@@ -13,8 +13,8 @@ class tic::services::features::container_management_service {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.cms.config.cfg":
     settings => {
-      'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.input.queue'    => 'ipaas.talend.dispatcher.input.queue',
-      'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.response.queue' => 'ipaas.talend.dispatcher.response.queue',
+      'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.input.queue'    => $tic::services::params::dispatcher_input_queue,
+      'karaf/org.talend.ipaas.rt.dispatcher.client/dispatcher.response.queue' => $tic::services::params::dispatcher_response_queue,
       'karaf/org.talend.ipaas.rt.dts.client/dts.service.url'                  => $tic::services::params::cms_dts_service_url,
       'karaf/org.talend.ipaas.rt.lts.client/log.transfer.upload.url'          => $tic::services::params::cms_lts_service_url,
       'karaf/org.talend.ipaas.rt.eventsource.amq/activemq.broker.url'         => $tic::services::params::cms_amq_broker_url,

@@ -190,6 +190,9 @@ class tic::services (
 
   $zookeeper_prefix = undef,
 
+  $dispatcher_input_queue    = undef,
+  $dispatcher_response_queue = undef,
+
 ) {
 
   contain ::tic::services::params

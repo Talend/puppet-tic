@@ -213,4 +213,7 @@ class tic::services::params {
 
   $zookeeper_prefix = pick($tic::services::zookeeper_prefix, '/subenv/talend/role/bookkeeper')
 
+  $dispatcher_input_queue    = pick($tic::services::dispatcher_input_queue,    'ipaas.talend.dispatcher.input.queue')
+  $dispatcher_response_queue = pick($tic::services::dispatcher_response_queue, 'ipaas.talend.dispatcher.response.queue')
+
 }

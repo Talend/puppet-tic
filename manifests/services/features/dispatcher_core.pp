@@ -8,6 +8,9 @@ class tic::services::features::dispatcher_core {
   $cms_nexus_url                 = $tic::services::params::cms_nexus_url
   $dispatcher_nexus_url          = $tic::services::params::dispatcher_nexus_url
 
+  $dispatcher_input_queue    = $tic::services::params::dispatcher_input_queue
+  $dispatcher_response_queue = $tic::services::params::dispatcher_response_queue
+
   $t_dc          = $tic::services::params::rt_flow_t_dc
   $t_environment = $tic::services::params::rt_flow_t_environment
   $t_release     = $tic::services::params::rt_flow_t_release
@@ -26,8 +29,8 @@ class tic::services::features::dispatcher_core {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dispatcher.core.cfg":
     settings => {
-      'queue.input.name'    => 'ipaas.talend.dispatcher.input.queue',
-      'queue.response.name' => 'ipaas.talend.dispatcher.response.queue',
+      'queue.input.name'    => $dispatcher_input_queue,
+      'queue.response.name' => $dispatcher_response_queue,
     }
   }
 
