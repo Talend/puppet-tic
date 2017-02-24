@@ -188,6 +188,8 @@ class tic::services (
   $logs_transfer_client_password   = undef,
   $logs_transfer_client_upload_url = undef,
 
+  $zookeeper_prefix = undef,
+
 ) {
 
   contain ::tic::services::params

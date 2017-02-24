@@ -210,4 +210,7 @@ class tic::services::params {
   $logs_transfer_client_upload_url = pick($tic::services::logs_transfer_client_upload_url, 'missing')
 
   $dispatcher_nexus_url                  = pick($tic::services::dispatcher_nexus_url, 'unconfigured')
+
+  $zookeeper_prefix = pick($tic::services::zookeeper_prefix, '/subenv/talend/role/bookkeeper')
+
 }
