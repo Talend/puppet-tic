@@ -61,4 +61,8 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.bookkeeper.zk.backend.cfg') do
     its(:content) { should include 'zk.path=/zookeeper/path/prefix' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.notification.subscription.service.cfg') do
+    its(:content) { should include 'memcached.connectionString = my-memcached-host:my-memcached-port' }
+  end
 end
