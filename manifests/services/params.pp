@@ -144,6 +144,13 @@ class tic::services::params {
   $notification_subscription_db_password        = pick($tic::services::notification_subscription_db_password,        'missing')
   $notification_subscription_db_max_connections = pick($tic::services::notification_subscription_db_max_connections, '10')
 
+  $notification_subscription_memcached_host = pick($tic::services::notification_subscription_memcached_host, 'localhost')
+  $notification_subscription_memcached_port = pick($tic::services::notification_subscription_memcached_port, '11211')
+  $notification_subscription_memcached_url  = pick(
+    $tic::services::notification_subscription_memcached_url,
+    "${notification_subscription_memcached_host}:${notification_subscription_memcached_port}"
+  )
+
   $pe_service_username = pick($tic::services::pe_service_username, 'tadmin')
   $pe_service_password = pick($tic::services::pe_service_password, 'missing')
 
