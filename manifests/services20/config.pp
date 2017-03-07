@@ -9,7 +9,7 @@ class tic::services20::config {
   $features = unique($tic::services20::karaf_features_install)
 
   if 'tipaas-account-manager-service' in $features {
-    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.ams.iam.cfg":
+    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg":
       settings => {
         'iam.service.url'  => "http://${tic::services20::iam_service_node}",
         'scim.service.url' => "http://${tic::services20::scim_service_node}"
