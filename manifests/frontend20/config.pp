@@ -15,4 +15,11 @@ class tic::frontend20::config {
       'scim_service_url'   => "http://${tic::frontend20::scim_service_node}"
     }
   }
+
+  tic::ini_settings { 'ipaas_services_scim_service_url':
+    path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties',
+    settings => {
+      'scim_service_url'   => "http://${tic::frontend20::scim_service_node}"
+    }
+  }
 }

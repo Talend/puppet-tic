@@ -120,6 +120,10 @@ describe 'TIC Frontend' do
       its(:content) { should include 'scim_service_url = http://scim-test-node' }
     end
 
+    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
+      its(:content) { should include 'scim_service_url = http://scim-test-node' }
+    end
+
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template') do
       its(:content) { should include 'arn:aws:iam::1234567890:root' }
     end
