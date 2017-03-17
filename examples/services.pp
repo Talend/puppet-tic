@@ -41,7 +41,7 @@ class { '::tic::services':
 if versioncmp($ipaas_rt_infra_installed_version, '1.5') > 0 or versioncmp($ipaas_rt_infra_build_version, '1.5') > 0 {
   class { 'tic::services20':
     karaf_features_install => ['tipaas-account-manager-service'],
-    iam_service_node       => 'iam-test-node',
+    iam_service_url        => 'iam-test-url',
     scim_service_node      => 'scim-test-node',
   }
 }
