@@ -3,6 +3,11 @@ class tic::frontend20 (
   $scim_service_node = undef,
   $scim_service_url  = undef,
 
+  $client_app_oidc_clientId      = undef,
+  $client_app_oidc_clientSecret  = undef,
+  $server_app_oidc_clientId      = undef,
+  $server_app_oidc_clientSecret  = undef,
+
 ) {
 
   contain ::tic::frontend20::params
