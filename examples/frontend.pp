@@ -20,7 +20,11 @@ class { '::tic::frontend':
 
 if versioncmp($ipaas_frontend_build_version, '1.5') > 0 {
   class { 'tic::frontend20':
-    scim_service_node      => 'scim-test-node',
+    scim_service_node             => 'scim-test-node',
+    client_app_oidc_clientId      => 'client_clientId',
+    client_app_oidc_clientSecret  => 'client_clientSecret',
+    server_app_oidc_clientId      => 'server_clientId',
+    server_app_oidc_clientSecret  => 'server_clientSecret',
   }
 }
 
