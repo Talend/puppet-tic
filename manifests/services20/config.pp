@@ -17,4 +17,12 @@ class tic::services20::config {
     }
   }
 
+  if 'tipaas-tpsvc-crypto-client' in $features {
+    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.tpsvc.crypto.client.cfg":
+      settings => {
+        'crypto.tpsvc.service.url' => $tic::services20::params::crypto_service_url
+      }
+    }
+  }
+
 }
