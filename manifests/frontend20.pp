@@ -7,6 +7,7 @@ class tic::frontend20 (
   $client_app_oidc_clientSecret  = undef,
   $server_app_oidc_clientId      = undef,
   $server_app_oidc_clientSecret  = undef,
+  $crypto_service_url            = undef,
 
 ) {
 
