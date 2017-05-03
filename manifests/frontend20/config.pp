@@ -35,6 +35,12 @@ class tic::frontend20::config {
       line   => "      clientSecret: ${tic::frontend20::params::client_app_oidc_clientSecret}",
       match  => '^[ ]{6}clientSecret:';
 
+    'client application user authorization uri':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
+      line   => "      user-authorization-uri: ${tic::frontend20::params::iam_oidc_front_url}/idp/authorize",
+      match  => '^[ ]{6}user-authorization-uri:';
+
     'server application clientId':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',

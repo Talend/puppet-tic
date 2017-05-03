@@ -9,6 +9,8 @@ class tic::frontend20 (
   $server_app_oidc_clientSecret  = undef,
   $crypto_service_url            = undef,
 
+  $iam_oidc_front_url = undef
+
 ) {
 
   contain ::tic::frontend20::params
