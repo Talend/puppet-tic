@@ -22,31 +22,29 @@ class tic::frontend20::config {
       };
   }
 
-  file_line { 'client application clientId':
-    ensure => present,
-    path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-    line   => "      clientId: ${tic::frontend20::params::client_app_oidc_clientId}",
-    match  => '^[ ]{6}clientId:',
-  }
+  file_line {
+    'client application clientId':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
+      line   => "      clientId: ${tic::frontend20::params::client_app_oidc_clientId}",
+      match  => '^[ ]{6}clientId:';
 
-  file_line { 'client application clientSecret':
-    ensure => present,
-    path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-    line   => "      clientSecret: ${tic::frontend20::params::client_app_oidc_clientSecret}",
-    match  => '^[ ]{6}clientSecret:',
-  }
+    'client application clientSecret':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
+      line   => "      clientSecret: ${tic::frontend20::params::client_app_oidc_clientSecret}",
+      match  => '^[ ]{6}clientSecret:';
 
-  file_line { 'server application clientId':
-    ensure => present,
-    path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-    line   => "      clientId: ${tic::frontend20::params::server_app_oidc_clientId}",
-    match  => '^[ ]{6}clientId:',
-  }
+    'server application clientId':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
+      line   => "      clientId: ${tic::frontend20::params::server_app_oidc_clientId}",
+      match  => '^[ ]{6}clientId:';
 
-  file_line { 'server application clientSecret':
-    ensure => present,
-    path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-    line   => "      clientSecret: ${tic::frontend20::params::server_app_oidc_clientSecret}",
-    match  => '^[ ]{6}clientSecret:',
+    'server application clientSecret':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
+      line   => "      clientSecret: ${tic::frontend20::params::server_app_oidc_clientSecret}",
+      match  => '^[ ]{6}clientSecret:'
   }
 }
