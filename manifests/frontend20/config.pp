@@ -29,7 +29,8 @@ class tic::frontend20::config {
         'security.oauth2.client.client_id'        => $tic::frontend20::params::basic_auth_oidc_clientId,
         'security.oauth2.client.client_secret'    => $tic::frontend20::params::basic_auth_oidc_clientSecret,
         'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/token",
-        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect"
+        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect",
+        'iam.scim.url'                            => $tic::frontend20::params::scim_service_url
       };
   }
 
