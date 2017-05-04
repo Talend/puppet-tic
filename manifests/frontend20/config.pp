@@ -41,6 +41,12 @@ class tic::frontend20::config {
       line   => "      user-authorization-uri: ${tic::frontend20::params::iam_oidc_front_url}/idp/authorize",
       match  => '^[ ]{6}user-authorization-uri:';
 
+    'client application oidc key uri':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
+      line   => "      keyUri: ${tic::frontend20::params::iam_oidc_front_url}/jwk/keys",
+      match  => '^[ ]{6}keyUri:';
+
     'server application clientId':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
@@ -51,6 +57,12 @@ class tic::frontend20::config {
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
       line   => "      clientSecret: ${tic::frontend20::params::server_app_oidc_clientSecret}",
-      match  => '^[ ]{6}clientSecret:'
+      match  => '^[ ]{6}clientSecret:';
+
+    'server application oidc key uri':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
+      line   => "      keyUri: ${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
+      match  => '^[ ]{6}keyUri:';
   }
 }
