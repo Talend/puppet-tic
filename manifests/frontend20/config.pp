@@ -92,7 +92,7 @@ class tic::frontend20::config {
     'server application token info uri':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      tokenInfoUri: ${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect",
+      line   => "      tokenInfoUri: ${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
       match  => '^[ ]{6}tokenInfoUri:';
 
     'server application scim uri':
