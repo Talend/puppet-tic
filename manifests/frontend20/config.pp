@@ -11,7 +11,7 @@ class tic::frontend20::config {
         'crypto_tpsvc_service_url' => $tic::frontend20::params::crypto_service_url
       };
 
-    'ipaas_api_scim_service_url':
+    'ipaas_api_scim_settings':
       path     => '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties',
       settings => {
         'scim_service_url'                        => $tic::frontend20::params::scim_service_url,
@@ -22,10 +22,14 @@ class tic::frontend20::config {
         'iam.scim.url'                            => $tic::frontend20::params::scim_service_url
       };
 
-    'ipaas_services_scim_service_url':
+    'ipaas_services_scim_settings':
       path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties',
       settings => {
-        'scim_service_url'   => $tic::frontend20::params::scim_service_url,
+        'scim_service_url'                        => $tic::frontend20::params::scim_service_url,
+        'security.oauth2.client.client_id'        => $tic::frontend20::params::basic_auth_oidc_clientId,
+        'security.oauth2.client.client_secret'    => $tic::frontend20::params::basic_auth_oidc_clientSecret,
+        'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/token",
+        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect"
       };
   }
 
