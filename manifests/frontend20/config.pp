@@ -17,8 +17,8 @@ class tic::frontend20::config {
         'scim_service_url'                        => $tic::frontend20::params::scim_service_url,
         'security.oauth2.client.client_id'        => $tic::frontend20::params::basic_auth_oidc_clientId,
         'security.oauth2.client.client_secret'    => $tic::frontend20::params::basic_auth_oidc_clientSecret,
-        'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/token",
-        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect",
+        'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/token",
+        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
         'iam.scim.url'                            => $tic::frontend20::params::scim_service_url
       };
 
@@ -28,8 +28,8 @@ class tic::frontend20::config {
         'scim_service_url'                        => $tic::frontend20::params::scim_service_url,
         'security.oauth2.client.client_id'        => $tic::frontend20::params::basic_auth_oidc_clientId,
         'security.oauth2.client.client_secret'    => $tic::frontend20::params::basic_auth_oidc_clientSecret,
-        'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/token",
-        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oidc/oauth2/introspect",
+        'security.oauth2.client.access_token_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/token",
+        'security.oauth2.resource.token_info_uri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
         'iam.scim.url'                            => $tic::frontend20::params::scim_service_url
       };
   }
@@ -98,7 +98,7 @@ class tic::frontend20::config {
     'server application scim uri':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      url: ${tic::frontend20::params::scim_service_url}",
-      match  => '^[ ]{6}url:';
+      line   => "    url: ${tic::frontend20::params::scim_service_url}",
+      match  => '^[ ]{4}url:';
   }
 }
