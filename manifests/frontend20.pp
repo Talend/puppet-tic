@@ -10,7 +10,10 @@ class tic::frontend20 (
   $crypto_service_url            = undef,
 
   $iam_oidc_front_url = undef,
-  $iam_oidc_back_url = undef
+  $iam_oidc_back_url = undef,
+
+  $basic_auth_oidc_clientId      = undef,
+  $basic_auth_oidc_clientSecret  = undef
 
 ) {
 
