@@ -136,6 +136,7 @@ describe 'TIC Frontend' do
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml') do
       its(:content) { should include 'clientId: server_clientId' }
       its(:content) { should include 'clientSecret: server_clientSecret' }
+      its(:content) { should include '    url: http://scim-test-node' }
     end
   end
 
