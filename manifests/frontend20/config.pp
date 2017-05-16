@@ -109,7 +109,7 @@ class tic::frontend20::config {
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
   }
 
-  ini_setting { "/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties-frontend20-marketplace_service_url":
+  ini_setting { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties-frontend20-marketplace_service_url':
       ensure  => present,
       path    => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties',
       section => '',
