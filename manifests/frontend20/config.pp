@@ -53,6 +53,12 @@ class tic::frontend20::config {
       line   => "      user-authorization-uri: ${tic::frontend20::params::iam_oidc_front_url}/idp/authorize",
       match  => '^[ ]{6}user-authorization-uri:';
 
+    'client application user logout uri':
+      ensure => present,
+      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
+      line   => "      endSessionEndpoint: ${tic::frontend20::params::iam_oidc_front_url}/idp/logout",
+      match  => '^[ ]{6}endSessionEndpoint:';
+
     'client application oidc key uri':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
