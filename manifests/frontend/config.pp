@@ -2,8 +2,6 @@ class tic::frontend::config {
 
   require ::tic::frontend::install
 
-  $workspace_url           = $tic::frontend::params::workspace_url
-  $marketplace_url         = $tic::frontend::params::marketplace_url
   $elasticache_address     = $tic::frontend::params::elasticache_address
   $elasticache_port        = $tic::frontend::params::elasticache_port
   $tomcat_service_ensure   = $tic::frontend::params::tomcat_service_ensure
@@ -17,9 +15,6 @@ class tic::frontend::config {
   validate_bool($web_use_ssl)
 
   file {
-    '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
-      content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
-
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf.erb');
 
@@ -67,7 +62,6 @@ class tic::frontend::config {
       'crypto_service_url'                    => $tic::frontend::params::crypto_service_url,
       'account_manager_url'                   => $tic::frontend::params::ams_url,
       'flow_execution_log_service_url'        => $tic::frontend::params::flow_execution_log_service_url,
-      'marketplace_service_url'               => "${marketplace_url}/api/",
       'data_prep_service_url'                 => $tic::frontend::params::data_prep_service_url,
       'data_transfer_url'                     => $tic::frontend::params::dts_service_url,
       'schema_discovery_url'                  => $tic::frontend::params::schema_discovery_service_url,

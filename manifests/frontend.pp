@@ -14,9 +14,6 @@ class tic::frontend (
   $cms_node                     = undef,
   $s3_download_contentfile_name = undef,
 
-  $workspace_url   = undef,
-  $marketplace_url = undef,
-
   $ams_syncope_host = undef,
 
   $sts_host     = undef,

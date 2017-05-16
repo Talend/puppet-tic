@@ -101,4 +101,20 @@ class tic::frontend20::config {
       line   => "    url: ${tic::frontend20::params::scim_service_url}",
       match  => '^[ ]{4}url:';
   }
+
+  $workspace_url           = $tic::frontend20::params::workspace_url
+  $marketplace_url         = $tic::frontend20::params::marketplace_url
+
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
+    content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
+  }
+
+  ini_setting { "/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties-frontend20-marketplace_service_url":
+      ensure  => present,
+      path    => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties',
+      section => '',
+      setting => 'marketplace_service_url',
+      value   => "${marketplace_url}/api/"
+  }
+
 }

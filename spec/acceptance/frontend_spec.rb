@@ -65,8 +65,8 @@ describe 'TIC Frontend' do
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js') do
-      its(:content) { should include 'BASE_URL : \'/ipaas-server/services\',' }
-      its(:content) { should include 'EXCHANGE_URL : \'https://exchange.talend.com\',' }
+      its(:content) { should include 'BASE_URL : \'123456\',' }
+      its(:content) { should include 'EXCHANGE_URL : \'123456\',' }
     end
 
     %w(

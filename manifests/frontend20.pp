@@ -13,7 +13,10 @@ class tic::frontend20 (
   $iam_oidc_back_url = undef,
 
   $basic_auth_oidc_clientId      = undef,
-  $basic_auth_oidc_clientSecret  = undef
+  $basic_auth_oidc_clientSecret  = undef,
+
+  $workspace_url   = undef,
+  $marketplace_url = undef,
 
 ) {
 

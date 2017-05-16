@@ -25,6 +25,13 @@ if versioncmp($ipaas_frontend_build_version, '1.5') > 0 {
     client_app_oidc_clientSecret => 'client_clientSecret',
     server_app_oidc_clientId     => 'server_clientId',
     server_app_oidc_clientSecret => 'server_clientSecret',
+    workspace_url                => '123456',
+    marketplace_url              => '123456',
+  }
+} else {
+  class { 'tic::frontend18':
+    workspace_url   => 'abcdef',
+    marketplace_url => 'abcdef',
   }
 }
 

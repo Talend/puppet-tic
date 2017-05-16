@@ -16,9 +16,6 @@ class tic::frontend::params {
   $cms_node                     = pick($tic::frontend::cms_node,                     'localhost')
   $s3_download_contentfile_name = pick($tic::frontend::s3_download_contentfile_name, 'downloads/config/downloads.json')
 
-  $workspace_url   = pick($tic::frontend::workspace_url,   '/ipaas-server/services')
-  $marketplace_url = pick($tic::frontend::marketplace_url, 'https://exchange.talend.com')
-
   $ams_syncope_host     = pick($tic::frontend::ams_syncope_host,     'missing')
   $ams_syncope_username = pick($tic::frontend::ams_syncope_username, 'tadmin')
   $ams_syncope_password = pick($tic::frontend::ams_syncope_password, 'missing')

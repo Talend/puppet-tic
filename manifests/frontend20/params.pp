@@ -15,4 +15,7 @@ class tic::frontend20::params {
   $basic_auth_oidc_clientId      = pick($tic::frontend20::basic_auth_oidc_clientId, 'unconfigured')
   $basic_auth_oidc_clientSecret  = pick($tic::frontend20::basic_auth_oidc_clientSecret, 'unconfigured')
 
+  $workspace_url   = pick($tic::frontend20::workspace_url,   '/ipaas-server/services')
+  $marketplace_url = pick($tic::frontend20::marketplace_url, 'https://exchange.talend.com')
+
 }
