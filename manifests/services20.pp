@@ -5,7 +5,8 @@ class tic::services20 (
   $iam_service_url        = undef,
   $scim_service_node      = undef,
   $scim_service_url       = undef,
-  $crypto_service_url     = undef
+  $crypto_service_url     = undef,
+  $config_service_url     = undef
 
 ) {
 
