@@ -30,7 +30,12 @@ class tic::services::config {
     warning("got ${tic::services::params::activemq_nodes_count} activemq nodes, expected ${tic::services::params::min_activemq_brokers}")
   }
 
-  $features20 = hiera('tic::services20::karaf_features_install', [])
+  if versioncmp($::ipaas_rt_infra_build_version, '2.0') > 0 {
+      $features20 = hiera('tic::services20::karaf_features_install', [])
+  } else {
+      $features20 = []
+  }
+
   $features_all = concat($tic::services::params::karaf_features_install, $features20)
   $features_all_str = join($features_all, ',')
 
