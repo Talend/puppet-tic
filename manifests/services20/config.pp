@@ -25,7 +25,7 @@ class tic::services20::config {
     }
   }
 
-  if 'tipaas-tpsvc-config-client' in $features {
+  if 'tpsvc-config-client' in $features {
     tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.tpsvc.config.client.cfg":
       settings => {
         'config.service.url' => $tic::services20::params::config_service_url

@@ -30,9 +30,13 @@ class tic::services::config {
     warning("got ${tic::services::params::activemq_nodes_count} activemq nodes, expected ${tic::services::params::min_activemq_brokers}")
   }
 
+  $features20 = hiera('tic::services20::karaf_features_install', [])
+  $features_all = concat($tic::services::params::karaf_features_install, $features20)
+  $features_all_str = join($features_all, ',')
+
   tic::ini_settings { "${config_dir}/org.apache.karaf.features.cfg":
     settings => {
-      'featuresBoot' => $tic::services::params::karaf_boot_features_real,
+      'featuresBoot' => $features_all_str,
     }
   }
 
