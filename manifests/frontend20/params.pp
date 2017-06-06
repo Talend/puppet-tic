@@ -12,6 +12,8 @@ class tic::frontend20::params {
   $server_app_oidc_clientSecret  = pick($tic::frontend20::server_app_oidc_clientSecret, 'unconfigured')
   $crypto_service_url            = pick($tic::frontend20::crypto_service_url, "http://${crypto_service_node}")
 
+  $config_tpsvc_service_url      = pick($tic::frontend20::config_tpsvc_service_url, 'unconfigured')
+
   $basic_auth_oidc_clientId      = pick($tic::frontend20::basic_auth_oidc_clientId, 'unconfigured')
   $basic_auth_oidc_clientSecret  = pick($tic::frontend20::basic_auth_oidc_clientSecret, 'unconfigured')
 

@@ -8,7 +8,8 @@ class tic::frontend20::config {
       path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties',
       settings => {
         'scim_service_url'         => $tic::frontend20::params::scim_service_url,
-        'crypto_tpsvc_service_url' => $tic::frontend20::params::crypto_service_url
+        'crypto_tpsvc_service_url' => $tic::frontend20::params::crypto_service_url,
+        'config_tpsvc_service_url' => $tic::frontend20::params::config_tpsvc_service_url,
       };
 
     'ipaas_api_scim_settings':
