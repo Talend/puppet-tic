@@ -111,6 +111,9 @@ class tic::frontend20::config {
 
   $workspace_url           = $tic::frontend20::params::workspace_url
   $marketplace_url         = $tic::frontend20::params::marketplace_url
+  $portal_url              = $tic::frontend20::params::portal_url
+  $tdp_url                 = $tic::frontend20::params::tdp_url
+  $tmc_url                 = $tic::frontend20::params::tmc_url
 
   file { '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
