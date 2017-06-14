@@ -19,5 +19,8 @@ class tic::frontend20::params {
 
   $workspace_url   = pick($tic::frontend20::workspace_url,   '/ipaas-server/services')
   $marketplace_url = pick($tic::frontend20::marketplace_url, 'https://exchange.talend.com')
+  $portal_url = pick($tic::frontend20::portal_url, 'unconfigured')
+  $tdp_url = pick($tic::frontend20::tdp_url, 'unconfigured')
+  $tmc_url = pick($tic::frontend20::tmc_url, 'unconfigured')
 
 }
