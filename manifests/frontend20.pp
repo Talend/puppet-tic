@@ -9,6 +9,7 @@ class tic::frontend20 (
   $server_app_oidc_clientSecret  = undef,
   $crypto_service_url            = undef,
   $config_tpsvc_service_url      = undef,
+  $logquery_tpsvc_service_url    = undef,
 
   $iam_oidc_front_url = undef,
   $iam_oidc_back_url = undef,
