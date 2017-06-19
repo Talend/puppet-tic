@@ -10,7 +10,7 @@ class tic::frontend20::config {
         'scim_service_url'           => $tic::frontend20::params::scim_service_url,
         'crypto_tpsvc_service_url'   => $tic::frontend20::params::crypto_service_url,
         'config_tpsvc_service_url'   => $tic::frontend20::params::config_tpsvc_service_url,
-        'tpsvc_logquery_service_url' => $tic::frontend20::params::logquery_tpsvc_service_url,
+        'logquery_tpsvc_service_url' => $tic::frontend20::params::logquery_tpsvc_service_url,
       };
 
     'ipaas_api_scim_settings':
