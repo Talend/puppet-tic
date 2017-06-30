@@ -33,6 +33,10 @@ describe 'services' do
     its(:content) { should include 'activemq.broker.username=activemq_broker_test_username' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.ams.core.cfg') do
+    its(:content) { should match /amq_security\s*=\s*false/ }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.pe.client.cfg') do
     its(:content) { should include 'pe.service.username=pe_service_test_username' }
     its(:content) { should include 'pe.service.password=missing' }
