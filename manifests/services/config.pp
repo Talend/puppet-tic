@@ -84,6 +84,7 @@ class tic::services::config {
       'password.reset.url.template' => $tic::services::params::ams_password_reset_url_template,
       'current.region'              => $tic::services::params::ams_current_region,
       'disaster.region'             => $tic::services::params::ams_disaster_region,
+      'amq_security'                => $tic::services::params::amq_security_switch,
     }
   }
 

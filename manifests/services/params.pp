@@ -163,6 +163,7 @@ class tic::services::params {
   $ams_password_reset_url_template = pick($tic::services::ams_password_reset_url_template, 'http://daily-web.tipaas.com/#/reset_password?token=')
   $ams_current_region              = pick($tic::services::ams_current_region, 'undef')
   $ams_disaster_region             = pick($tic::services::ams_disaster_region, 'undef')
+  $amq_security_switch             = pick($tic::services::amq_security_switch, 'false')
 
   $pe_db_host     = pick($tic::services::pe_db_host, $postgres_db_host)
   $pe_db_password = pick($tic::services::pe_db_password, 'missing')
