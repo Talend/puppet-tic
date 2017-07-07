@@ -19,9 +19,10 @@ class tic::frontend20 (
 
   $workspace_url   = undef,
   $marketplace_url = undef,
-  $portal_url = undef,
-  $tdp_url = undef,
-  $tmc_url = undef,
+  $portal_url      = undef,
+  $tdp_url         = undef,
+  $tmc_url         = undef,
+  $help_url        = undef,
 
 ) {
 

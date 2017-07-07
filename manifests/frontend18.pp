@@ -2,6 +2,7 @@ class tic::frontend18 (
 
   $workspace_url   = undef,
   $marketplace_url = undef,
+  $help_url        = undef,
 
 ) {
 
