@@ -32,12 +32,15 @@ class tic::services::config {
 
   if versioncmp($::ipaas_rt_infra_build_version, '2.0') > 0 {
       $features20 = hiera('tic::services20::karaf_features_install', [])
+      $features20_remove = hiera('tic::services20::karaf_features_remove', [])
   } else {
       $features20 = []
+      $features20_remove = []
   }
 
   $features_all = concat($tic::services::params::karaf_features_install, $features20)
-  $features_all_str = join($features_all, ',')
+  $features_remove = delete($features_all, $features20_remove)
+  $features_all_str = join($features_remove, ',')
 
   tic::ini_settings { "${config_dir}/org.apache.karaf.features.cfg":
     settings => {
@@ -84,6 +87,7 @@ class tic::services::config {
       'password.reset.url.template' => $tic::services::params::ams_password_reset_url_template,
       'current.region'              => $tic::services::params::ams_current_region,
       'disaster.region'             => $tic::services::params::ams_disaster_region,
+      'amq_security'                => $tic::services::params::amq_security_switch,
     }
   }
 

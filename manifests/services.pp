@@ -83,6 +83,7 @@ class tic::services (
   $ams_password_reset_url_template = undef,
   $ams_current_region              = undef,
   $ams_disaster_region             = undef,
+  $amq_security_switch             = undef,
 
   $kms_key_alias            = undef,
   $crypto_current_region    = undef,
