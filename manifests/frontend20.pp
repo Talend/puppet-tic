@@ -24,6 +24,8 @@ class tic::frontend20 (
   $tmc_url         = undef,
   $help_url        = undef,
 
+  $tcomp_static_ips = undef,
+
 ) {
 
   contain ::tic::frontend20::params

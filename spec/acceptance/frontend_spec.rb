@@ -67,6 +67,7 @@ describe 'TIC Frontend' do
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js') do
       its(:content) { should include 'BASE_URL : \'123456\',' }
       its(:content) { should include 'EXCHANGE_URL : \'123456\',' }
+      its(:content) { should include 'TCOMP_STATIC_IPS: \'890,123,321\',' }
     end
 
     %w(
