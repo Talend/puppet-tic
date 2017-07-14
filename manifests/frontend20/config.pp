@@ -116,7 +116,7 @@ class tic::frontend20::config {
   $tdp_url          = $tic::frontend20::params::tdp_url
   $tmc_url          = $tic::frontend20::params::tmc_url
   $help_url         = $tic::frontend20::params::help_url
-  $tcomp_static_ips = $tic::frontend20::params::tcomp_static_ips
+  $tcomp_static_ips = regsubst($tic::frontend20::params::tcomp_static_ips, '[\s\[\]\"]', '', 'G')
 
   file { '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
