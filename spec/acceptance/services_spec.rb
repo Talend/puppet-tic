@@ -42,6 +42,12 @@ describe 'services' do
     its(:content) { should include 'pe.service.password=missing' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/quartz.properties') do
+    its(:content) { should match /org.quartz.scheduler.instanceId\s*=\s*AUTO/ }
+    its(:content) { should match /org.quartz.jobStore.isClustered\s*=\s*true/ }
+    its(:content) { should match /org.quartz.jobStore.clusterCheckinInterval\s*=\s*20000/ }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg') do
     its(:content) { should include '"t_environment": "test_env"' }
   end

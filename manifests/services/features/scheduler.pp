@@ -4,11 +4,14 @@ class tic::services::features::scheduler {
 
   tic::ini_settings { "${config_dir}/quartz.properties":
     settings => {
-      'org.quartz.dataSource.ipaasDS.dbName'   => $tic::services::params::quartz_db_name,
-      'org.quartz.dataSource.ipaasDS.port'     => $tic::services::params::quartz_db_port,
-      'org.quartz.dataSource.ipaasDS.user'     => $tic::services::params::quartz_db_user,
-      'org.quartz.dataSource.ipaasDS.password' => $tic::services::params::quartz_db_password,
-      'org.quartz.dataSource.ipaasDS.host'     => $tic::services::params::quartz_db_host,
+      'org.quartz.dataSource.ipaasDS.dbName'       => $tic::services::params::quartz_db_name,
+      'org.quartz.dataSource.ipaasDS.port'         => $tic::services::params::quartz_db_port,
+      'org.quartz.dataSource.ipaasDS.user'         => $tic::services::params::quartz_db_user,
+      'org.quartz.dataSource.ipaasDS.password'     => $tic::services::params::quartz_db_password,
+      'org.quartz.dataSource.ipaasDS.host'         => $tic::services::params::quartz_db_host,
+      'org.quartz.scheduler.instanceId'            => $tic::services::params::quartz_scheduler_instance_id,
+      'org.quartz.jobStore.isClustered'            => $tic::services::params::quartz_jobstore_isclustered,
+      'org.quartz.jobStore.clusterCheckinInterval' => $tic::services::params::quartz_jobstore_cluster_check_interval,
     }
   }
 

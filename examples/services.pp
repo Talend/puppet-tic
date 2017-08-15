@@ -34,6 +34,7 @@ class { '::tic::services':
     'plan_executor_client',
     'non_existing_feature',
     'logs-transfer-service-client',
+    'tipaas-scheduler',
     'dispatcher_core'
   ],
 }

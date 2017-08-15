@@ -174,6 +174,10 @@ class tic::services::params {
   $quartz_db_password = pick($tic::services::quartz_db_password, 'missing')
   $quartz_db_name     = pick($tic::services::quartz_db_name,     'scheduler')
 
+  $quartz_scheduler_instance_id           = pick($tic::services::quartz_scheduler_instance_id,           'AUTO')
+  $quartz_jobstore_isclustered            = pick($tic::services::quartz_jobstore_isclustered,            true)
+  $quartz_jobstore_cluster_check_interval = pick($tic::services::quartz_jobstore_cluster_check_interval, 20000)
+
   $trial_db_host     = pick($tic::services::trial_db_host,     $postgres_db_host)
   $trial_db_password = pick($tic::services::trial_db_password, 'missing')
 

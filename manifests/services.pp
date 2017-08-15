@@ -150,6 +150,10 @@ class tic::services (
   $quartz_db_password = undef,
   $quartz_db_name     = undef,
 
+  $quartz_scheduler_instance_id           = undef,
+  $quartz_jobstore_isclustered            = undef,
+  $quartz_jobstore_cluster_check_interval = undef,
+
   $trial_db_host     = undef,
   $trial_db_password = undef,
 
