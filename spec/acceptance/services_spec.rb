@@ -43,9 +43,9 @@ describe 'services' do
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/quartz.properties') do
-    its(:content) { should match /org.quartz.scheduler.instanceId\s*=\s*AUTO/ }
-    its(:content) { should match /org.quartz.jobStore.isClustered\s*=\s*true/ }
-    its(:content) { should match /org.quartz.jobStore.clusterCheckinInterval\s*=\s*20000/ }
+    its(:content) { should match /org.quartz.scheduler.instanceId\s*=\s*my-instance-id/ }
+    its(:content) { should match /org.quartz.jobStore.isClustered\s*=\s*false/ }
+    its(:content) { should match /org.quartz.jobStore.clusterCheckinInterval\s*=\s*777/ }
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.nodemanager.aws.cfg') do

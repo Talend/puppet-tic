@@ -27,6 +27,9 @@ class { '::tic::services':
   notification_subscription_memcached_host => 'my-memcached-host',
   notification_subscription_memcached_port => 'my-memcached-port',
   zookeeper_prefix                         => '/zookeeper/path/prefix',
+  quartz_scheduler_instance_id             => 'my-instance-id',
+  quartz_jobstore_isclustered              => false,
+  quartz_jobstore_cluster_check_interval   => 777,
   karaf_features_install                   => [
     'tipaas-bookkeeper-service',
     'tipaas-notification-subscription-service',
