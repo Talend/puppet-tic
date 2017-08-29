@@ -14,6 +14,10 @@ class tic::frontend (
   $cms_node                     = undef,
   $s3_download_contentfile_name = undef,
 
+  $redis_session_host      = undef,
+  $redis_session_port      = undef,
+  $redis_session_namespace = undef,
+
   $ams_syncope_host = undef,
 
   $sts_host     = undef,

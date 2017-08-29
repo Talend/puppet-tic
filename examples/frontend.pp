@@ -16,6 +16,9 @@ class { '::tic::frontend':
   elasticache_address     => 'some_elasticache_address',
   flow_manager_nodes      => 'flow_manager_node',
   flow_manager_url        => 'http://flow_manager_url',
+  redis_session_host      => 'redis-host',
+  redis_session_port      => 8888,
+  redis_session_namespace => 'redis-namespace',
 }
 
 if versioncmp($ipaas_frontend_build_version, '1.5') > 0 {

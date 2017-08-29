@@ -13,6 +13,9 @@ describe 'TIC Frontend' do
       it { should include '-XX:MaxPermSize=256m' }
       it { should include '-Djava.awt.headless=true' }
       it { should include '-Xmx1024m' }
+      it { should include 'SPRING_REDIS_HOST="redis-host"' }
+      it { should include 'SPRING_REDIS_PORT="8888"' }
+      it { should include 'SPRING_SESSION_REDIS_NAMESPACE="redis-namespace"' }
     end
 
     describe 'Ipaas Tomcat Instance' do

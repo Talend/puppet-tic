@@ -18,6 +18,33 @@ class tic::frontend::install {
     ]
   }
 
+  if $tic::frontend::params::redis_session_host {
+    tomcat::setenv::entry { 'SPRING_REDIS_HOST':
+      catalina_home => '/opt/apache-tomcat',
+      quote_char    => '"',
+      value         => [
+        $tic::frontend::params::redis_session_host,
+      ]
+    }
+
+    tomcat::setenv::entry { 'SPRING_REDIS_PORT':
+      catalina_home => '/opt/apache-tomcat',
+      quote_char    => '"',
+      value         => [
+        $tic::frontend::params::redis_session_port,
+      ]
+    }
+
+    tomcat::setenv::entry { 'SPRING_SESSION_REDIS_NAMESPACE':
+      catalina_home => '/opt/apache-tomcat',
+      quote_char    => '"',
+      value         => [
+        $tic::frontend::params::redis_session_namespace,
+      ]
+    }
+  }
+
+
   tomcat::instance { 'ipaas-srv':
     catalina_home  => '/opt/apache-tomcat',
     catalina_base  => '/srv/tomcat/ipaas-srv',

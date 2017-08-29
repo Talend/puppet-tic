@@ -16,6 +16,10 @@ class tic::frontend::params {
   $cms_node                     = pick($tic::frontend::cms_node,                     'localhost')
   $s3_download_contentfile_name = pick($tic::frontend::s3_download_contentfile_name, 'downloads/config/downloads.json')
 
+  $redis_session_host      = pick($tic::frontend::redis_session_host,      false)
+  $redis_session_port      = pick($tic::frontend::redis_session_port,      6379)
+  $redis_session_namespace = pick($tic::frontend::redis_session_namespace, 'ipaas')
+
   $ams_syncope_host     = pick($tic::frontend::ams_syncope_host,     'missing')
   $ams_syncope_username = pick($tic::frontend::ams_syncope_username, 'tadmin')
   $ams_syncope_password = pick($tic::frontend::ams_syncope_password, 'missing')
