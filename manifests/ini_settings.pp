@@ -15,7 +15,7 @@ define tic::ini_settings (
   validate_string($section)
   validate_string($glue)
 
-  $_settings = prefix($settings, "${real_path}:")
+  $_settings = prefix($settings, "${ensure}:${real_path}:")
 
   $joined = join_keys_to_values( $_settings, $glue )
 
