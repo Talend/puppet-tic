@@ -46,6 +46,16 @@ class tic::frontend20::config {
         'security.oauth2.client.access-token-uri'       => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/token",
         'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
       };
+
+    'ipaas_server_application_properties':
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application_properties',
+      settings => {
+        'security.oauth2.client.clientId'       => $tic::frontend20::params::server_app_oidc_clientId,
+        'security.oauth2.client.clientSecret'   => $tic::frontend20::params::server_app_oidc_clientSecret,
+        'security.oidc.client.keyUri'           => "${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
+        'security.oauth2.resource.tokenInfoUri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
+        'iam.scim.url'                          => $tic::frontend20::params::scim_service_url,
+      };
   }
 
   file_line {
