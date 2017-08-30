@@ -33,7 +33,7 @@ class tic::services20::config {
     }
   }
 
-  tic::ini_settings { "Removing old log4j configuration":
+  tic::ini_settings { 'Removing old log4j configuration':
     ensure   => absent,
     path     => "${config_dir}/org.ops4j.pax.logging.cfg",
     settings => {
@@ -41,7 +41,7 @@ class tic::services20::config {
     }
   }
 
-  tic::ini_settings { "Ensuring new log4j configuration":
+  tic::ini_settings { 'Ensuring new log4j configuration':
     ensure   => present,
     path     => "${config_dir}/org.ops4j.pax.logging.cfg",
     settings => {
