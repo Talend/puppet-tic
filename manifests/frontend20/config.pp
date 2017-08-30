@@ -36,7 +36,7 @@ class tic::frontend20::config {
       };
 
     'ipaas_application_properties':
-      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application_properties',
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.properties',
       settings => {
         'security.oauth2.client.clientId'               => $tic::frontend20::params::client_app_oidc_clientId,
         'security.oauth2.client.clientSecret'           => $tic::frontend20::params::client_app_oidc_clientSecret,
@@ -49,48 +49,6 @@ class tic::frontend20::config {
   }
 
   file_line {
-    'client application clientId':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      clientId: ${tic::frontend20::params::client_app_oidc_clientId}",
-      match  => '^[ ]{6}clientId:';
-
-    'client application clientSecret':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      clientSecret: ${tic::frontend20::params::client_app_oidc_clientSecret}",
-      match  => '^[ ]{6}clientSecret:';
-
-    'client application user authorization uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      user-authorization-uri: ${tic::frontend20::params::iam_oidc_front_url}/idp/authorize",
-      match  => '^[ ]{6}user-authorization-uri:';
-
-    'client application user logout uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      endSessionEndpoint: ${tic::frontend20::params::iam_oidc_front_url}/idp/logout",
-      match  => '^[ ]{6}endSessionEndpoint:';
-
-    'client application oidc key uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      keyUri: ${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
-      match  => '^[ ]{6}keyUri:';
-
-    'client application access token uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      access-token-uri: ${tic::frontend20::params::iam_oidc_back_url}/oauth2/token",
-      match  => '^[ ]{6}access-token-uri:';
-
-    'client application token info uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.yml',
-      line   => "      tokenInfoUri: ${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
-      match  => '^[ ]{6}tokenInfoUri:';
-
     'server application clientId':
       ensure => present,
       path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
