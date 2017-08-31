@@ -48,7 +48,7 @@ class tic::frontend20::config {
       };
 
     'ipaas_server_application_properties':
-      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application_properties',
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.properties',
       settings => {
         'security.oauth2.client.clientId'       => $tic::frontend20::params::server_app_oidc_clientId,
         'security.oauth2.client.clientSecret'   => $tic::frontend20::params::server_app_oidc_clientSecret,
@@ -56,38 +56,6 @@ class tic::frontend20::config {
         'security.oauth2.resource.tokenInfoUri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
         'iam.scim.url'                          => $tic::frontend20::params::scim_service_url,
       };
-  }
-
-  file_line {
-    'server application clientId':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      clientId: ${tic::frontend20::params::server_app_oidc_clientId}",
-      match  => '^[ ]{6}clientId:';
-
-    'server application clientSecret':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      clientSecret: ${tic::frontend20::params::server_app_oidc_clientSecret}",
-      match  => '^[ ]{6}clientSecret:';
-
-    'server application oidc key uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      keyUri: ${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
-      match  => '^[ ]{6}keyUri:';
-
-    'server application token info uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "      tokenInfoUri: ${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
-      match  => '^[ ]{6}tokenInfoUri:';
-
-    'server application scim uri':
-      ensure => present,
-      path   => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.yml',
-      line   => "    url: ${tic::frontend20::params::scim_service_url}",
-      match  => '^[ ]{4}url:';
   }
 
   $workspace_url    = $tic::frontend20::params::workspace_url
