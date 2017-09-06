@@ -33,14 +33,6 @@ class tic::services20::config {
     }
   }
 
-  tic::ini_settings { 'Removing old log4j configuration':
-    ensure   => absent,
-    path     => "${config_dir}/org.ops4j.pax.logging.cfg",
-    settings => {
-      'log4j.logger.org.talend.ipaas' => $tic::services::params::logging_level,
-    }
-  }
-
   tic::ini_settings { 'Ensuring new log4j configuration':
     ensure   => present,
     path     => "${config_dir}/org.ops4j.pax.logging.cfg",
