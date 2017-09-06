@@ -43,7 +43,7 @@ class tic::frontend20::config {
         'security.oauth2.client.user-authorization-uri' => "${tic::frontend20::params::iam_oidc_front_url}/idp/authorize",
         'security.oidc.client.endSessionEndpoint'       => "${tic::frontend20::params::iam_oidc_front_url}/idp/logout",
         'security.oidc.client.keyUri'                   => "${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
-        'security.oidc.client.expectedIssuer'           => "${tic::frontend20::params::iam_oidc_front_url}",
+        'security.oidc.client.expectedIssuer'           => ${tic::frontend20::params::iam_oidc_front_url},
         'security.oauth2.client.access-token-uri'       => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/token",
         'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
         # matches the last part of tic::frontend::redis_session_namespace
