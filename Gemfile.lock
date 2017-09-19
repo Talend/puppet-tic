@@ -150,6 +150,3 @@ DEPENDENCIES
   serverspec
   test-kitchen
   vagrant-wrapper
-
-BUNDLED WITH
-   1.12.5

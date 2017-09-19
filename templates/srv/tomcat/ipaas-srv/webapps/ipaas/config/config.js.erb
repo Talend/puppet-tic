@@ -21,11 +21,11 @@ consoleConfig = {
     IPAAS_MARKETO_MUNCHKIN : true,
     IPAAS_MARKETO_MUNCHKIN_KEY : '347-IAT-677',
 
-    MIXPANEL_ENABLED: true,
-    MIXPANEL_IPAAS_KEY: 'ee4a587b7a986d69562fcbb05d42ade1',
+    MIXPANEL_ENABLED: <%= @mixpanel_enabled %>,
+    MIXPANEL_IPAAS_KEY: '<%= @mixpanel_ipaas_key %>',
 
-    PENDO_ENABLED: true,
-    PENDO_IPAAS_KEY: '607d926e-19bf-4f39-575d-58aed1b24a6d',
+    PENDO_ENABLED: <%= @pendo_enabled %>,
+    PENDO_IPAAS_KEY: '<%= @pendo_ipaas_key %>',
 
     IPAAS_SPS : true,
 

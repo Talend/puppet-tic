@@ -71,6 +71,10 @@ describe 'TIC Frontend' do
       its(:content) { should include 'BASE_URL : \'123456\',' }
       its(:content) { should include 'EXCHANGE_URL : \'123456\',' }
       its(:content) { should include 'TCOMP_STATIC_IPS: \'890,123,321\',' }
+      its(:content) { should include 'MIXPANEL_ENABLED: true,' }
+      its(:content) { should include 'MIXPANEL_IPAAS_KEY: \'qwerty\',' }
+      its(:content) { should include 'PENDO_ENABLED: true,' }
+      its(:content) { should include 'PENDO_IPAAS_KEY: \'asdfgh\',' }
     end
 
     %w(
