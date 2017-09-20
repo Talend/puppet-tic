@@ -26,4 +26,9 @@ class tic::frontend20::params {
   $help_url        = pick($tic::frontend20::help_url,        'https://help.talend.com/search/books?filters=EnrichProdName~%2522Talend+Integration+Cloud%2522*EnrichVersion~%2522Cloud+Beta%2522')
 
   $tcomp_static_ips = pick($tic::frontend20::tcomp_static_ips, '')
+
+  $mixpanel_enabled   = pick($tic::frontend20::mixpanel_enabled,   false)
+  $mixpanel_ipaas_key = pick($tic::frontend20::mixpanel_ipaas_key, 'unconfigured')
+  $pendo_enabled      = pick($tic::frontend20::pendo_enabled,      false)
+  $pendo_ipaas_key    = pick($tic::frontend20::pendo_ipaas_key,    'unconfigured')
 }

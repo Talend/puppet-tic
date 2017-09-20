@@ -21,6 +21,12 @@ consoleConfig = {
     IPAAS_MARKETO_MUNCHKIN : true,
     IPAAS_MARKETO_MUNCHKIN_KEY : '347-IAT-677',
 
+    MIXPANEL_ENABLED: <%= @mixpanel_enabled %>,
+    MIXPANEL_IPAAS_KEY: '<%= @mixpanel_ipaas_key %>',
+
+    PENDO_ENABLED: <%= @pendo_enabled %>,
+    PENDO_IPAAS_KEY: '<%= @pendo_ipaas_key %>',
+
     IPAAS_SPS : true,
 
     TCOMP_STATIC_IPS: '<%= @tcomp_static_ips %>',
