@@ -23,7 +23,7 @@ class tic::frontend20::params {
   $portal_url      = pick($tic::frontend20::portal_url,      'unconfigured')
   $tdp_url         = pick($tic::frontend20::tdp_url,         'unconfigured')
   $tmc_url         = pick($tic::frontend20::tmc_url,         'unconfigured')
-  $help_url        = pick($tic::frontend20::help_url,        'https://help.talend.com/search/books?filters=EnrichProdName~%2522Talend+Integration+Cloud%2522*EnrichVersion~%2522Cloud+Beta%2522')
+  $help_url        = pick($tic::frontend20::help_url,        'https://help.talend.com/search/all?filters=EnrichPlatform~%2522Talend+Integration+Cloud%2522_%2522Talend+Studio%2522*EnrichVersion~%2522Cloud%2522&content-lang=en')
 
   $tcomp_static_ips = pick($tic::frontend20::tcomp_static_ips, '')
 
