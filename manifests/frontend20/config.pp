@@ -58,6 +58,7 @@ class tic::frontend20::config {
         'security.oidc.client.keyUri'           => "${tic::frontend20::params::iam_oidc_back_url}/jwk/keys",
         'security.oauth2.resource.tokenInfoUri' => "${tic::frontend20::params::iam_oidc_back_url}/oauth2/introspect",
         'iam.scim.url'                          => $tic::frontend20::params::scim_service_url,
+        'minConnectionsPerHost'                 => '0',
       };
   }
 

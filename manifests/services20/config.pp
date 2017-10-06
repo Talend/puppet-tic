@@ -42,4 +42,12 @@ class tic::services20::config {
     }
   }
 
+  tic::ini_settings { 'ensuring minConnectionsPerHost':
+    ensure   => present,
+    path     => "${config_dir}/org.talend.ipaas.rt.mongo.common.cfg",
+    settings => {
+      'minConnectionsPerHost' => '0',
+    }
+  }
+
 }
