@@ -13,7 +13,6 @@
     {"name": "computology-packagecloud", "version_requirement": "0.x"},
     {"name": "herculesteam/augeasproviders_core", "version_requirement": "2.x"},
     {"name": "herculesteam/augeasproviders_shellvar", "version_requirement": "2.x"},
-    {"name": "jfryman/nginx", "version_requirement": "0.x"},
     {"name": "justinclayton/serf", "version_requirement": "1.x"},
     {"name": "puppetlabs/java","version_requirement":"1.x"},
     {"name": "puppetlabs/postgresql", "version_requirement": "4.x"},
