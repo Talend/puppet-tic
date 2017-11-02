@@ -8,12 +8,10 @@ class tic::services20::config {
 
   $features = unique($tic::services20::params::karaf_features_install)
 
-  if 'tipaas-account-manager-service' in $features {
-    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg":
-      settings => {
-        'iam.service.url'  => $tic::services20::params::iam_service_url,
-        'scim.service.url' => $tic::services20::params::scim_service_url,
-      }
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg":
+    settings => {
+      'iam.service.url'  => $tic::services20::params::iam_service_url,
+      'scim.service.url' => $tic::services20::params::scim_service_url,
     }
   }
 
