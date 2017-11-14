@@ -93,7 +93,7 @@ class tic::frontend::params {
   $tmc_url         = pick($tic::frontend::tmc_url,         'unconfigured')
   $help_url        = pick($tic::frontend::help_url,        'https://help.talend.com/search/all?filters=EnrichPlatform~%2522Talend+Integration+Cloud%2522_%2522Talend+Studio%2522*EnrichVersion~%2522Cloud%2522&content-lang=en')
 
-  $tcomp_static_ips = pick($tic::frontend::tcomp_static_ips, '')
+  $tcomp_static_ips = pick_default($tic::frontend::tcomp_static_ips, '')
 
   $mixpanel_enabled   = pick($tic::frontend::mixpanel_enabled,   false)
   $mixpanel_ipaas_key = pick($tic::frontend::mixpanel_ipaas_key, 'unconfigured')
