@@ -13,40 +13,40 @@ class tic::services::config {
   tic::ini_settings {
 
     'iam_scim_client':
-      path => "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg",
+      path     => "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg",
       settings => {
         'iam.service.url'  => $tic::services::params::iam_service_url,
         'scim.service.url' => $tic::services::params::scim_service_url,
       };
 
     'karaf_features':
-      path => "${config_dir}/org.apache.karaf.features.cfg",
+      path     => "${config_dir}/org.apache.karaf.features.cfg",
       settings => {
         'featuresBoot' => join($features, ','),
       };
 
     'eventlogging_server':
-      path => "${config_dir}/org.talend.eventlogging.server.cfg",
+      path     => "${config_dir}/org.talend.eventlogging.server.cfg",
       settings => {
         'elasticsearch.host' => $tic::services::params::elasticsearch_host,
         'elasticsearch.port' => $tic::services::params::elasticsearch_port,
       };
 
     'log4j_configuration':
-      path => "${config_dir}/org.ops4j.pax.logging.cfg",
+      path     => "${config_dir}/org.ops4j.pax.logging.cfg",
       settings => {
         'log4j2.logger.ipaas.name'  => 'org.talend.ipaas',
         'log4j2.logger.ipaas.level' => $tic::services::params::logging_level,
       };
 
     'eventsource_amq':
-      path => "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg",
+      path     => "${config_dir}/org.talend.ipaas.rt.eventsource.amq.cfg",
       settings => {
         'log.messages' => $tic::services::params::log_amq_messages,
       };
 
     'ams_datasource':
-      path => "${config_dir}/org.talend.ipaas.rt.ams.datasource.cfg",
+      path     => "${config_dir}/org.talend.ipaas.rt.ams.datasource.cfg",
       settings => {
         'datasource.servername'   => $tic::services::params::ams_postgres_server,
         'datasource.username'     => 'ams',
@@ -55,7 +55,7 @@ class tic::services::config {
       };
 
     'ams_core':
-      path => "${config_dir}/org.talend.ipaas.rt.ams.core.cfg",
+      path     => "${config_dir}/org.talend.ipaas.rt.ams.core.cfg",
       settings => {
         'mongodb.uri'                 => $tic::services::params::mongo_uri,
         'syncope.service.url'         => $tic::services::params::ams_syncope_url,
@@ -76,7 +76,7 @@ class tic::services::config {
       };
 
     'pax_web':
-      path => "${config_dir}/org.ops4j.pax.web.cfg",
+      path     => "${config_dir}/org.ops4j.pax.web.cfg",
       settings => {
         'org.osgi.service.http.port' => $tic::services::params::osgi_http_service_port,
       };
