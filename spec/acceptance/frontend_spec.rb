@@ -89,15 +89,10 @@ describe 'TIC Frontend' do
       end
     end
 
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml') do
-      its(:content) { should include 'memcachedNodes="some_elasticache_address:11211"' }
-    end
-
     %w(
     /srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js
     /srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf
     /srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf
-    /srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml
     ).each do |f|
       describe file(f) do
         it { should be_file }
@@ -108,24 +103,19 @@ describe 'TIC Frontend' do
       its(:content) { should include '<secure>true</secure>' }
     end
 
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml') do
-      its(:content) { should include '<welcome-file>index-min.jsp</welcome-file>' }
-    end
-
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/ipaas_server.properties') do
       its(:content) { should include 'container_management_url=http://testcmsnode:8181/services/container-management-service' }
       its(:content) { should include 'flow_manager_url=http://flow_manager_url' }
-      its(:content) { should include 'memcached.addresses=some_elasticache_address:11211' }
       its(:content) { should include 'scim_service_url=http://scim-test-node' }
       its(:content) { should_not include 'flow_manager_node' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties') do
-      its(:content) { should include 'scim_service_url=http://scim-test-node' }
+      its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
-      its(:content) { should include 'scim_service_url=http://scim-test-node' }
+      its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template') do

@@ -12,11 +12,7 @@ class tic::services::params {
   $karaf_service_enable   = pick($tic::services::karaf_service_enable, true)
   $osgi_http_service_port = pick($tic::services::osgi_http_service_port, 8181)
 
-  $karaf_features_install = pick(
-    $tic::services::karaf_features_install,
-    []
-  )
-  $karaf_boot_features_real = join($karaf_features_install, ',')
+  $karaf_features_install = pick($tic::services::karaf_features_install, [])
 
   $logging_level    = pick($tic::services::logging_level,    'INFO')
   $log_amq_messages = pick($tic::services::log_amq_messages, false)
@@ -28,7 +24,6 @@ class tic::services::params {
   $bookkeeper_service_nodes = pick($tic::services::bookkeeper_service_nodes, 'localhost')
   $cms_node                 = pick($tic::services::cms_node,                 'localhost')
   $config_service_node      = pick($tic::services::config_service_node,      'localhost')
-  $crypto_service_nodes     = pick($tic::services::crypto_service_nodes,     'localhost')
   $dts_service_node         = pick($tic::services::dts_service_node,         'localhost')
   $lts_service_node         = pick($tic::services::lts_service_node,         'localhost')
   $flow_manager_nodes       = pick($tic::services::flow_manager_nodes,       'localhost')
@@ -61,8 +56,6 @@ class tic::services::params {
   $cms_lts_service_url    = pick($tic::services::cms_lts_service_url, 'unconfigured')
   $cms_nexus_url          = pick($tic::services::cms_nexus_url, 'unconfigured')
   $cms_url                = pick($tic::services::cms_url, "http://${cms_node}:8181/services/container-management-service")
-  $config_service_url     = pick($tic::services::config_service_url, "http://${config_service_node}:8181/services/configuration-service")
-  $crypto_service_url     = pick($tic::services::crypto_service_url, inline_template('http://<%= @crypto_service_nodes.split(",")[0] %>:8181/services/crypto-service'))
   $dts_service_url        = pick($tic::services::dts_service_url, inline_template('http://<%= @dts_service_node %>:8181/services/data-transfer-service'))
   $lts_service_url        = pick($tic::services::lts_service_url, inline_template('http://<%= @lts_service_node %>:8181/services/logs-transfer-service-runtime'))
   $flow_manager_url       = pick($tic::services::flow_manager_url, inline_template('http://<%= @flow_manager_nodes.split(",")[0] %>:8181/services/flow-manager-service'))
@@ -227,5 +220,10 @@ class tic::services::params {
 
   $dispatcher_input_queue    = pick($tic::services::dispatcher_input_queue,    'ipaas.talend.dispatcher.input.queue')
   $dispatcher_response_queue = pick($tic::services::dispatcher_response_queue, 'ipaas.talend.dispatcher.response.queue')
+
+  $iam_service_url        = pick($tic::services::iam_service_url,    'unconfigured')
+  $scim_service_url       = pick($tic::services::scim_service_url,   'unconfigured')
+  $crypto_service_url     = pick($tic::services::crypto_service_url, 'unconfigured')
+  $config_service_url     = pick($tic::services::config_service_url, 'unconfigured')
 
 }
