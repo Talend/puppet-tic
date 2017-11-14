@@ -33,7 +33,6 @@ class tic::frontend::params {
 
   $account_manager_nodes           = pick($tic::frontend::account_manager_nodes,           'localhost')
   $artifact_manager_nodes          = pick($tic::frontend::artifact_manager_nodes,          'localhost')
-  $crypto_service_nodes            = pick($tic::frontend::crypto_service_nodes,            'localhost')
   $custom_resources_nodes          = pick($tic::frontend::custom_resources_nodes,          'localhost')
   $data_prep_service_nodes         = pick($tic::frontend::data_prep_service_nodes,         'localhost')
   $dts_service_node                = pick($tic::frontend::dts_service_node,                $::hostname)
@@ -53,7 +52,6 @@ class tic::frontend::params {
   $ams_url                        = pick($tic::frontend::ams_url,                        inline_template('http://<%= @account_manager_nodes.split(",")[0] %>:8181/services/account-management-service'))
   $artifact_manager_url           = pick($tic::frontend::artifact_manager_url,           inline_template('http://<%= @artifact_manager_nodes.split(",")[0] %>:8181/services/artifact-manager-service'))
   $cms_url                        = pick($tic::frontend::cms_url,                        "http://${cms_node}:8181/services/container-management-service")
-  $crypto_service_url             = pick($tic::frontend::crypto_service_url,             inline_template('http://<%= @crypto_service_nodes.split(",")[0] %>:8181/services/crypto-service'))
   $custom_resources_url           = pick($tic::frontend::custom_resources_url,           inline_template('http://<%= @custom_resources_nodes.split(",")[0] %>:8181/services/custom-resources'))
   $data_prep_service_url          = pick($tic::frontend::data_prep_service_url,          inline_template('<%= @data_prep_service_nodes.split(",").map { |a| "http://"+a+":8080/datasets" }.join(",") %>'))
   $dts_service_url                = pick($tic::frontend::dts_service_url,                inline_template('http://<%= @dts_service_node %>:8181/services/data-transfer-service'))
@@ -69,5 +67,37 @@ class tic::frontend::params {
 
   $custom_resources_username = pick($tic::frontend::custom_resources_username, 'tadmin')
   $custom_resources_password = pick($tic::frontend::custom_resources_password, 'missing')
+
+  $scim_service_node = pick($tic::frontend::scim_service_node, 'localhost')
+  $scim_service_url  = pick($tic::frontend::scim_service_url, "http://${scim_service_node}")
+
+  $iam_oidc_front_url  = pick($tic::frontend::iam_oidc_front_url, "http://${scim_service_node}")
+  $iam_oidc_back_url  = pick($tic::frontend::iam_oidc_back_url, "http://${scim_service_node}")
+
+  $client_app_oidc_clientId      = pick($tic::frontend::client_app_oidc_clientId,     'unconfigured')
+  $client_app_oidc_clientSecret  = pick($tic::frontend::client_app_oidc_clientSecret, 'unconfigured')
+  $server_app_oidc_clientId      = pick($tic::frontend::server_app_oidc_clientId,     'unconfigured')
+  $server_app_oidc_clientSecret  = pick($tic::frontend::server_app_oidc_clientSecret, 'unconfigured')
+  $crypto_service_url            = pick($tic::frontend::crypto_service_url, "http://${crypto_service_node}")
+
+  $config_tpsvc_service_url      = pick($tic::frontend::config_tpsvc_service_url, 'unconfigured')
+  $logquery_tpsvc_service_url    = pick($tic::frontend::logquery_tpsvc_service_url, 'unconfigured')
+
+  $basic_auth_oidc_clientId      = pick($tic::frontend::basic_auth_oidc_clientId, 'unconfigured')
+  $basic_auth_oidc_clientSecret  = pick($tic::frontend::basic_auth_oidc_clientSecret, 'unconfigured')
+
+  $workspace_url   = pick($tic::frontend::workspace_url,   '/ipaas-server/services')
+  $marketplace_url = pick($tic::frontend::marketplace_url, 'https://exchange.talend.com')
+  $portal_url      = pick($tic::frontend::portal_url,      'unconfigured')
+  $tdp_url         = pick($tic::frontend::tdp_url,         'unconfigured')
+  $tmc_url         = pick($tic::frontend::tmc_url,         'unconfigured')
+  $help_url        = pick($tic::frontend::help_url,        'https://help.talend.com/search/all?filters=EnrichPlatform~%2522Talend+Integration+Cloud%2522_%2522Talend+Studio%2522*EnrichVersion~%2522Cloud%2522&content-lang=en')
+
+  $tcomp_static_ips = pick($tic::frontend::tcomp_static_ips, '')
+
+  $mixpanel_enabled   = pick($tic::frontend::mixpanel_enabled,   false)
+  $mixpanel_ipaas_key = pick($tic::frontend::mixpanel_ipaas_key, 'unconfigured')
+  $pendo_enabled      = pick($tic::frontend::pendo_enabled,      false)
+  $pendo_ipaas_key    = pick($tic::frontend::pendo_ipaas_key,    'unconfigured')
 
 }

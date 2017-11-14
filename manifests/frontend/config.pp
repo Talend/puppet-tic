@@ -78,30 +78,94 @@ class tic::frontend::config {
       'downloads_config'                      => $tic::frontend::params::s3_download_contentfile_name,
       'log_transfer_service_url'              => $tic::frontend::params::logs_log_transfer_service_url,
       'memcached.addresses'                   => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
+      'scim_service_url'                      => $tic::frontend::params::scim_service_url,
+      'crypto_tpsvc_service_url'              => $tic::frontend::params::crypto_service_url,
+      'config_tpsvc_service_url'              => $tic::frontend::params::config_tpsvc_service_url,
+      'logquery_tpsvc_service_url'            => $tic::frontend::params::logquery_tpsvc_service_url,
+      'marketplace_service_url'               => "${marketplace_url}/api/",
     }
   }
 
   # ipaas-services
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
     settings => {
-      'workspace_service_url'     => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
-      'account_manager_url'       => $tic::frontend::params::ams_url,
-      'artifact_manager_url'      => $tic::frontend::params::artifact_manager_url,
-      'custom_resources_url'      => $tic::frontend::params::custom_resources_url,
-      'custom_resources_username' => $tic::frontend::params::custom_resources_username,
-      'custom_resources_password' => $tic::frontend::params::custom_resources_password,
-      'memcached.addresses'       => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
+      'workspace_service_url'                   => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
+      'account_manager_url'                     => $tic::frontend::params::ams_url,
+      'artifact_manager_url'                    => $tic::frontend::params::artifact_manager_url,
+      'custom_resources_url'                    => $tic::frontend::params::custom_resources_url,
+      'custom_resources_username'               => $tic::frontend::params::custom_resources_username,
+      'custom_resources_password'               => $tic::frontend::params::custom_resources_password,
+      'memcached.addresses'                     => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
+      'scim_service_url'                        => $tic::frontend::params::scim_service_url,
+      'security.oauth2.client.client_id'        => $tic::frontend::params::basic_auth_oidc_clientId,
+      'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
+      'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
+      'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+      'iam.scim.url'                            => $tic::frontend::params::scim_service_url
     }
   }
 
   # ipaas-api
   tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties':
     settings => {
-      'ipaas_service_url'   => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
-      'account_manager_url' => $tic::frontend::params::ams_url,
-      'flow_manager_url'    => $tic::frontend::params::flow_manager_url,
-      'memcached.addresses' => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
+      'ipaas_service_url'                       => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
+      'account_manager_url'                     => $tic::frontend::params::ams_url,
+      'flow_manager_url'                        => $tic::frontend::params::flow_manager_url,
+      'memcached.addresses'                     => "${tic::frontend::params::elasticache_address}:${tic::frontend::params::elasticache_port}",
+      'scim_service_url'                        => $tic::frontend::params::scim_service_url,
+      'security.oauth2.client.client_id'        => $tic::frontend::params::basic_auth_oidc_clientId,
+      'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
+      'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
+      'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+      'iam.scim.url'                            => $tic::frontend::params::scim_service_url
     }
+  }
+
+  tic::ini_settings {
+
+    'ipaas_application_properties':
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.properties',
+      settings => {
+        'security.oauth2.client.clientId'               => $tic::frontend::params::client_app_oidc_clientId,
+        'security.oauth2.client.clientSecret'           => $tic::frontend::params::client_app_oidc_clientSecret,
+        'security.oauth2.client.user-authorization-uri' => "${tic::frontend::params::iam_oidc_front_url}/idp/authorize",
+        'security.oidc.client.endSessionEndpoint'       => "${tic::frontend::params::iam_oidc_front_url}/idp/logout",
+        'security.oidc.client.keyUri'                   => "${tic::frontend::params::iam_oidc_back_url}/jwk/keys",
+        'security.oidc.client.expectedIssuer'           => $tic::frontend::params::iam_oidc_front_url,
+        'security.oauth2.client.access-token-uri'       => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
+        'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+        # matches the last part of tic::frontend::redis_session_namespace
+        'spring.session.redis.namespace'                => 'Tipaas',
+      };
+
+    'ipaas_server_application_properties':
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.properties',
+      settings => {
+        'security.oauth2.client.clientId'       => $tic::frontend::params::server_app_oidc_clientId,
+        'security.oauth2.client.clientSecret'   => $tic::frontend::params::server_app_oidc_clientSecret,
+        'security.oidc.client.keyUri'           => "${tic::frontend::params::iam_oidc_back_url}/jwk/keys",
+        'security.oauth2.resource.tokenInfoUri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+        'iam.scim.url'                          => $tic::frontend::params::scim_service_url,
+        'minConnectionsPerHost'                 => '0',
+      };
+
+  }
+
+  $workspace_url    = $tic::frontend::params::workspace_url
+  $marketplace_url  = $tic::frontend::params::marketplace_url
+  $portal_url       = $tic::frontend::params::portal_url
+  $tdp_url          = $tic::frontend::params::tdp_url
+  $tmc_url          = $tic::frontend::params::tmc_url
+  $help_url         = $tic::frontend::params::help_url
+  $tcomp_static_ips = regsubst($tic::frontend::params::tcomp_static_ips, '[\s\[\]\"]', '', 'G')
+
+  $mixpanel_enabled   = $tic::frontend::params::mixpanel_enabled
+  $mixpanel_ipaas_key = $tic::frontend::params::mixpanel_ipaas_key
+  $pendo_enabled      = $tic::frontend::params::pendo_enabled
+  $pendo_ipaas_key    = $tic::frontend::params::pendo_ipaas_key
+
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
+    content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');
   }
 
   if $::t_environment == 'dv' and $::t_subenv != 'build' {
