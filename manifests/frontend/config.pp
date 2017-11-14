@@ -171,16 +171,10 @@ class tic::frontend::config {
     $index_file = 'index-min.jsp'
   }
 
-  file_line {
-    'web_use_ssl':
-      path  => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/web.xml',
-      line  => "<secure>${web_use_ssl}</secure>",
-      match => '<secure>(true)|(false)</secure>';
-
-    'web_use_mini_js':
-      path  => '/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/web.xml',
-      line  => "<welcome-file>${index_file}</welcome-file>",
-      match => '<welcome-file>';
+  file_line { 'web_use_ssl':
+    path  => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/web.xml',
+    line  => "<secure>${web_use_ssl}</secure>",
+    match => '<secure>(true)|(false)</secure>';
   }
 
   # parse aws account id for the tic_s3_access.template.erb template
