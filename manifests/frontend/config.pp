@@ -24,9 +24,6 @@ class tic::frontend::config {
     '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf':
       content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf.erb');
 
-    '/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml':
-      content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas-server/META-INF/context.xml.erb');
-
     '/srv/tomcat/ipaas-srv/webapps/ROOT':
       ensure => link,
       target => '/srv/tomcat/ipaas-srv/webapps/ipaas'
