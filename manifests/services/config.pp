@@ -7,7 +7,31 @@ class tic::services::config {
   $config_dir = "${tic::services::params::karaf_base_path}/etc"
 
   $features = unique($tic::services::params::karaf_features_install)
+
   tic::services::features::install { $features: }
+
+  tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.iam.scim.client.cfg":
+    settings => {
+      'iam.service.url'  => $tic::services::params::iam_service_url,
+      'scim.service.url' => $tic::services::params::scim_service_url,
+    }
+  }
+
+  if 'tipaas-tpsvc-crypto-client' in $features {
+    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.tpsvc.crypto.client.cfg":
+      settings => {
+        'crypto.tpsvc.service.url' => $tic::services::params::crypto_service_url
+      }
+    }
+  }
+
+  if 'tpsvc-config-client' in $features {
+    tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.tpsvc.config.client.cfg":
+      settings => {
+        'config.service.url' => $tic::services::params::config_service_url
+      }
+    }
+  }
 
   if $tic::services::params::activemq_nodes_count >= $tic::services::params::min_activemq_brokers {
     tic::ini_settings { 'eventsource.amq':
@@ -30,21 +54,9 @@ class tic::services::config {
     warning("got ${tic::services::params::activemq_nodes_count} activemq nodes, expected ${tic::services::params::min_activemq_brokers}")
   }
 
-  if versioncmp($::ipaas_rt_infra_build_version, '2.0') > 0 {
-      $features20 = hiera('tic::services20::karaf_features_install', [])
-      $features20_remove = hiera('tic::services20::karaf_features_remove', [])
-  } else {
-      $features20 = []
-      $features20_remove = []
-  }
-
-  $features_all = concat($tic::services::params::karaf_features_install, $features20)
-  $features_remove = delete($features_all, $features20_remove)
-  $features_all_str = join($features_remove, ',')
-
   tic::ini_settings { "${config_dir}/org.apache.karaf.features.cfg":
     settings => {
-      'featuresBoot' => $features_all_str,
+      'featuresBoot' => join($tic::services::params::karaf_features_install, ','),
     }
   }
 
@@ -55,9 +67,12 @@ class tic::services::config {
     }
   }
 
-  tic::ini_settings { "${config_dir}/org.ops4j.pax.logging.cfg":
+  tic::ini_settings { 'Ensuring new log4j configuration':
+    ensure   => present,
+    path     => "${config_dir}/org.ops4j.pax.logging.cfg",
     settings => {
-      'log4j.logger.org.talend.ipaas' => $tic::services::params::logging_level,
+      'log4j2.logger.ipaas.name'  => 'org.talend.ipaas',
+      'log4j2.logger.ipaas.level' => $tic::services::params::logging_level,
     }
   }
 
@@ -102,6 +117,14 @@ class tic::services::config {
   tic::ini_settings { "${config_dir}/org.ops4j.pax.web.cfg":
     settings => {
       'org.osgi.service.http.port' => $tic::services::params::osgi_http_service_port,
+    }
+  }
+
+  tic::ini_settings { 'ensuring minConnectionsPerHost':
+    ensure   => present,
+    path     => "${config_dir}/org.talend.ipaas.rt.mongo.common.cfg",
+    settings => {
+      'minConnectionsPerHost' => '0',
     }
   }
 

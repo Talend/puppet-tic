@@ -24,7 +24,6 @@ class tic::services (
   $bookkeeper_service_nodes = undef,
   $cms_node                 = undef,
   $config_service_node      = undef,
-  $crypto_service_nodes     = undef,
   $dts_service_node         = undef,
   $lts_service_node         = undef,
   $flow_manager_nodes       = undef,
@@ -201,6 +200,11 @@ class tic::services (
 
   $dispatcher_input_queue    = undef,
   $dispatcher_response_queue = undef,
+
+  $iam_service_url        = undef,
+  $scim_service_url       = undef,
+  $crypto_service_url     = undef,
+  $config_service_url     = undef,
 
 ) {
 

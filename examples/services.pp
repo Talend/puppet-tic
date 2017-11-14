@@ -30,6 +30,8 @@ class { '::tic::services':
   quartz_scheduler_instance_id             => 'my-instance-id',
   quartz_jobstore_isclustered              => false,
   quartz_jobstore_cluster_check_interval   => 777,
+  iam_service_url                          => 'iam-test-url',
+  scim_service_url                         => 'http://scim-test-node',
   karaf_features_install                   => [
     'tipaas-bookkeeper-service',
     'tipaas-notification-subscription-service',
@@ -38,14 +40,7 @@ class { '::tic::services':
     'non_existing_feature',
     'logs-transfer-service-client',
     'tipaas-scheduler',
-    'dispatcher_core'
+    'dispatcher_core',
+    'tipaas-account-manager-service',
   ],
-}
-
-if versioncmp($ipaas_rt_infra_installed_version, '1.5') > 0 or versioncmp($ipaas_rt_infra_build_version, '1.5') > 0 {
-  class { 'tic::services20':
-    karaf_features_install => ['tipaas-account-manager-service'],
-    iam_service_url        => 'iam-test-url',
-    scim_service_node      => 'scim-test-node',
-  }
 }
