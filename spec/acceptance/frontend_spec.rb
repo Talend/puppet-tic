@@ -78,21 +78,7 @@ describe 'TIC Frontend' do
     end
 
     %w(
-      /srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf
-      /srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf
-      /srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf
-    ).each do |f|
-      describe file(f) do
-        its(:content) { should include 'wsdl.location="http://missing:8080/sts/SecurityTokenService/UT?wsdl"' }
-        its(:content) { should include 'ws-security.username="tadmin"' }
-        its(:content) { should include 'ws-security.password="missing";' }
-      end
-    end
-
-    %w(
     /srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js
-    /srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf
-    /srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf
     ).each do |f|
       describe file(f) do
         it { should be_file }

@@ -14,19 +14,9 @@ class tic::frontend::config {
   validate_bool($web_enable_test_context)
   validate_bool($web_use_ssl)
 
-  file {
-    '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf':
-      content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-services.conf.erb');
-
-    '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf':
-      content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-inventory.conf.erb');
-
-    '/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf':
-      content => template('tic/srv/tomcat/ipaas-srv/conf/jaas-ipaas-server.conf.erb');
-
-    '/srv/tomcat/ipaas-srv/webapps/ROOT':
-      ensure => link,
-      target => '/srv/tomcat/ipaas-srv/webapps/ipaas'
+  file { '/srv/tomcat/ipaas-srv/webapps/ROOT':
+    ensure => link,
+    target => '/srv/tomcat/ipaas-srv/webapps/ipaas'
   }
 
   if $web_enable_test_context {
