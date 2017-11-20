@@ -110,6 +110,8 @@ class tic::services::params {
   $dts_shared_secret            = pick($tic::services::dts_shared_secret,            'missing')
   $dts_s3_prefix                = pick($tic::services::dts_s3_prefix,                'default')
 
+  $time_to_unknown = pick($tic::services::time_to_unknown, 172800)
+
   $rt_aws_region                 = pick($tic::services::rt_aws_region,                 'local')
   $flow_undeploy_after_completed = pick($tic::services::flow_undeploy_after_completed, true)
 
