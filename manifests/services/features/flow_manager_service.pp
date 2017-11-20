@@ -5,6 +5,7 @@ class tic::services::features::flow_manager_service {
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.flowmanager.cfg":
     settings => {
       'check.code.secret'   => $tic::services::params::dts_shared_secret,
+      'time.to.unknown'     => $tic::services::params::time_to_unknown,
       'queue.response.name' => 'ipaas.talend.flowmanager.response.queue',
     }
   }
