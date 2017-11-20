@@ -42,5 +42,7 @@ class { '::tic::services':
     'tipaas-scheduler',
     'dispatcher_core',
     'tipaas-account-manager-service',
+    'tipaas-flow-manager-service',
   ],
+  time_to_unknown                          => 999,
 }
