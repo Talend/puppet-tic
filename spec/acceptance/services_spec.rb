@@ -42,6 +42,10 @@ describe 'services' do
     its(:content) { should include 'pe.service.password=missing' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.flowmanager.cfg') do
+    its(:content) { should include 'time.to.unknown=999' }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/etc/quartz.properties') do
     its(:content) { should match /org.quartz.scheduler.instanceId\s*=\s*my-instance-id/ }
     its(:content) { should match /org.quartz.jobStore.isClustered\s*=\s*false/ }

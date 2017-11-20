@@ -105,6 +105,8 @@ class tic::services (
   $dts_shared_secret            = undef,
   $dts_s3_prefix                = undef,
 
+  $time_to_unknown = undef,
+
   $rt_aws_region                 = undef,
   $flow_undeploy_after_completed = undef,
 
