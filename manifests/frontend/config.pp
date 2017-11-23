@@ -136,10 +136,12 @@ class tic::frontend::config {
   $help_url         = $tic::frontend::params::help_url
   $tcomp_static_ips = regsubst($tic::frontend::params::tcomp_static_ips, '[\s\[\]\"]', '', 'G')
 
-  $mixpanel_enabled   = $tic::frontend::params::mixpanel_enabled
-  $mixpanel_ipaas_key = $tic::frontend::params::mixpanel_ipaas_key
-  $pendo_enabled      = $tic::frontend::params::pendo_enabled
-  $pendo_ipaas_key    = $tic::frontend::params::pendo_ipaas_key
+  $mixpanel_enabled     = $tic::frontend::params::mixpanel_enabled
+  $mixpanel_ipaas_key   = $tic::frontend::params::mixpanel_ipaas_key
+  $pendo_enabled        = $tic::frontend::params::pendo_enabled
+  $pendo_ipaas_key      = $tic::frontend::params::pendo_ipaas_key
+  $pendo_cloud_provider = $tic::frontend::params::pendo_cloud_provider
+  $pendo_region         = $tic::frontend::params::pendo_region
 
   file { '/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js':
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js.erb');

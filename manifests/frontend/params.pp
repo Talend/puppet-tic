@@ -95,9 +95,9 @@ class tic::frontend::params {
 
   $tcomp_static_ips = pick_default($tic::frontend::tcomp_static_ips, '')
 
-  $mixpanel_enabled   = pick($tic::frontend::mixpanel_enabled,   false)
-  $mixpanel_ipaas_key = pick($tic::frontend::mixpanel_ipaas_key, 'unconfigured')
-  $pendo_enabled      = pick($tic::frontend::pendo_enabled,      false)
-  $pendo_ipaas_key    = pick($tic::frontend::pendo_ipaas_key,    'unconfigured')
+  $pendo_enabled        = pick($tic::frontend::pendo_enabled,        false)
+  $pendo_ipaas_key      = pick($tic::frontend::pendo_ipaas_key,      'unconfigured')
+  $pendo_cloud_provider = pick($tic::frontend::pendo_cloud_provider, 'AWS')
+  $pendo_region         = pick($tic::frontend::pendo_region,         'unconfigured')
 
 }

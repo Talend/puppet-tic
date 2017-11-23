@@ -27,9 +27,9 @@ class { '::tic::frontend':
   workspace_url                => '123456',
   marketplace_url              => '123456',
   tcomp_static_ips             => '890,123,321',
-  mixpanel_enabled             => true,
-  mixpanel_ipaas_key           => 'qwerty',
   pendo_enabled                => true,
   pendo_ipaas_key              => 'asdfgh',
+  pendo_cloud_provider         => 'MyCloud',
+  pendo_region                 => 'PENDO-REGION',
 }
 

@@ -91,10 +91,10 @@ class tic::frontend (
 
   $tcomp_static_ips = undef,
 
-  $mixpanel_enabled   = undef,
-  $mixpanel_ipaas_key = undef,
-  $pendo_enabled      = undef,
-  $pendo_ipaas_key    = undef,
+  $pendo_enabled        = undef,
+  $pendo_ipaas_key      = undef,
+  $pendo_cloud_provider = undef,
+  $pendo_region         = undef,
 
 ) {
 
