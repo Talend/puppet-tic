@@ -223,9 +223,13 @@ class tic::services::params {
   $dispatcher_input_queue    = pick($tic::services::dispatcher_input_queue,    'ipaas.talend.dispatcher.input.queue')
   $dispatcher_response_queue = pick($tic::services::dispatcher_response_queue, 'ipaas.talend.dispatcher.response.queue')
 
-  $iam_service_url        = pick($tic::services::iam_service_url,    'unconfigured')
-  $scim_service_url       = pick($tic::services::scim_service_url,   'unconfigured')
-  $crypto_service_url     = pick($tic::services::crypto_service_url, 'unconfigured')
-  $config_service_url     = pick($tic::services::config_service_url, 'unconfigured')
+  $iam_service_node       = pick($tic::services::iam_service_node, 'localhost')
+  $scim_service_node      = pick($tic::services::scim_service_node, 'localhost')
+  $crypto_service         = pick($tic::services::crypto_service_node, 'localhost')
+
+  $iam_service_url        = pick($tic::services::iam_service_url, "http://${iam_service_node}")
+  $scim_service_url       = pick($tic::services::scim_service_url, "http://${scim_service_node}")
+  $crypto_service_url     = pick($tic::services::crypto_service_url, "http://${crypto_service_node}")
+  $config_service_url     = pick($tic::services::config_service_url, "http://${config_service_url}")
 
 }
