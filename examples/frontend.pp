@@ -32,4 +32,3 @@ class { '::tic::frontend':
   pendo_cloud_provider         => 'MyCloud',
   pendo_region                 => 'PENDO-REGION',
 }
-
