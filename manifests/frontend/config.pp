@@ -65,7 +65,7 @@ class tic::frontend::config {
       'crypto_tpsvc_service_url'              => $tic::frontend::params::crypto_service_url,
       'config_tpsvc_service_url'              => $tic::frontend::params::config_tpsvc_service_url,
       'logquery_tpsvc_service_url'            => $tic::frontend::params::logquery_tpsvc_service_url,
-      'marketplace_service_url'               => "${marketplace_url}/api/",
+      'marketplace_service_url'               => "${tic::frontend::params::marketplace_url}/api/",
     }
   }
 
