@@ -9,7 +9,7 @@ provisioner:
   manifests_path: examples
   ignore_spec_fixtures: true
   custom_facts:
-    packagecloud_tic_donotuse_token: <%= ENV['PACKAGECLOUD_TIC_DONOTUSE_TOKEN'] %>
+    packagecloud_master_token: <%= ENV['PACKAGECLOUD_MASTER_TOKEN'] %>
     ipaas_rt_infra_build_version: "1.6"
     ipaas_frontend_build_version: "1.6"
 

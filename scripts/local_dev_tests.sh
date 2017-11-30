@@ -143,30 +143,6 @@ else
   fMessage "PACKAGECLOUD_MASTER_TOKEN already set"
 fi
 
-if [ -z "${AWS_ACCESS_KEY_ID}" ]; then
-  fWarning "AWS_ACCESS_KEY_ID env var is not set"
-  if [ -r ${HOME}/.aws/credentials ]; then
-    if [ -z "${AWS_DEFAULT_PROFILE}" ]; then
-      export AWS_DEFAULT_PROFILE="default"
-    fi
-    fMessage "trying to get your AWS access from your credentials (${AWS_DEFAULT_PROFILE} profile)"
-    export AWS_ACCESS_KEY_ID="$(grep -A 100 "\[${AWS_DEFAULT_PROFILE}\]" $HOME/.aws/credentials 2>/dev/null | grep '^aws_access_key_id ' 2>/dev/null | head -n 1 | sed 's/aws_access_key_id *= *//g')"
-    export AWS_SECRET_ACCESS_KEY="$(grep -A 100 "\[${AWS_DEFAULT_PROFILE}\]" $HOME/.aws/credentials 2>/dev/null | grep '^aws_secret_access_key ' 2>/dev/null | head -n 1 | sed 's/aws_secret_access_key *= *//g')"
-  fi
-fi
-
-if [ -z "${AWS_ACCESS_KEY_ID}" ]; then
-  /bin/echo -n "Please give me your AWS access key id (~/.aws/credentials): "
-  read AWS_ACCESS_KEY_ID
-  export AWS_ACCESS_KEY_ID
-fi
-
-if [ -z "${AWS_SECRET_ACCESS_KEY}" ]; then
-  /bin/echo -n "Please give me you AWS secret key (~/.aws/credentials): "
-  read AWS_SECRET_ACCESS_KEY
-  export AWS_SECRET_ACCESS_KEY
-fi
-
 ### test !
 if [ $REDO -eq 0 ];
 then
