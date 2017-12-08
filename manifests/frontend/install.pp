@@ -4,7 +4,7 @@ class tic::frontend::install {
 
   tomcat::install { '/srv/tomcat':
     catalina_home => '/opt/apache-tomcat',
-    source_url    => 'http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.33/bin/apache-tomcat-8.0.33.tar.gz',
+    source_url    => 'http://archive.apache.org/dist/tomcat/tomcat-8/v8.5.24/bin/apache-tomcat-8.5.24.tar.gz',
   }
 
   tomcat::setenv::entry { 'JAVA_OPTS':

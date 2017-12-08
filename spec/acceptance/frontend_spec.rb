@@ -5,7 +5,7 @@ describe 'TIC Frontend' do
   context 'When TIC Frontend installed' do
     describe 'Tomcat Server Info' do
       subject { command('/usr/bin/java -cp /opt/apache-tomcat/lib/catalina.jar org.apache.catalina.util.ServerInfo') }
-      its(:stdout) { should include 'Apache Tomcat/8.0.33' }
+      its(:stdout) { should include 'Apache Tomcat/8.5.24' }
     end
 
     describe 'Tomcat Environment Java Options' do
