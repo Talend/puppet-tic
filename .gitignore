@@ -12,3 +12,5 @@ log
 modules/
 .rspec-local
 build/
+*.swp
+.ruby-version

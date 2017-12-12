@@ -1,6 +1,6 @@
-packagecloud::repo { 'talend/ticdonotuse':
+packagecloud::repo { 'talend/other':
   type         => 'rpm',
-  master_token => $::packagecloud_tic_donotuse_token
+  master_token => $::packagecloud_master_token
 } ->
 class { '::java':
   distribution => 'jre',
@@ -32,4 +32,3 @@ class { '::tic::frontend':
   pendo_cloud_provider         => 'MyCloud',
   pendo_region                 => 'PENDO-REGION',
 }
-
