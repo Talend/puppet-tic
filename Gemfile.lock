@@ -26,6 +26,7 @@ GEM
       net-ssh (~> 3)
       test-kitchen (~> 1.4)
     kitchen-ssh (0.0.12)
+      minitar (~> 0.5)
     kitchen-sync (2.1.1)
       net-sftp
       test-kitchen (>= 1.0.0)
@@ -46,7 +47,7 @@ GEM
       json
       spdx-licenses (~> 1.0)
     minitar (0.6.1)
-    mixlib-install (1.1.0)
+    mixlib-install (1.2.0)
       artifactory
       mixlib-shellout
       mixlib-versioning

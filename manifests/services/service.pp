@@ -10,7 +10,7 @@ class tic::services::service {
     owner           => 'ipaassrv',
     conf_properties => {
       'wrapper.jvm_kill.delay'     => 5,
-      'wrapper.java.additional.10' => '-XX:MaxPermSize=256m',
+      'wrapper.java.additional.10' => '-XX:MaxMetaspaceSize=256m',
       'wrapper.java.additional.11' => '-Dcom.sun.management.jmxremote.port=7199',
       'wrapper.java.additional.12' => '-Dcom.sun.management.jmxremote.authenticate=false',
       'wrapper.java.additional.13' => '-Dcom.sun.management.jmxremote.ssl=false',
