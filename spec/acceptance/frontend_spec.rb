@@ -10,7 +10,7 @@ describe 'TIC Frontend' do
 
     describe 'Tomcat Environment Java Options' do
       subject { file('/opt/apache-tomcat/bin/setenv.sh').content }
-      it { should include '-XX:MaxPermSize=256m' }
+      it { should include '-XX:MaxMetaspaceSize=256m' }
       it { should include '-Djava.awt.headless=true' }
       it { should include '-Xmx1024m' }
       it { should include 'SPRING_REDIS_HOST="redis-host"' }
@@ -64,7 +64,7 @@ describe 'TIC Frontend' do
 
   context 'When TIC Frontend configured' do
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/conf/application-context.xml') do
-      it { should be_file }
+      it { should_not be_file }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/config/config.js') do
@@ -129,11 +129,11 @@ describe 'TIC Frontend' do
 
   context 'When TIC Frontend is running' do
     describe port(8081) do
-      it { should be_listening.on('0.0.0.0') }
+      it { should be_listening }
     end
 
     describe command('/usr/bin/wget -O - http://127.0.0.1:8081') do
-      its(:stdout) { should include '<title>Talend Integration Cloud</title>' }
+      its(:stdout) { should include '<title>Integration Cloud | Talend</title>' }
     end
 
     describe port(8009) do
@@ -147,7 +147,7 @@ describe 'TIC Frontend' do
     describe command('/usr/bin/ps ax | grep java') do
       its(:stdout) { should include '-Djava.awt.headless=true' }
       its(:stdout) { should include '-Xmx1024m' }
-      its(:stdout) { should include '-XX:MaxPermSize=256m' }
+      its(:stdout) { should include '-XX:MaxMetaspaceSize=256m' }
       its(:stdout) { should include '-Djava.io.tmpdir=/srv/tomcat/ipaas-srv/temp' }
     end
 

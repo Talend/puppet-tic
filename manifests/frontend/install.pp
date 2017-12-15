@@ -13,7 +13,7 @@ class tic::frontend::install {
     value         => [
       '$JAVA_OPTS',
       "-Xmx${tic::frontend::params::java_xmx}m",
-      '-XX:MaxPermSize=256m',
+      '-XX:MaxMetaspaceSize=256m',
       '-Djava.awt.headless=true',
     ]
   }
