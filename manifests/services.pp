@@ -126,6 +126,7 @@ class tic::services (
   $notification_server_sendgrid_flow_execution_failed        = undef,
   $notification_server_sendgrid_template_plan_execution_success = undef,
   $notification_server_sendgrid_template_plan_execution_failed  = undef,
+  $notification_server_mail_body_cloud_url                      = undef,
 
   $notification_subscription_db_host            = undef,
   $notification_subscription_db_port            = undef,
