@@ -131,6 +131,7 @@ class tic::services::params {
   $notification_server_sendgrid_flow_execution_failed        = pick($tic::services::notification_server_sendgrid_flow_execution_failed,        'missing')
   $notification_server_sendgrid_template_plan_execution_success = pick($tic::services::notification_server_sendgrid_template_plan_execution_success, 'peSuccess')
   $notification_server_sendgrid_template_plan_execution_failed  = pick($tic::services::notification_server_sendgrid_template_plan_execution_failed,  'peFailed')
+  $notification_server_mail_body_cloud_url                      = pick($tic::services::notification_server_mail_body_cloud_url, 'missing')
 
   $notification_subscription_db_host            = pick($tic::services::notification_subscription_db_host,            $postgres_db_host)
   $notification_subscription_db_port            = pick($tic::services::notification_subscription_db_port,            '5432')
