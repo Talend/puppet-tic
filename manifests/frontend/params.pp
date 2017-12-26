@@ -90,6 +90,7 @@ class tic::frontend::params {
   $marketplace_url = pick($tic::frontend::marketplace_url, 'https://exchange.talend.com')
   $portal_url      = pick($tic::frontend::portal_url,      'unconfigured')
   $tdp_url         = pick($tic::frontend::tdp_url,         'unconfigured')
+  $tds_url         = pick($tic::frontend::tds_url,         'unconfigured')
   $tmc_url         = pick($tic::frontend::tmc_url,         'unconfigured')
   $help_url        = pick($tic::frontend::help_url,        'https://help.talend.com/search/all?filters=EnrichPlatform~%2522Talend+Integration+Cloud%2522_%2522Talend+Studio%2522*EnrichVersion~%2522Cloud%2522&content-lang=en')
 

@@ -132,6 +132,7 @@ class tic::frontend::config {
   $marketplace_url  = $tic::frontend::params::marketplace_url
   $portal_url       = $tic::frontend::params::portal_url
   $tdp_url          = $tic::frontend::params::tdp_url
+  $tds_url          = $tic::frontend::params::tds_url
   $tmc_url          = $tic::frontend::params::tmc_url
   $help_url         = $tic::frontend::params::help_url
   $tcomp_static_ips = regsubst($tic::frontend::params::tcomp_static_ips, '[\s\[\]\"]', '', 'G')
