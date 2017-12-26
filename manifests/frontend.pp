@@ -86,6 +86,7 @@ class tic::frontend (
   $marketplace_url = undef,
   $portal_url      = undef,
   $tdp_url         = undef,
+  $tds_url         = undef,
   $tmc_url         = undef,
   $help_url        = undef,
 
