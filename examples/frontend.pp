@@ -31,4 +31,8 @@ class { '::tic::frontend':
   pendo_ipaas_key              => 'asdfgh',
   pendo_cloud_provider         => 'MyCloud',
   pendo_region                 => 'PENDO-REGION',
+  zipkin_enabled               => true,
+  zipkin_kafka_topic           => 'zipkin',
+  zipkin_kafka_servers         => 'localhost:9999',
+  zipkin_sampling_rate         => '0.2',
 }

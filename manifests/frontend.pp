@@ -97,6 +97,11 @@ class tic::frontend (
   $pendo_cloud_provider = undef,
   $pendo_region         = undef,
 
+  $zipkin_enabled       = undef,
+  $zipkin_kafka_topic   = undef,
+  $zipkin_kafka_servers = undef,
+  $zipkin_sampling_rate = undef,
+
 ) {
 
   contain ::tic::frontend::params

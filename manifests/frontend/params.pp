@@ -101,4 +101,9 @@ class tic::frontend::params {
   $pendo_cloud_provider = pick($tic::frontend::pendo_cloud_provider, 'AWS')
   $pendo_region         = pick($tic::frontend::pendo_region,         'unconfigured')
 
+  $zipkin_enabled       = pick($tic::frontend::zipkin_enabled,       false)
+  $zipkin_kafka_topic   = pick($tic::frontend::zipkin_kafka_topic,   'unconfigured')
+  $zipkin_kafka_servers = pick($tic::frontend::zipkin_kafka_servers, 'unconfigured')
+  $zipkin_sampling_rate = pick($tic::frontend::zipkin_sampling_rate, '0.1')
+
 }

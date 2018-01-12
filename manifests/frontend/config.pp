@@ -81,7 +81,11 @@ class tic::frontend::config {
       'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
       'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
       'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
-      'iam.scim.url'                            => $tic::frontend::params::scim_service_url
+      'iam.scim.url'                            => $tic::frontend::params::scim_service_url,
+      'spring.zipkin.enabled'                   => $tic::frontend::params::zipkin_enabled,
+      'spring.zipkin.kafka.topic'               => $tic::frontend::params::zipkin_kafka_topic,
+      'spring.kafka.bootstrapServers'           => $tic::frontend::params::zipkin_kafka_servers,
+      'spring.sleuth.sampler.percentage'        => $tic::frontend::params::zipkin_sampling_rate
     }
   }
 
@@ -94,7 +98,11 @@ class tic::frontend::config {
       'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
       'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
       'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
-      'iam.scim.url'                            => $tic::frontend::params::scim_service_url
+      'iam.scim.url'                            => $tic::frontend::params::scim_service_url,
+      'spring.zipkin.enabled'                   => $tic::frontend::params::zipkin_enabled,
+      'spring.zipkin.kafka.topic'               => $tic::frontend::params::zipkin_kafka_topic,
+      'spring.kafka.bootstrapServers'           => $tic::frontend::params::zipkin_kafka_servers,
+      'spring.sleuth.sampler.percentage'        => $tic::frontend::params::zipkin_sampling_rate
     }
   }
 
@@ -113,6 +121,10 @@ class tic::frontend::config {
         'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
         # matches the last part of tic::frontend::redis_session_namespace
         'spring.session.redis.namespace'                => 'Tipaas',
+        'spring.zipkin.enabled'                         => $tic::frontend::params::zipkin_enabled,
+        'spring.zipkin.kafka.topic'                     => $tic::frontend::params::zipkin_kafka_topic,
+        'spring.kafka.bootstrapServers'                 => $tic::frontend::params::zipkin_kafka_servers,
+        'spring.sleuth.sampler.percentage'              => $tic::frontend::params::zipkin_sampling_rate
       };
 
     'ipaas_server_application_properties':
@@ -124,6 +136,10 @@ class tic::frontend::config {
         'security.oauth2.resource.tokenInfoUri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
         'iam.scim.url'                          => $tic::frontend::params::scim_service_url,
         'minConnectionsPerHost'                 => '0',
+        'spring.zipkin.enabled'                 => $tic::frontend::params::zipkin_enabled,
+        'spring.zipkin.kafka.topic'             => $tic::frontend::params::zipkin_kafka_topic,
+        'spring.kafka.bootstrapServers'         => $tic::frontend::params::zipkin_kafka_servers,
+        'spring.sleuth.sampler.percentage'      => $tic::frontend::params::zipkin_sampling_rate
       };
 
   }
