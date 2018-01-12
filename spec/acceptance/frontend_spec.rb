@@ -100,6 +100,10 @@ describe 'TIC Frontend' do
 
     describe file('/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties') do
       its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
+      its(:content) { should include 'spring.zipkin.enabled = true' }
+      its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
+      its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
+      its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
@@ -112,11 +116,19 @@ describe 'TIC Frontend' do
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
       its(:content) { should include 'workspace_service_url=http://localhost:8081/ipaas-server/services' }
+      its(:content) { should include 'spring.zipkin.enabled = true' }
+      its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
+      its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
+      its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.properties') do
       its(:content) { should include 'security.oauth2.client.clientId = client_clientId' }
       its(:content) { should include 'security.oauth2.client.clientSecret = client_clientSecret' }
+      its(:content) { should include 'spring.zipkin.enabled = true' }
+      its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
+      its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
+      its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/application.properties') do
@@ -124,6 +136,10 @@ describe 'TIC Frontend' do
       its(:content) { should include 'security.oauth2.client.clientSecret = server_clientSecret' }
       its(:content) { should include 'security.oauth2.resource.tokenInfoUri = http://scim-test-node' }
       its(:content) { should include 'security.oidc.client.keyUri = http://scim-test-node' }
+      its(:content) { should include 'spring.zipkin.enabled = true' }
+      its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
+      its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
+      its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
     end
   end
 
