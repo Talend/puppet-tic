@@ -209,6 +209,11 @@ class tic::services (
   $crypto_service_url     = undef,
   $config_service_url     = undef,
 
+  $zipkin_enabled       = undef,
+  $zipkin_kafka_topic   = undef,
+  $zipkin_kafka_servers = undef,
+  $zipkin_sampling_rate = undef,
+
 ) {
 
   contain ::tic::services::params

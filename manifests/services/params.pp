@@ -233,4 +233,9 @@ class tic::services::params {
   $crypto_service_url     = pick($tic::services::crypto_service_url, "http://${crypto_service_node}")
   $config_service_url     = pick($tic::services::config_service_url, "http://${config_service_url}")
 
+  $zipkin_enabled       = pick($tic::services::zipkin_enabled,       false)
+  $zipkin_kafka_topic   = pick($tic::services::zipkin_kafka_topic,   'unconfigured')
+  $zipkin_kafka_servers = pick($tic::services::zipkin_kafka_servers, 'unconfigured')
+  $zipkin_sampling_rate = pick($tic::services::zipkin_sampling_rate, '0.1')
+
 }

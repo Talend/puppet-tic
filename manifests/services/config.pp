@@ -87,6 +87,15 @@ class tic::services::config {
         'minConnectionsPerHost' => '0',
       };
 
+    'zipkin':
+      path     => "${config_dir}/org.talend.ipaas.rt.zipkin.cfg",
+      settings => {
+        'zipkin.enabled'                => $tic::services::params::zipkin_enabled,
+        'zipkin.kafka.topic'            => $tic::services::params::zipkin_kafka_topic,
+        'zipkin.kafka.bootstrapServers' => $tic::services::params::zipkin_kafka_servers,
+        'zipkin.sampler.percentage'     => $tic::services::params::zipkin_sampling_rate,
+      };
+
   }
 
   if 'tipaas-tpsvc-crypto-client' in $features {
