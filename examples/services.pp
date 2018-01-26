@@ -45,4 +45,8 @@ class { '::tic::services':
     'tipaas-flow-manager-service',
   ],
   time_to_unknown                          => 999,
+  zipkin_enabled                           => true,
+  zipkin_kafka_topic                       => 'zipkin',
+  zipkin_kafka_servers                     => 'localhost:9999',
+  zipkin_sampling_rate                     => '0.3',
 }

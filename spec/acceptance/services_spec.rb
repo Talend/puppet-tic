@@ -80,6 +80,13 @@ describe 'services' do
     its(:content) { should include 'memcached.connectionString = my-memcached-host:my-memcached-port' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.zipkin.cfg') do
+    its(:content) { should include 'zipkin.enabled = true' }
+    its(:content) { should include 'zipkin.kafka.topic = zipkin' }
+    its(:content) { should include 'zipkin.kafka.bootstrapServers = localhost:9999' }
+    its(:content) { should include 'zipkin.sampler.percentage = 0.3' }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/bin/karaf.service') do
     its(:content) { should_not include 'WantedBy=default.target' }
   end
