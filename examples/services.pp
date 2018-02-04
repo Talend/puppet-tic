@@ -43,10 +43,12 @@ class { '::tic::services':
     'dispatcher_core',
     'tipaas-account-manager-service',
     'tipaas-flow-manager-service',
+    'tipaas-webhooks-client',
   ],
   time_to_unknown                          => 999,
   zipkin_enabled                           => true,
   zipkin_kafka_topic                       => 'zipkin',
   zipkin_kafka_servers                     => 'localhost:9999',
   zipkin_sampling_rate                     => '0.3',
+  webhooks_external_url                    => 'webhook-test-url',
 }
