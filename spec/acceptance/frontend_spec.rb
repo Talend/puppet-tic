@@ -16,6 +16,7 @@ describe 'TIC Frontend' do
       it { should include 'SPRING_REDIS_HOST="redis-host"' }
       it { should include 'SPRING_REDIS_PORT="8888"' }
       it { should include 'SPRING_SESSION_REDIS_NAMESPACE="redis-namespace"' }
+      it { should include 'CATALINA_OPTS="$CATALINA_OPTS -Dserver.tomcat.internal-proxies=$TOMCAT_INTERNAL_PROXIES"' }
     end
 
     describe 'Ipaas Tomcat Instance' do
@@ -45,6 +46,14 @@ describe 'TIC Frontend' do
       it { should include 'protocol="HTTP/1.1"' }
       it { should include 'connectionTimeout="20000"' }
       it { should include 'redirectPort="8443"' }
+    end
+
+    describe 'Tomcat Valve Configuration : ipaas-srv-remote-ip-valve' do
+      subject { file('/srv/tomcat/ipaas-srv/conf/server.xml').content }
+      it { should include 'className="org.apache.catalina.valves.RemoteIpValve"' }
+      it { should include 'protocolHeader="X-Forwarded-Proto"' }
+      it { should include 'remoteIpHeader="X-Forwarded-For"' }
+      it { should include 'internalProxies="${server.tomcat.internal-proxies}' }
     end
 
     %w(
