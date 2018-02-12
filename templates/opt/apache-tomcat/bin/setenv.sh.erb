@@ -1,0 +1,4 @@
+if [ -z "$TOMCAT_INTERNAL_PROXIES" ]; then
+   TOMCAT_INTERNAL_PROXIES=.+
+fi
+export CATALINA_OPTS="$CATALINA_OPTS -Dserver.tomcat.internal-proxies=$TOMCAT_INTERNAL_PROXIES"

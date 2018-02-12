@@ -1,6 +1,7 @@
 class tic::frontend::install {
 
   require ::tic::frontend::params
+  require ::tomcat
 
   tomcat::install { '/srv/tomcat':
     catalina_home => '/opt/apache-tomcat',
@@ -44,12 +45,25 @@ class tic::frontend::install {
     }
   }
 
+  $_config_file = '/opt/apache-tomcat/bin/setenv.sh'
+  if ! defined(Concat[$_config_file]) {
+    concat { $_config_file:
+      owner          => $::tomcat::user,
+      group          => $::tomcat::group,
+      mode           => '0755',
+      ensure_newline => true,
+    }
+  }
+  concat::fragment { 'internal-proxies':
+    target  => $_config_file,
+    content => template('tic/opt/apache-tomcat/bin/setenv.sh.erb'),
+  }
 
   tomcat::instance { 'ipaas-srv':
     catalina_home  => '/opt/apache-tomcat',
     catalina_base  => '/srv/tomcat/ipaas-srv',
     manage_service => false,
-  }
+  } ->
 
   tomcat::config::server::connector { 'ipaas-srv-http':
     catalina_base         => '/srv/tomcat/ipaas-srv',
@@ -61,7 +75,7 @@ class tic::frontend::install {
       'redirectPort'      => '8443',
       'connectionTimeout' => '20000',
     },
-  }
+  } ->
 
   tomcat::config::server::connector { 'ipaas-srv-ajp':
     catalina_base         => '/srv/tomcat/ipaas-srv',
@@ -71,6 +85,16 @@ class tic::frontend::install {
       'address'           => '0.0.0.0',
       'redirectPort'      => '8443',
       'connectionTimeout' => '20000',
+    },
+  } ->
+
+  tomcat::config::server::valve { 'ipaas-srv-valve':
+    catalina_base         => '/srv/tomcat/ipaas-srv',
+    class_name            => 'org.apache.catalina.valves.RemoteIpValve',
+    additional_attributes => {
+      'protocolHeader'  => 'X-Forwarded-Proto',
+      'remoteIpHeader'  => 'X-Forwarded-For',
+      'internalProxies' => '${server.tomcat.internal-proxies}',
     },
   }
 
