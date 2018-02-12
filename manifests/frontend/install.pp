@@ -1,7 +1,7 @@
 class tic::frontend::install {
 
-  include ::tomcat
   require ::tic::frontend::params
+  require ::tomcat
 
   tomcat::install { '/srv/tomcat':
     catalina_home => '/opt/apache-tomcat',
