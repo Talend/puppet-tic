@@ -5,9 +5,10 @@ class tic::frontend::params {
 
   $ipaas_srv_http_port   = pick($tic::frontend::ipaas_srv_http_port, '8081')
 
-  $java_home = pick($tic::frontend::java_home, undef)
-  $java_xmx  = pick($tic::frontend::java_xmx,  '1024')
-  $version   = pick($tic::frontend::version,   'latest')
+  $java_home               = pick($tic::frontend::java_home, undef)
+  $java_xmx                = pick($tic::frontend::java_xmx, '1024')
+  $java_max_metaspace_size = pick($tic::frontend::java_max_metaspace_size, '512m')
+  $version                 = pick($tic::frontend::version, 'latest')
 
   $elasticache_address          = pick($tic::frontend::elasticache_address,          false)
   $elasticache_port             = pick($tic::frontend::elasticache_port,             '11211')
