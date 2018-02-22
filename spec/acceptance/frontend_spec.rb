@@ -10,7 +10,7 @@ describe 'TIC Frontend' do
 
     describe 'Tomcat Environment Java Options' do
       subject { file('/opt/apache-tomcat/bin/setenv.sh').content }
-      it { should include '-XX:MaxMetaspaceSize=256m' }
+      it { should include '-XX:MaxMetaspaceSize=512m' }
       it { should include '-Djava.awt.headless=true' }
       it { should include '-Xmx1024m' }
       it { should include 'SPRING_REDIS_HOST="redis-host"' }
@@ -172,7 +172,7 @@ describe 'TIC Frontend' do
     describe command('/usr/bin/ps ax | grep java') do
       its(:stdout) { should include '-Djava.awt.headless=true' }
       its(:stdout) { should include '-Xmx1024m' }
-      its(:stdout) { should include '-XX:MaxMetaspaceSize=256m' }
+      its(:stdout) { should include '-XX:MaxMetaspaceSize=512m' }
       its(:stdout) { should include '-Djava.io.tmpdir=/srv/tomcat/ipaas-srv/temp' }
     end
 
