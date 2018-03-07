@@ -24,12 +24,6 @@ describe 'TIC Frontend' do
       it { should exist }
     end
 
-    describe 'Ipaas Tomcat Instance root folder' do
-      subject { file('/srv/tomcat/ipaas-srv/webapps/ROOT') }
-      it { should be_symlink }
-      it { should be_linked_to '/srv/tomcat/ipaas-srv/webapps/ipaas' }
-    end
-
     describe 'Tomcat Connector Configuration : ipaas-srv-ajp' do
       subject { file('/srv/tomcat/ipaas-srv/conf/server.xml').content }
       it { should include 'port="8009"' }
@@ -157,7 +151,7 @@ describe 'TIC Frontend' do
       it { should be_listening }
     end
 
-    describe command('/usr/bin/wget -O - http://127.0.0.1:8081') do
+    describe command('/usr/bin/wget -O - http://127.0.0.1:8081/ipaas') do
       its(:stdout) { should include '<title>Integration Cloud | Talend</title>' }
     end
 

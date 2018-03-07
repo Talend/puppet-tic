@@ -39,13 +39,13 @@ sh scripts/test_runner.sh
 To see the script usage:
 
 ``` bash
-script/local_dev_tests.sh -h
+scripts/local_dev_tests.sh -h
 ```
 
 Launching all the test, cleaning everything before:
 
 ``` bash
-script/local_dev_tests.sh -c
+scripts/local_dev_tests.sh -c
 ```
 
 

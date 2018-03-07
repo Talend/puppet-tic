@@ -14,11 +14,6 @@ class tic::frontend::config {
   validate_bool($web_enable_test_context)
   validate_bool($web_use_ssl)
 
-  file { '/srv/tomcat/ipaas-srv/webapps/ROOT':
-    ensure => link,
-    target => '/srv/tomcat/ipaas-srv/webapps/ipaas'
-  }
-
   if $web_enable_test_context {
     file { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/conf/application-context.xml':
         source => '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/conf/application-context-test.xml'
