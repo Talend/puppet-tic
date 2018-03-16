@@ -65,39 +65,41 @@ class tic::frontend::config {
   }
 
   # ipaas-services
-  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties':
+  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/application.properties':
     settings => {
-      'workspace_service_url'                   => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
-      'artifact_manager_url'                    => $tic::frontend::params::artifact_manager_url,
-      'custom_resources_url'                    => $tic::frontend::params::custom_resources_url,
-      'custom_resources_username'               => $tic::frontend::params::custom_resources_username,
-      'custom_resources_password'               => $tic::frontend::params::custom_resources_password,
-      'security.oauth2.client.client_id'        => $tic::frontend::params::basic_auth_oidc_clientId,
-      'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
-      'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
-      'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
-      'iam.scim.url'                            => $tic::frontend::params::scim_service_url,
-      'spring.zipkin.enabled'                   => $tic::frontend::params::zipkin_enabled,
-      'spring.zipkin.kafka.topic'               => $tic::frontend::params::zipkin_kafka_topic,
-      'spring.kafka.bootstrapServers'           => $tic::frontend::params::zipkin_kafka_servers,
-      'spring.sleuth.sampler.percentage'        => $tic::frontend::params::zipkin_sampling_rate
+      'workspace_service_url'                         => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
+      'artifact_manager_url'                          => $tic::frontend::params::artifact_manager_url,
+      'custom_resources_url'                          => $tic::frontend::params::custom_resources_url,
+      'custom_resources_username'                     => $tic::frontend::params::custom_resources_username,
+      'custom_resources_password'                     => $tic::frontend::params::custom_resources_password,
+      'security.oauth2.client.clientId'               => $tic::frontend::params::basic_auth_oidc_clientId,
+      'security.oauth2.client.clientSecret'           => $tic::frontend::params::basic_auth_oidc_clientSecret,
+      'security.oauth2.client.access-token-uri'       => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
+      'security.oauth2.client.user-authorization-uri' => "${tic::frontend::params::iam_oidc_front_url}/idp/authorize",
+      'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+      'iam.scim.url'                                  => $tic::frontend::params::scim_service_url,
+      'spring.zipkin.enabled'                         => $tic::frontend::params::zipkin_enabled,
+      'spring.zipkin.kafka.topic'                     => $tic::frontend::params::zipkin_kafka_topic,
+      'spring.kafka.bootstrapServers'                 => $tic::frontend::params::zipkin_kafka_servers,
+      'spring.sleuth.sampler.percentage'              => $tic::frontend::params::zipkin_sampling_rate
     }
   }
 
   # ipaas-api
-  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties':
+  tic::ini_settings { '/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/application.properties':
     settings => {
-      'ipaas_service_url'                       => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
-      'flow_manager_url'                        => $tic::frontend::params::flow_manager_url,
-      'security.oauth2.client.client_id'        => $tic::frontend::params::basic_auth_oidc_clientId,
-      'security.oauth2.client.client_secret'    => $tic::frontend::params::basic_auth_oidc_clientSecret,
-      'security.oauth2.client.access_token_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
-      'security.oauth2.resource.token_info_uri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
-      'iam.scim.url'                            => $tic::frontend::params::scim_service_url,
-      'spring.zipkin.enabled'                   => $tic::frontend::params::zipkin_enabled,
-      'spring.zipkin.kafka.topic'               => $tic::frontend::params::zipkin_kafka_topic,
-      'spring.kafka.bootstrapServers'           => $tic::frontend::params::zipkin_kafka_servers,
-      'spring.sleuth.sampler.percentage'        => $tic::frontend::params::zipkin_sampling_rate
+      'ipaas_service_url'                             => "http://localhost:${tic::frontend::params::ipaas_srv_http_port}/ipaas-server/services",
+      'flow_manager_url'                              => $tic::frontend::params::flow_manager_url,
+      'security.oauth2.client.clientId'               => $tic::frontend::params::basic_auth_oidc_clientId,
+      'security.oauth2.client.clientSecret'           => $tic::frontend::params::basic_auth_oidc_clientSecret,
+      'security.oauth2.client.access-token-uri'       => "${tic::frontend::params::iam_oidc_back_url}/oauth2/token",
+      'security.oauth2.client.user-authorization-uri' => "${tic::frontend::params::iam_oidc_front_url}/idp/authorize",
+      'security.oauth2.resource.tokenInfoUri'         => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+      'iam.scim.url'                                  => $tic::frontend::params::scim_service_url,
+      'spring.zipkin.enabled'                         => $tic::frontend::params::zipkin_enabled,
+      'spring.zipkin.kafka.topic'                     => $tic::frontend::params::zipkin_kafka_topic,
+      'spring.kafka.bootstrapServers'                 => $tic::frontend::params::zipkin_kafka_servers,
+      'spring.sleuth.sampler.percentage'              => $tic::frontend::params::zipkin_sampling_rate
     }
   }
 
