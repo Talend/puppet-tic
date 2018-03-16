@@ -208,6 +208,7 @@ class tic::services (
   $scim_service_url       = undef,
   $crypto_service_url     = undef,
   $config_service_url     = undef,
+  $license_service_url    = undef,
 
   $zipkin_enabled       = undef,
   $zipkin_kafka_topic   = undef,

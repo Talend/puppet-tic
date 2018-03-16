@@ -96,6 +96,12 @@ class tic::services::config {
         'zipkin.sampler.percentage'     => $tic::services::params::zipkin_sampling_rate,
       };
 
+    'cms_service':
+      path     => "${config_dir}/org.talend.ipaas.rt.cms.cfg",
+      settings => {
+        'license-management.url' => $tic::services::params::license_service_url,
+      };
+
   }
 
   if 'tipaas-tpsvc-crypto-client' in $features {
