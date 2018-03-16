@@ -91,6 +91,10 @@ describe 'services' do
     its(:content) { should include 'webhooks.service.url=webhook-test-url' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.cms.cfg') do
+    its(:content) { should include 'license-management.url = http://license-management-node' }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/bin/karaf.service') do
     its(:content) { should_not include 'WantedBy=default.target' }
   end
