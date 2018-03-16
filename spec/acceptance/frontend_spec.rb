@@ -101,28 +101,27 @@ describe 'TIC Frontend' do
       its(:content) { should_not include 'flow_manager_node' }
     end
 
-    describe file('/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/ipaas_api.properties') do
+    describe file('/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/application.properties') do
       its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
       its(:content) { should include 'spring.zipkin.enabled = true' }
       its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
       its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
       its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
-    end
-
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
-      its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
+      its(:content) { should include 'security.oauth2.client.user-authorization-uri = http://scim-test-node/idp/authorize' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template') do
       its(:content) { should include 'arn:aws:iam::1234567890:root' }
     end
 
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/config.properties') do
-      its(:content) { should include 'workspace_service_url=http://localhost:8081/ipaas-server/services' }
+    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-services/WEB-INF/classes/application.properties') do
+      its(:content) { should_not include 'scim_service_url=http://scim-test-node' }
+      its(:content) { should include 'workspace_service_url = http://localhost:8081/ipaas-server/services' }
       its(:content) { should include 'spring.zipkin.enabled = true' }
       its(:content) { should include 'spring.zipkin.kafka.topic = zipkin' }
       its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
       its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
+      its(:content) { should include 'security.oauth2.client.user-authorization-uri = http://scim-test-node/idp/authorize' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/ipaas/WEB-INF/classes/application.properties') do
