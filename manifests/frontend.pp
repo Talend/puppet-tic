@@ -89,6 +89,7 @@ class tic::frontend (
   $tdp_url         = undef,
   $tds_url         = undef,
   $tmc_url         = undef,
+  $dss_url         = undef,
   $help_url        = undef,
 
   $tcomp_static_ips = undef,

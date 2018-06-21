@@ -35,4 +35,5 @@ class { '::tic::frontend':
   zipkin_kafka_topic           => 'zipkin',
   zipkin_kafka_servers         => 'localhost:9999',
   zipkin_sampling_rate         => '0.2',
+  dss_url                      => 'https://dss_url'
 }
