@@ -44,6 +44,7 @@ class { '::tic::services':
     'tipaas-account-manager-service',
     'tipaas-flow-manager-service',
     'tipaas-webhooks-client',
+    'kafkasource',
   ],
   time_to_unknown                          => 999,
   zipkin_enabled                           => true,
@@ -52,4 +53,7 @@ class { '::tic::services':
   zipkin_sampling_rate                     => '0.3',
   webhooks_external_url                    => 'webhook-test-url',
   license_service_url                      => 'http://license-management-node',
+  eventsource_kafka_servers                => 'localhost:9092',
+  eventsource_kafka_topic                  => 'provisioning',
+  eventsource_kafka_log                    => true,
 }

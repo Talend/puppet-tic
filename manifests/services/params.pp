@@ -240,4 +240,8 @@ class tic::services::params {
   $zipkin_kafka_servers = pick($tic::services::zipkin_kafka_servers, 'unconfigured')
   $zipkin_sampling_rate = pick($tic::services::zipkin_sampling_rate, '0.1')
 
+  $eventsource_kafka_servers = pick($tic::services::eventsource_kafka_servers, 'unconfigured')
+  $eventsource_kafka_topic   = pick($tic::services::eventsource_kafka_topic,   'unconfigured')
+  $eventsource_kafka_log     = pick($tic::services::eventsource_kafka_log,     false)
+
 }
