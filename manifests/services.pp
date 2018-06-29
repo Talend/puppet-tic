@@ -215,6 +215,10 @@ class tic::services (
   $zipkin_kafka_servers = undef,
   $zipkin_sampling_rate = undef,
 
+  $eventsource_kafka_servers = undef,
+  $eventsource_kafka_topic   = undef,
+  $eventsource_kafka_log     = undef, #enable logging of messages
+
 ) {
 
   contain ::tic::services::params

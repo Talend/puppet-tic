@@ -98,4 +98,10 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/bin/karaf.service') do
     its(:content) { should_not include 'WantedBy=default.target' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.eventsource.kafka.cfg') do
+    its(:content) { should include 'provisioning.apps.kafka.hosts = localhost:9092' }
+    its(:content) { should include 'provisioning.apps.kafka.topic = provisioning' }
+    its(:content) { should include 'log.messages = true' }
+  end
 end
