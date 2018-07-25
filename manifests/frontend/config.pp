@@ -139,6 +139,57 @@ class tic::frontend::config {
         'spring.sleuth.sampler.percentage'      => $tic::frontend::params::zipkin_sampling_rate
       };
 
+    'ipaas_user_application_properties':
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-user/WEB-INF/classes/application.properties',
+      settings => {
+        'iam.scim.url'                          => $tic::frontend::params::scim_service_url,
+        'security.oauth2.client.clientId'       => $tic::frontend::params::server_app_oidc_clientId,
+        'security.oauth2.client.clientSecret'   => $tic::frontend::params::server_app_oidc_clientSecret,
+        'security.oidc.client.keyUri'           => "${tic::frontend::params::iam_oidc_back_url}/jwk/keys",
+        'security.oauth2.resource.tokenInfoUri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+        'spring.zipkin.enabled'                 => $tic::frontend::params::zipkin_enabled,
+        'spring.zipkin.kafka.topic'             => $tic::frontend::params::zipkin_kafka_topic,
+        'spring.kafka.bootstrapServers'         => $tic::frontend::params::zipkin_kafka_servers,
+        'spring.sleuth.sampler.percentage'      => $tic::frontend::params::zipkin_sampling_rate,
+        'scim_service_url'                      => $tic::frontend::params::scim_service_url,
+        'account_manager_url'                   => $tic::frontend::params::ams_url,
+        'container_management_url'              => $tic::frontend::params::cms_url,
+        'config_tpsvc_service_url'              => $tic::frontend::params::config_tpsvc_service_url,
+        'custom_resources_url'                  => $tic::frontend::params::custom_resources_url,
+        'custom_resources_username'             => $tic::frontend::params::custom_resources_username,
+        'custom_resources_password'             => $tic::frontend::params::custom_resources_password,
+        'flow_manager_url'                      => $tic::frontend::params::flow_manager_url,
+        'plan_executor_service_url'             => $tic::frontend::params::pe_service_url,
+        'webhooks_service_url'                  => $tic::frontend::params::webhooks_service_url,
+        'notification_subscription_service_url' => $tic::frontend::params::notification_subscription_url
+      };
+
+    'ipaas_workspaces_application_properties':
+      path     => '/srv/tomcat/ipaas-srv/webapps/ipaas-workspaces/WEB-INF/classes/application.properties',
+      settings => {
+        'iam.scim.url'                          => $tic::frontend::params::scim_service_url,
+        'security.oauth2.client.clientId'       => $tic::frontend::params::server_app_oidc_clientId,
+        'security.oauth2.client.clientSecret'   => $tic::frontend::params::server_app_oidc_clientSecret,
+        'security.oidc.client.keyUri'           => "${tic::frontend::params::iam_oidc_back_url}/jwk/keys",
+        'security.oauth2.resource.tokenInfoUri' => "${tic::frontend::params::iam_oidc_back_url}/oauth2/introspect",
+        'spring.zipkin.enabled'                 => $tic::frontend::params::zipkin_enabled,
+        'spring.zipkin.kafka.topic'             => $tic::frontend::params::zipkin_kafka_topic,
+        'spring.kafka.bootstrapServers'         => $tic::frontend::params::zipkin_kafka_servers,
+        'spring.sleuth.sampler.percentage'      => $tic::frontend::params::zipkin_sampling_rate,
+        'scim_service_url'                      => $tic::frontend::params::scim_service_url,
+        'account_manager_url'                   => $tic::frontend::params::ams_url,
+        'container_management_url'              => $tic::frontend::params::cms_url,
+        'config_tpsvc_service_url'              => $tic::frontend::params::config_tpsvc_service_url,
+        'crypto_tpsvc_service_url'              => $tic::frontend::params::crypto_service_url,
+        'custom_resources_url'                  => $tic::frontend::params::custom_resources_url,
+        'custom_resources_username'             => $tic::frontend::params::custom_resources_username,
+        'custom_resources_password'             => $tic::frontend::params::custom_resources_password,
+        'flow_manager_url'                      => $tic::frontend::params::flow_manager_url,
+        'logquery_tpsvc_service_url'            => $tic::frontend::params::logquery_tpsvc_service_url,
+        'plan_executor_service_url'             => $tic::frontend::params::pe_service_url,
+        'webhooks_service_url'                  => $tic::frontend::params::webhooks_service_url
+      };
+
   }
 
   $workspace_url    = $tic::frontend::params::workspace_url
