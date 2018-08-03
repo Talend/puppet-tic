@@ -111,12 +111,6 @@ class tic::frontend::install {
     'talend-ipaas-web-server':
       ensure => $tic::frontend::params::version;
 
-    'talend-ipaas-web-user':
-      ensure => $tic::frontend::params::version;
-
-    'talend-ipaas-web-workspaces':
-      ensure => $tic::frontend::params::version;
-
     'talend-ipaas-web-api':
       ensure => $tic::frontend::params::version;
   } ->

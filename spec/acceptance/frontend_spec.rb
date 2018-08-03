@@ -144,22 +144,6 @@ describe 'TIC Frontend' do
       its(:content) { should include 'spring.kafka.bootstrapServers = localhost:9999' }
       its(:content) { should include 'spring.sleuth.sampler.percentage = 0.2' }
     end
-
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-user/WEB-INF/classes/application.properties') do
-      its(:content) { should include 'clientId = server_clientId' }
-      its(:content) { should include 'security.oauth2.client.clientSecret = server_clientSecret' }
-      its(:content) { should include 'spring.kafka.bootstrapServers=localhost:9999' }
-      its(:content) { should include 'spring.sleuth.sampler.percentage=0.2' }
-      its(:content) { should include 'flow_manager_url=http://flow_manager_url' }
-    end
-
-    describe file('/srv/tomcat/ipaas-srv/webapps/ipaas-workspaces/WEB-INF/classes/application.properties') do
-      its(:content) { should include 'clientId = server_clientId' }
-      its(:content) { should include 'security.oauth2.client.clientSecret = server_clientSecret' }
-      its(:content) { should include 'spring.kafka.bootstrapServers=localhost:9999' }
-      its(:content) { should include 'spring.sleuth.sampler.percentage=0.2' }
-      its(:content) { should include 'flow_manager_url=http://flow_manager_url' }
-    end
   end
 
   context 'When TIC Frontend is running' do
