@@ -3,7 +3,6 @@ driver:
   name: vagrant
   customize:
     memory: 2048
-    audio: "none"
 
 provisioner:
   name: puppet_apply
