@@ -98,7 +98,6 @@ class tic::services (
   $cr_size_limit_per_account           = undef,
 
   $dts_s3_bucket_rejected_data  = undef,
-  $dts_s3_bucket_test_data      = undef,
   $dts_s3_bucket_logs_data      = undef,
   $dts_s3_bucket_downloads_data = undef,
   $dts_max_data_size            = undef,

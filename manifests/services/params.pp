@@ -108,7 +108,6 @@ class tic::services::params {
   $cr_size_limit_per_account           = pick($tic::services::cr_size_limit_per_account,           1073741824)
 
   $dts_s3_bucket_rejected_data  = pick($tic::services::dts_s3_bucket_rejected_data,  'us-east-1-rd-tipaas-dts-rejected-talend-com')
-  $dts_s3_bucket_test_data      = pick($tic::services::dts_s3_bucket_test_data,      'us-east-1-rd-tipaas-dts-test-talend-com')
   $dts_s3_bucket_logs_data      = pick($tic::services::dts_s3_bucket_logs_data,      'us-east-1-rd-tipaas-dts-logs-talend-com')
   $dts_s3_bucket_downloads_data = pick($tic::services::dts_s3_bucket_downloads_data, 'us-east-1-rd-tipaas-dts-downloads-talend-com')
   $dts_max_data_size            = pick($tic::services::dts_max_data_size,            5242880)
