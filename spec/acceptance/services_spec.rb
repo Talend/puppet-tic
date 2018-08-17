@@ -88,7 +88,7 @@ describe 'services' do
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.webhooks.client.cfg') do
-    its(:content) { should include 'webhooks.service.url=webhook-test-url' }
+    its(:content) { should include 'webhooks.service.url=webhook-url-for-client' }
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.cms.cfg') do

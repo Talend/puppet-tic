@@ -171,6 +171,7 @@ class tic::services (
   $confirm_email_external_url  = undef,
   $tipaas_email_subject        = undef,
 
+  $webhooks_url           = undef,
   $webhooks_external_url  = undef,
   $webhooks_redis_host    = undef,
   $webhooks_redis_port    = undef,
