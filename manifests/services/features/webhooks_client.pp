@@ -4,7 +4,7 @@ class tic::services::features::webhooks_client {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.webhooks.client.cfg":
     settings => {
-      'webhooks.service.url' => $tic::services::params::webhooks_external_url,
+      'webhooks.service.url' => $tic::services::params::webhooks_url,
     }
   }
 

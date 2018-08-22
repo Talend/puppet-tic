@@ -51,6 +51,7 @@ class { '::tic::services':
   zipkin_kafka_topic                       => 'zipkin',
   zipkin_kafka_servers                     => 'localhost:9999',
   zipkin_sampling_rate                     => '0.3',
+  webhooks_url                             => 'webhook-url-for-client',
   webhooks_external_url                    => 'webhook-test-url',
   license_service_url                      => 'http://license-management-node',
   eventsource_kafka_servers                => 'localhost:9092',

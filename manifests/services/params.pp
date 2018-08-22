@@ -194,6 +194,7 @@ class tic::services::params {
   $confirm_email_external_url  = pick($tic::services::confirm_email_external_url,  'https://integrationcloud.talend.com/#/signup/login?trialKey=')
   $tipaas_email_subject        = pick($tic::services::tipaas_email_subject,        'Talend Integration Cloud Evaluation: Confirmation')
 
+  $webhooks_url           = pick($tic::services::webhooks_url,           'unconfigured')
   $webhooks_external_url  = pick($tic::services::webhooks_external_url,  'unconfigured')
   $webhooks_redis_host    = pick($tic::services::webhooks_redis_host,    'unconfigured')
   $webhooks_redis_port    = pick($tic::services::webhooks_redis_port,    6379)
