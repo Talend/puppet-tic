@@ -228,6 +228,8 @@ class tic::services::params {
 
   $dispatcher_input_queue    = pick($tic::services::dispatcher_input_queue,    'ipaas.talend.dispatcher.input.queue')
   $dispatcher_response_queue = pick($tic::services::dispatcher_response_queue, 'ipaas.talend.dispatcher.response.queue')
+  $dispatcher_redis_host     = pick($tic::services::dispatcher_redis_host,     'unconfigured')
+  $dispatcher_redis_port     = pick($tic::services::dispatcher_redis_port,     6379)
 
   $iam_service_url        = pick($tic::services::iam_service_url, "http://${iam_service_node}")
   $scim_service_url       = pick($tic::services::scim_service_url, "http://${scim_service_node}")

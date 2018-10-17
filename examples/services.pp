@@ -57,4 +57,6 @@ class { '::tic::services':
   eventsource_kafka_servers                => 'localhost:9092',
   eventsource_kafka_topic                  => 'provisioning',
   eventsource_kafka_log                    => true,
+  dispatcher_redis_host                    => 'dispatcher-redis',
+  dispatcher_redis_port                    => 1234
 }

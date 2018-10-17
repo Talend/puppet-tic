@@ -31,6 +31,8 @@ class tic::services::features::dispatcher_core {
     settings => {
       'queue.input.name'    => $dispatcher_input_queue,
       'queue.response.name' => $dispatcher_response_queue,
+      'db.host'             => $tic::services::params::dispatcher_redis_host,
+      'db.port'             => $tic::services::params::dispatcher_redis_port,
     }
   }
 
