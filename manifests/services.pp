@@ -203,6 +203,8 @@ class tic::services (
 
   $dispatcher_input_queue    = undef,
   $dispatcher_response_queue = undef,
+  $dispatcher_redis_host     = undef,
+  $dispatcher_redis_port     = undef,
 
   $iam_service_url        = undef,
   $scim_service_url       = undef,

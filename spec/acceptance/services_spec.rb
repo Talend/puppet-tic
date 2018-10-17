@@ -104,4 +104,9 @@ describe 'services' do
     its(:content) { should include 'provisioning.apps.kafka.topic = provisioning' }
     its(:content) { should include 'log.messages = true' }
   end
+
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.core.cfg') do
+    its(:content) { should include 'db.host = dispatcher-redis' }
+    its(:content) { should include 'db.port = 1234' }
+  end
 end
