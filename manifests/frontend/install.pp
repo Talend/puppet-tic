@@ -113,6 +113,10 @@ class tic::frontend::install {
 
     'talend-ipaas-web-api':
       ensure => $tic::frontend::params::version;
+
+    'talend-ipaas-web-tasks-and-plans-administration':
+      ensure => $tic::frontend::params::version;
+
   } ->
   package { 'talend-ipaas-web-memcache-libs':
       ensure  => '0.2-2', # version with tomcat8 libraries
