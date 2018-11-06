@@ -191,7 +191,7 @@ class tic::frontend::config {
   file_line { 'ipaas_post_publish_url_redirect':
     path  => '/srv/tomcat/ipaas-srv/webapps/tasks-and-plans-administration/redirect.jsp',
     line  => "String targetUrl = \"${tmc_url}\";",
-    match => 'String targetUrl = "";';
+    match => 'String targetUrl = "';
   }
 
 }
