@@ -46,6 +46,7 @@ class tic::services (
   $artifact_manager_url   = undef,
   $bookkeeper_service_url = undef,
   $cms_amq_broker_url     = undef,
+  $cms_amq_broker_url_log = undef,
   $cms_dts_service_url    = undef,
   $cms_lts_service_url    = undef,
   $cms_nexus_url          = undef,
