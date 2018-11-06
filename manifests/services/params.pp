@@ -57,6 +57,7 @@ class tic::services::params {
   $artifact_manager_url   = pick($tic::services::artifact_manager_url, inline_template('http://<%= @artifact_manager_nodes.split(",")[0] %>:8181/services/artifact-manager-service'))
   $bookkeeper_service_url = pick($tic::services::bookkeeper_service_url, inline_template('http://<%= @bookkeeper_service_nodes.split(",")[0] %>:8181/services/bookkeeper-service'))
   $cms_amq_broker_url     = pick($tic::services::cms_amq_broker_url, 'unconfigured')
+  $cms_amq_broker_url_log = pick($tic::services::cms_amq_broker_url_log, 'unconfigured')
   $cms_dts_service_url    = pick($tic::services::cms_dts_service_url, 'unconfigured')
   $cms_lts_service_url    = pick($tic::services::cms_lts_service_url, 'unconfigured')
   $cms_nexus_url          = pick($tic::services::cms_nexus_url, 'unconfigured')
