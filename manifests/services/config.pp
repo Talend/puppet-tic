@@ -100,9 +100,9 @@ class tic::services::config {
       path     => "${config_dir}/org.talend.ipaas.rt.cms.cfg",
       settings => {
         'license-management.url' => $tic::services::params::license_service_url,
-        'vault.url' => $tic::services::params::vault_url,
-        'vault.ipaas.role.id' => $tic::services::params::ipaas_role_id,
-        'vault.ipaas.secret.id' => $tic::services::params::ipaas_secret_id,
+        'vault.url'              => $tic::services::params::vault_url,
+        'vault.ipaas.role.id'    => $tic::services::params::ipaas_role_id,
+        'vault.ipaas.secret.id'  => $tic::services::params::ipaas_secret_id,
       };
 
   }
