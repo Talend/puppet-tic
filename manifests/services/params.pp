@@ -247,4 +247,8 @@ class tic::services::params {
   $eventsource_kafka_topic   = pick($tic::services::eventsource_kafka_topic,   'unconfigured')
   $eventsource_kafka_log     = pick($tic::services::eventsource_kafka_log,     false)
 
+  $vault_url = pick($vault_external::url, 'http://localhost:8200')
+  $vault_cms_role_id = pick($tic::services::vault_cms_role_id, 'unconfigured')
+  $vault_cms_secret_id = pick($tic::services::vault_cms_role_id, 'unconfigured')
+
 }
