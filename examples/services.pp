@@ -60,6 +60,6 @@ class { '::tic::services':
   dispatcher_redis_host                    => 'dispatcher-redis',
   dispatcher_redis_port                    => 1234,
   vault_url                                => 'http://localhost:8200',
-  ipaas_role_id                            => 'e9d94f22-7ebc-f753-4a00-1520fc4089ce',
-  ipaas_secret_id                          => 'somesecret',
+  vault_ipaas_role_id                      => 'e9d94f22-7ebc-f753-4a00-1520fc4089ce',
+  vault_ipaas_secret_id                    => 'somesecret',
 }

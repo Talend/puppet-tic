@@ -101,8 +101,8 @@ class tic::services::config {
       settings => {
         'license-management.url' => $tic::services::params::license_service_url,
         'vault.url'              => $tic::services::params::vault_url,
-        'vault.ipaas.role.id'    => $tic::services::params::ipaas_role_id,
-        'vault.ipaas.secret.id'  => $tic::services::params::ipaas_secret_id,
+        'vault.ipaas.role.id'    => $tic::services::params::vault_ipaas_role_id,
+        'vault.ipaas.secret.id'  => $tic::services::params::vault_ipaas_secret_id,
       };
 
   }

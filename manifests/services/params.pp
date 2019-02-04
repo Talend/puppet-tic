@@ -248,6 +248,6 @@ class tic::services::params {
   $eventsource_kafka_log     = pick($tic::services::eventsource_kafka_log,     false)
 
   $vault_url = pick($tic::services::vault_url, 'http://localhost:8200')
-  $ipaas_role_id = pick($tic::services::ipaas_role_id, 'unconfigured')
-  $ipaas_secret_id = pick($tic::services::ipaas_secret_id, 'unconfigured')
+  $vault_ipaas_role_id = pick($tic::services::vault_ipaas_role_id, 'unconfigured')
+  $vault_ipaas_secret_id = pick($tic::services::vault_ipaas_secret_id, 'unconfigured')
 }
