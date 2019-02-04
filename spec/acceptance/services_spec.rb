@@ -93,6 +93,8 @@ describe 'services' do
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.cms.cfg') do
     its(:content) { should include 'license-management.url = http://license-management-node' }
+    its(:content) { should include 'vault.ipaas.secret.id = somesecret' }
+    its(:content) { should include 'vault.ipaas.role.id = e9d94f22-7ebc-f753-4a00-1520fc4089ce' }
   end
 
   describe file('/opt/talend/ipaas/rt-infra/bin/karaf.service') do

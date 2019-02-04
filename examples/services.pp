@@ -58,5 +58,8 @@ class { '::tic::services':
   eventsource_kafka_topic                  => 'provisioning',
   eventsource_kafka_log                    => true,
   dispatcher_redis_host                    => 'dispatcher-redis',
-  dispatcher_redis_port                    => 1234
+  dispatcher_redis_port                    => 1234,
+  vault_url                                => 'http://localhost:8200',
+  vault_ipaas_role_id                      => 'e9d94f22-7ebc-f753-4a00-1520fc4089ce',
+  vault_ipaas_secret_id                    => 'somesecret',
 }

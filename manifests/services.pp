@@ -222,6 +222,10 @@ class tic::services (
   $eventsource_kafka_topic   = undef,
   $eventsource_kafka_log     = undef, #enable logging of messages
 
+  $vault_url = undef,
+  $vault_ipaas_role_id = undef,
+  $vault_ipaas_secret_id = undef,
+
 ) {
 
   contain ::tic::services::params
