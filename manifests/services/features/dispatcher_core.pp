@@ -29,10 +29,12 @@ class tic::services::features::dispatcher_core {
 
   tic::ini_settings { "${config_dir}/org.talend.ipaas.rt.dispatcher.core.cfg":
     settings => {
-      'queue.input.name'    => $dispatcher_input_queue,
-      'queue.response.name' => $dispatcher_response_queue,
-      'db.host'             => $tic::services::params::dispatcher_redis_host,
-      'db.port'             => $tic::services::params::dispatcher_redis_port,
+      'queue.input.name'                    => $dispatcher_input_queue,
+      'queue.response.name'                 => $dispatcher_response_queue,
+      'db.host'                             => $tic::services::params::dispatcher_redis_host,
+      'db.port'                             => $tic::services::params::dispatcher_redis_port,
+      'kafka.apps.hosts'                    => $tic::services::params::kafka_apps_servers,
+      'kafka.apps.topic'                    => $tic::services::params::kafka_apps_topic,
     }
   }
 
