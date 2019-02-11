@@ -110,5 +110,7 @@ describe 'services' do
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.dispatcher.core.cfg') do
     its(:content) { should include 'db.host = dispatcher-redis' }
     its(:content) { should include 'db.port = 1234' }
+    its(:content) { should include 'kafka.apps.hosts = localhost:9092' }
+    its(:content) { should include 'kafka.apps.topic = app-to-runtime' }
   end
 end
