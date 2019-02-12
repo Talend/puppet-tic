@@ -4,6 +4,7 @@ class tic::frontend (
   $java_home                    = undef,
   $java_xmx                     = undef,
   $java_max_metaspace_size      = undef,
+  $catalina_opts                = undef,
   $version                      = undef,
   $elasticache_address          = undef,
   $elasticache_port             = undef,
