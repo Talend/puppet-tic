@@ -2,6 +2,7 @@ class tic::services (
 
   $java_home = undef,
   $java_xmx  = undef,
+  $java_opts = undef,
 
   $manage_packages         = undef,
   $wrapper_diable_restarts = undef,
