@@ -188,6 +188,13 @@ class tic::frontend::config {
     content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template.erb'),
   }
 
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes':
+    ensure => directory,
+  } ->
+  file { '/srv/tomcat/ipaas-srv/webapps/ipaas-server/WEB-INF/classes/tic_s3_access.template':
+    content => template('tic/srv/tomcat/ipaas-srv/webapps/ipaas/resources/tic_s3_access.template.erb'),
+  }
+
   file_line { 'ipaas_post_publish_url_redirect':
     path  => '/srv/tomcat/ipaas-srv/webapps/tasks-and-plans-administration/redirect.jsp',
     line  => "String targetUrl = \"${tmc_url}\";",
