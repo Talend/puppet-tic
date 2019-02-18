@@ -1,81 +1,55 @@
 {
-  "nodeman.ami.version_1_2": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_ami_version_1_2": {
     "value": "ami-533f4336"
   },
-  "nodeman.ami.version_1_3": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_ami_version_1_3": {
     "value": "<%= @ami_id %>"
   },
-  "nodeman.security.group.ids": {
-    "level": "NONE",
-    "type": "STRING_LIST",
+  "nodeman_security_group_ids": {
     <% if @security_groups.is_a? Array -%>
-    "value": <%= @security_groups %>
+    "value": "<%= @security_groups.join(',') %>"
     <% elsif @security_groups.is_a? String -%>
-    "value": <%= @security_groups.split(',') %>
+    "value": "<%= @security_groups %>"
     <% else -%>
     "value": ""
     <% end -%>
   },
-  "nodeman.instance.type": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_instance_type": {
     "value": "<%= @instance_type %>"
   },
-  "nodeman.subnet.id": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_subnet_id": {
     "value": "<%= @subnet_id %>"
   },
-  "nodeman.subnet.default.<%= @rt_aws_region %>": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_subnet_default_<%= @rt_aws_region %>": {
     "value": "<%= @subnet_id %>"
   },
-  "nodeman.subnets.failover.<%= @rt_aws_region %>": {
-    "level": "NONE",
-    "type": "STRING_LIST",
+  "nodeman_subnets_failover_<%= @rt_aws_region %>": {
     <% if @failover_subnets_ids.is_a? Array -%>
-    "value": <%= @failover_subnets_ids %>
+    "value": "<%= @failover_subnets_ids.join(',') %>"
     <% elsif @failover_subnets_ids.is_a? String -%>
-    "value": <%= @failover_subnets_ids.split(',') %>
+    "value": "<%= @failover_subnets_ids %>"
     <% else -%>
     "value": ""
     <% end -%>
   },
 <% if @instance_profile -%>
-  "nodeman.instance.profile": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_instance_profile": {
     "value": "<%= @instance_profile %>"
   },
 <% end -%>
-  "nodeman.public.interface": {
-    "level": "NONE",
-    "type": "BOOLEAN",
+  "nodeman_public_interface": {
     "value": "true"
   },
-  "nodeman.number.of.tries": {
-    "level": "NONE",
-    "type": "INTEGER",
+  "nodeman_number_of_tries": {
     "value": "5"
   },
-  "nodeman.delay.between.tries": {
-    "level": "NONE",
-    "type": "LONG",
+  "nodeman_delay_between_tries": {
     "value": "4000"
   },
-  "nodeman.env.puppet.version_1_2": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_env_puppet_version_1_2": {
     "value": "release120"
   },
-  "nodeman.env.puppet.version_1_3": {
-    "level": "NONE",
-    "type": "STRING",
+  "nodeman_env_puppet_version_1_3": {
     "value": "<%= @t_branch %>"
   }
 }
