@@ -21,11 +21,17 @@ class tic::services::init_configuration_service (
   $accountId = 'NODEMAN_CONFIG'
   $applicationId = 'tipaas'
 
-  $init_configuration_service_cmd = "/usr/bin/curl --fail \
+  $init_configuration_service_cmd = "/bin/bash -c 'code=\$(/usr/bin/curl -s -o /dev/null -w \"%{http_code}\" \
+  -X POST \
+  -d @/var/tmp/init_configuration_service.json \
+  -H \"Content-Type: application/json\" \
+  ${config_service_url}/v1/configurations/accounts/${accountId}/applications/${applicationId}); \
+  if [ \$code = 409 ]; then \
+  /usr/bin/curl --fail \
   -X PUT \
   -d @/var/tmp/init_configuration_service.json \
-  -H 'Content-Type: application/json' \
-  ${config_service_url}/v1/configurations/accounts/${accountId}/applications/${applicationId}"
+  -H \"Content-Type: application/json\" \
+  ${config_service_url}/v1/configurations/accounts/${accountId}/applications/${applicationId}; fi'"
 
   if $ensure_init {
     file { '/var/tmp/init_configuration_service.json':
