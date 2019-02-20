@@ -76,6 +76,7 @@ class tic::frontend (
   $crypto_service_url            = undef,
   $config_tpsvc_service_url      = undef,
   $logquery_tpsvc_service_url    = undef,
+  $dss_streams_runner_logs_url   = undef,
 
   $iam_oidc_front_url = undef,
   $iam_oidc_back_url = undef,

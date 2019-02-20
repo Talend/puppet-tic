@@ -61,6 +61,7 @@ class tic::frontend::config {
       'config_tpsvc_service_url'              => $tic::frontend::params::config_tpsvc_service_url,
       'logquery_tpsvc_service_url'            => $tic::frontend::params::logquery_tpsvc_service_url,
       'marketplace_service_url'               => "${tic::frontend::params::marketplace_url}/api/",
+      'dss_streams_runner_logs_url'           => "back.tpd.${tic::frontend::params::internal_domain}",
     }
   }
 
