@@ -250,6 +250,9 @@ class tic::services::params {
   $kafka_apps_servers  = pick($tic::services::eventsource_kafka_servers, 'localhost:9092')
   $kafka_apps_topic    = pick($tic::services::kafka_apps_topic,   'app-to-runtime')
 
+  $kafka_statuses_hosts  = pick($tic::services::eventsource_kafka_customers_logs, 'localhost:9092')
+  $kafka_statuses_topic  = pick($tic::services::kafka_statuses_topic,   'events-to-platform')
+
   $vault_url = pick($tic::services::vault_url, 'http://localhost:8200')
   $vault_ipaas_role_id = pick($tic::services::vault_ipaas_role_id, 'unconfigured')
   $vault_ipaas_secret_id = pick($tic::services::vault_ipaas_secret_id, 'unconfigured')

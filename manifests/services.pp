@@ -225,6 +225,9 @@ class tic::services (
   $kafka_apps_servers = undef,
   $kafka_apps_topic = undef,
 
+  $kafka_statuses_hosts = undef,
+  $kafka_statuses_topic = undef,
+
   $vault_url = undef,
   $vault_ipaas_role_id = undef,
   $vault_ipaas_secret_id = undef,

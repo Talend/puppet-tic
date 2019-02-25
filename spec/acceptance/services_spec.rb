@@ -112,5 +112,7 @@ describe 'services' do
     its(:content) { should include 'db.port = 1234' }
     its(:content) { should include 'kafka.apps.hosts = localhost:9092' }
     its(:content) { should include 'kafka.apps.topic = app-to-runtime' }
+    its(:content) { should include 'kafka.statuses.hosts = localhost:9092' }
+    its(:content) { should include 'kafka.statuses.topic = events-to-platform' }
   end
 end

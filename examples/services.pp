@@ -59,6 +59,8 @@ class { '::tic::services':
   eventsource_kafka_log                    => true,
   kafka_apps_servers                       => 'localhost:9092',
   kafka_apps_topic                         => 'app-to-runtime',
+  kafka_statuses_hosts                     => 'localhost:9092',
+  kafka_statuses_topic                     => 'events-to-platform',
   dispatcher_redis_host                    => 'dispatcher-redis',
   dispatcher_redis_port                    => 1234,
   vault_url                                => 'http://localhost:8200',
