@@ -221,7 +221,8 @@ class tic::services (
   $eventsource_kafka_servers = undef,
   $eventsource_kafka_topic   = undef,
   $eventsource_kafka_log     = undef, #enable logging of messages
-
+  $eventsource_kafka_customers_logs = undef, 
+  
   $kafka_apps_servers = undef,
   $kafka_apps_topic = undef,
 
