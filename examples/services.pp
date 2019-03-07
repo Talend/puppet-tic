@@ -53,6 +53,8 @@ class { '::tic::services':
   zipkin_sampling_rate                     => '0.3',
   webhooks_url                             => 'webhook-url-for-client',
   webhooks_external_url                    => 'webhook-test-url',
+  redis_session_host                       => 'redis-host',
+  redis_session_port                       =>  6379,
   license_service_url                      => 'http://license-management-node',
   eventsource_kafka_servers                => 'localhost:9092',
   eventsource_kafka_topic                  => 'provisioning',
