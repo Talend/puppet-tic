@@ -200,8 +200,8 @@ class tic::services::params {
   $webhooks_redis_host    = pick($tic::services::webhooks_redis_host,    'unconfigured')
   $webhooks_redis_port    = pick($tic::services::webhooks_redis_port,    6379)
 
-  $redis_session_host = pick($tic::services::redis_session_host 'unconfigured'),
-  $redis_session_port = pick($tic::services::redis_session_port, 6379),
+  $redis_session_host = pick($tic::services::redis_session_host, 'unconfigured')
+  $redis_session_port = pick($tic::services::redis_session_port, 6379)
 
 
   $rt_flow_ami_id                = pick_default($tic::services::rt_flow_ami_id,               '')
