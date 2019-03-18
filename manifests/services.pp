@@ -177,8 +177,9 @@ class tic::services (
   $webhooks_redis_host    = undef,
   $webhooks_redis_port    = undef,
 
-  $redis_session_host      = undef,
-  $redis_session_port      = undef,
+  $redis_cache_host      = undef,
+  $redis_cache_port      = undef,
+  $redis_cache_db_tmc    = undef,
 
   $rt_flow_ami_id               = undef,
   $rt_flow_security_groups      = undef,
