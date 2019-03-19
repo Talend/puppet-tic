@@ -77,6 +77,7 @@ describe 'services' do
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.notification.subscription.service.cfg') do
+    its(:content) { should include 'memcached.connectionString = my-memcached-host:my-memcached-port' }
     its(:content) { should include 'db.redis.host = 127.0.0.1' }
     its(:content) { should include 'db.redis.port = 6379' }
   end
