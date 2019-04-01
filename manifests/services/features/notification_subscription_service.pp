@@ -10,7 +10,6 @@ class tic::services::features::notification_subscription_service {
       'db.username'                => $tic::services::params::notification_subscription_db_username,
       'db.password'                => $tic::services::params::notification_subscription_db_password,
       'db.max_connections'         => $tic::services::params::notification_subscription_db_max_connections,
-      'memcached.connectionString' => $tic::services::params::notification_subscription_memcached_url,
       'db.redis.host'              => $tic::services::params::redis_cache_host,
       'db.redis.port'              => $tic::services::params::redis_cache_port,
       'db.redis.database'          => $tic::services::params::redis_cache_db_tmc,

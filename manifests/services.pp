@@ -133,10 +133,6 @@ class tic::services (
   $notification_subscription_db_password        = undef,
   $notification_subscription_db_max_connections = undef,
 
-  $notification_subscription_memcached_host = undef,
-  $notification_subscription_memcached_port = undef,
-  $notification_subscription_memcached_url  = undef,
-
   $pe_service_username = undef,
   $pe_service_password = undef,
 

@@ -2,8 +2,6 @@ class tic::frontend::config {
 
   require ::tic::frontend::install
 
-  $elasticache_address     = $tic::frontend::params::elasticache_address
-  $elasticache_port        = $tic::frontend::params::elasticache_port
   $tomcat_service_ensure   = $tic::frontend::params::tomcat_service_ensure
   $sts_host                = $tic::frontend::params::sts_host
   $sts_username            = $tic::frontend::params::sts_username
