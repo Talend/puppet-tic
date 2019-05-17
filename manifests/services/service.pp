@@ -14,6 +14,7 @@ class tic::services::service {
       'wrapper.java.additional.11' => '-Dcom.sun.management.jmxremote.port=7199',
       'wrapper.java.additional.12' => '-Dcom.sun.management.jmxremote.authenticate=false',
       'wrapper.java.additional.13' => '-Dcom.sun.management.jmxremote.ssl=false',
+      'wrapper.java.additional.14' => $tic::services::params::java_opts,
       'wrapper.java.maxmemory'     => $tic::services::params::java_xmx,
       'wrapper.disable_restarts'   => $tic::services::params::wrapper_diable_restarts,
     }

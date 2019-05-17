@@ -9,6 +9,9 @@ Description=Apache Tomcat Web Application Container
 [Service]
 Type=forking
 Environment="CATALINA_HOME=/opt/apache-tomcat" "CATALINA_BASE=/srv/tomcat/ipaas-srv"
+<%- if defined? @catalina_opts -%>
+Environment="CATALINA_OPTS=<%= @catalina_opts %>"
+<%- end -%>
 ExecStart=/opt/apache-tomcat/bin/catalina.sh start
 ExecStop=/opt/apache-tomcat/bin/catalina.sh stop
 SuccessExitStatus=143

@@ -2,6 +2,7 @@ class tic::services::params {
 
   $java_home = pick($tic::services::java_home, undef)
   $java_xmx  = pick($tic::services::java_xmx,  '1024')
+  $java_opts = pick($tic::services::java_opts,  '')
 
   $manage_packages         = pick($tic::services::manage_packages, true)
   $wrapper_diable_restarts = pick($tic::services::wrapper_diable_restarts, true)
