@@ -14,6 +14,8 @@ ExecStop=/opt/apache-tomcat/bin/catalina.sh stop
 SuccessExitStatus=143
 User=tomcat
 Group=tomcat
+LimitNOFILE=8192
+LimitNPROC=8192
 
 [Install]
 Alias=tomcat-ipaas-srv
