@@ -33,22 +33,22 @@ define tic::karaf_service_install (
       require           => Exec["wrapper install : ${name}"],
     }
     file_line { 'Add LimitNOFILE to systemd service':
-      ensure            => present,
-      path              => "${karaf_base}/bin/karaf.service",
+      ensure   => present,
+      path     => "${karaf_base}/bin/karaf.service",
       after    => 'ExecStop=/opt/talend/ipaas/rt-infra/bin/karaf-service stop',
       multiple => false,
       line     => 'LimitNOFILE=8192',
-      before            => Exec["enable service : ${name}"],
-      require           => Exec["wrapper install : ${name}"],
+      before   => Exec["enable service : ${name}"],
+      require  => Exec["wrapper install : ${name}"],
     }
     file_line { 'Add LimitNPROC to systemd service':
-      ensure            => present,
-      path              => "${karaf_base}/bin/karaf.service",
+      ensure   => present,
+      path     => "${karaf_base}/bin/karaf.service",
       after    => 'ExecStop=/opt/talend/ipaas/rt-infra/bin/karaf-service stop',
       multiple => false,
       line     => 'LimitNPROC=8192',
-      before            => Exec["enable service : ${name}"],
-      require           => Exec["wrapper install : ${name}"],
+      before   => Exec["enable service : ${name}"],
+      require  => Exec["wrapper install : ${name}"],
     }
   }
 
