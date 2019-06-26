@@ -63,6 +63,9 @@ class tic::frontend::config {
       'marketplace_service_url'                 => "${tic::frontend::params::marketplace_url}/api/",
       'dss_streams_runner_logs_url'             => "http://back.tpd${tic::frontend::params::internal_domain}",
       'pipeline.engine.provisioner.service.url' => "http://engine-provisioner${tic::frontend::params::internal_domain}",
+      'vault.url'                               => $tic::frontend::params::vault_url,
+      'vault.ipaas.webapp.role.id'              => $tic::frontend::params::vault_ipaas_webapp_role_id,
+      'vault.ipaas.webapp.secret.id'            => $tic::frontend::params::vault_ipaas_webapp_secret_id,
     }
   }
 
