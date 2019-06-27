@@ -108,8 +108,8 @@ class tic::frontend::params {
   $zipkin_kafka_servers = pick($tic::frontend::zipkin_kafka_servers, 'unconfigured')
   $zipkin_sampling_rate = pick($tic::frontend::zipkin_sampling_rate, '0.1')
 
-  $vault_url = pick($tic::frontend::vault_url, 'http://localhost:8200')
-  $vault_ipaas_webapp_role_id = pick($tic::frontend::vault_ipaas_webapp_role_id, 'unconfigured')
+  $vault_url                    = pick($tic::frontend::vault_url, 'http://localhost:8200')
+  $vault_ipaas_webapp_role_id   = pick($tic::frontend::vault_ipaas_webapp_role_id, 'unconfigured')
   $vault_ipaas_webapp_secret_id = pick($tic::frontend::vault_ipaas_webapp_secret_id, 'unconfigured')
 
 }
