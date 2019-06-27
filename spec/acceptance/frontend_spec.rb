@@ -102,6 +102,9 @@ describe 'TIC Frontend' do
       its(:content) { should include 'flow_manager_url=http://flow_manager_url' }
       its(:content) { should include 'scim_service_url=http://scim-test-node' }
       its(:content) { should_not include 'flow_manager_node' }
+      its(:content) { should include 'vault.url = http://localhost:8200' }
+      its(:content) { should include 'vault.ipaas.webapp.secret.id = somesecret' }
+      its(:content) { should include 'vault.ipaas.webapp.role.id = e9d94f22-7ebc-f753-4a00-1520fc4089ce' }
     end
 
     describe file('/srv/tomcat/ipaas-srv/webapps/api/WEB-INF/classes/application.properties') do

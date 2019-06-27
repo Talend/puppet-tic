@@ -105,6 +105,10 @@ class tic::frontend (
   $zipkin_kafka_servers = undef,
   $zipkin_sampling_rate = undef,
 
+  $vault_url = undef,
+  $vault_ipaas_webapp_role_id = undef,
+  $vault_ipaas_webapp_secret_id = undef,
+
 ) {
 
   contain ::tic::frontend::params
