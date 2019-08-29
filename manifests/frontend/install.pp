@@ -16,6 +16,16 @@ class tic::frontend::install {
       "-Xmx${tic::frontend::params::java_xmx}m",
       "-XX:MaxMetaspaceSize=${tic::frontend::params::java_max_metaspace_size}",
       '-Djava.awt.headless=true',
+      '-Dcom.sun.management.jmxremote',
+      '-Dcom.sun.management.jmxremote.port=9010',
+      '-Dcom.sun.management.jmxremote.local.only=false',
+      '-Dcom.sun.management.jmxremote.ssl=false',
+      '-Dcom.sun.management.jmxremote.authenticate=false',
+      '-verbose:gc',
+      '-Xloggc:/srv/tomcat/ipaas-srv/logs/gc.log',
+      '-XX:+UseGCLogFileRotation',
+      '-XX:NumberOfGCLogFiles=1',
+      '-XX:GCLogFileSize=10M',
     ]
   }
 
