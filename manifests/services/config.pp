@@ -96,6 +96,12 @@ class tic::services::config {
         'zipkin.sampler.percentage'     => $tic::services::params::zipkin_sampling_rate,
       };
 
+    'liveupdates':
+      path     => "${config_dir}/org.talend.ipaas.rt.liveupdates.kafka.cfg",
+      settings => {
+        'live.updates.kafka.hosts' => $tic::services::params::zipkin_kafka_servers,
+      };
+
     'cms_service':
       path     => "${config_dir}/org.talend.ipaas.rt.cms.cfg",
       settings => {
