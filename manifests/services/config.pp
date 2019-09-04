@@ -99,7 +99,7 @@ class tic::services::config {
     'liveupdates':
       path     => "${config_dir}/org.talend.ipaas.rt.liveupdates.kafka.cfg",
       settings => {
-        'live.updates.kafka.hosts' => $tic::services::params::zipkin_kafka_servers,
+        'live.updates.kafka.hosts' => $tic::services::params::kafka_apps_servers,
       };
 
     'cms_service':
