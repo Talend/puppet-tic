@@ -34,5 +34,8 @@ class { '::tic::frontend':
   zipkin_kafka_topic           => 'zipkin',
   zipkin_kafka_servers         => 'localhost:9999',
   zipkin_sampling_rate         => '0.2',
-  dss_url                      => 'https://dss_url'
+  dss_url                      => 'https://dss_url',
+  vault_url                    => 'http://localhost:8200',
+  vault_ipaas_webapp_role_id   => 'e9d94f22-7ebc-f753-4a00-1520fc4089ce',
+  vault_ipaas_webapp_secret_id => 'somesecret',
 }

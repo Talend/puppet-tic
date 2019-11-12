@@ -89,6 +89,10 @@ git     its(:content) { should include 'db.redis.host = localhost' }
     its(:content) { should include 'zipkin.sampler.percentage = 0.3' }
   end
 
+  describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.liveupdates.kafka.cfg') do
+    its(:content) { should include 'live.updates.kafka.hosts = localhost:9999' }
+  end
+
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.webhooks.client.cfg') do
     its(:content) { should include 'webhooks.service.url=webhook-url-for-client' }
   end
