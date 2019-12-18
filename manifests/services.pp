@@ -32,7 +32,7 @@ class tic::services (
   $postgres_nodes            = undef,
   $zookeeper_nodes           = undef,
   $mongo_nodes               = undef,
-  $activemq_log_internal_dns = undef,
+  $amq_log_int_dns           = undef,
 
   $activemq_broker_username = undef,
   $activemq_broker_password = undef,
