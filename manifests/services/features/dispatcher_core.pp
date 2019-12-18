@@ -5,6 +5,7 @@ class tic::services::features::dispatcher_core {
   $dts_service_url               = $tic::services::params::dts_service_url
   $lts_service_url               = $tic::services::params::lts_service_url
   $activemq_broker_url           = $tic::services::params::activemq_broker_url
+  $activemq_log_broker_url       = $tic::services::params::activemq_log_broker_url
   $cms_nexus_url                 = $tic::services::params::cms_nexus_url
   $dispatcher_nexus_url          = $tic::services::params::dispatcher_nexus_url
 
