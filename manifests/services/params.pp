@@ -70,7 +70,7 @@ class tic::services::params {
   $flow_manager_url       = pick($tic::services::flow_manager_url, inline_template('http://<%= @flow_manager_nodes.split(",")[0] %>:8181/services/flow-manager-service'))
   $nexus_urls             = pick($tic::services::nexus_urls, inline_template('<%= @nexus_nodes.split(",").map { |a| "http://#{a}/nexus" }.join(",") %>'))
   $pe_service_url         = pick($tic::services::pe_service_url, inline_template('http://<%= @pe_service_nodes.split(",")[0] %>:8181/services/plan-executor-service'))
- 
+
   $nexus_password       = pick($tic::services::nexus_password,       'missing')
   $nexus_min_host_count = pick($tic::services::nexus_min_host_count, 1)
 
