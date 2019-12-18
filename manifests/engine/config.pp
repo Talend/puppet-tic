@@ -77,7 +77,7 @@ class tic::engine::config {
 
   tic::ini_settings { "${config_dir}/org.talend.eventlogging.sender.jms.cfg":
     settings => {
-      'sender.destination.jms.url' => $tic::engine::params::activemq_broker_url,
+      'sender.destination.jms.url' => $tic::engine::params::activemq_log_broker_url,
     }
   }
 

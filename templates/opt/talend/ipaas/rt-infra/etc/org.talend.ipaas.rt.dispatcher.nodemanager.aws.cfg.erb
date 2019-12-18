@@ -31,7 +31,8 @@ json.template={ "rt_flow_config": {\
         <% end -%>
         "activemq_broker_url":"<%= @activemq_broker_url %>",\
         "activemq_broker_username":"{$amq_username}",\
-        "activemq_broker_password_secret":"{$amq_password_secret}"\
+        "activemq_broker_password_secret":"{$amq_password_secret}",\
+        "activemq_log_broker_url":"<%= @activemq_log_broker_url %>"\
         },\
         "t_facts": {\
           "t_dc":"<%= @t_dc %>",\
