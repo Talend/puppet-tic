@@ -31,6 +31,10 @@ class tic::engine::params {
   $activemq_broker_username = pick($tic::engine::activemq_broker_username, 'tadmin')
   $activemq_broker_password = pick($tic::engine::activemq_broker_password, 'missing')
 
+  $activemq_log_internal_dns = pick($tic::engine::activemq_log_internal_dns, 'missing')
+  $activemq_log_broker_url   = pick($tic::engine::activemq_log_broker_url, inline_template("<%= 'failover:(tcp://' + @activemq_log_internal_dns + ':61616?wireFormat.host=localhost)?jms.prefetchPolicy.queuePrefetch=100'%>"))
+
+
   $dispatcher_input_queue    = pick($tic::engine::dispatcher_input_queue,    'ipaas.dispatcher.input.queue')
   $dispatcher_response_queue = pick($tic::engine::dispatcher_response_queue, 'ipaas.dispatcher.response.queue')
 
