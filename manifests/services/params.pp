@@ -53,7 +53,7 @@ class tic::services::params {
   $elasticsearch_port = pick($tic::services::elasticsearch_port, '8080')
 
   $activemq_broker_url       = pick($tic::services::activemq_broker_url, inline_template("<%= 'failover:(tcp://' + @activemq_nodes_list.sort().inject { |url,n| url + ':61616?keepAlive=true,' + 'tcp://' + n } + ':61616?keepAlive=true)?jms.prefetchPolicy.queuePrefetch=5'%>"))
-  $activemq_log_broker_url   = pick($tic::engine::activemq_log_broker_url, inline_template("<%= 'failover:(tcp://' + @activemq_log_internal_dns + ':61616?wireFormat.host=localhost)?jms.prefetchPolicy.queuePrefetch=100'%>"))
+  $activemq_log_broker_url   = pick($tic::services::activemq_log_broker_url, inline_template("<%= 'failover:(tcp://' + @activemq_log_internal_dns + ':61616?wireFormat.host=localhost)?jms.prefetchPolicy.queuePrefetch=100'%>"))
 
   $ams_syncope_url        = pick($tic::services::ams_syncope_url, inline_template('http://<%= @ams_syncope_host %>:8080/syncope/rest'))
   $ams_url                = pick($tic::services::ams_url, inline_template('http://<%= @account_manager_nodes.split(",")[0] %>:8181/services/account-management-service'))
