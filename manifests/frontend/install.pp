@@ -25,7 +25,6 @@ class tic::frontend::install {
       '-Xloggc:/srv/tomcat/ipaas-srv/logs/gc.log',
       '-XX:+UseGCLogFileRotation',
       '-XX:NumberOfGCLogFiles=1',
-      '-XX:GCLogFileSize=10M',
     ]
   }
 
