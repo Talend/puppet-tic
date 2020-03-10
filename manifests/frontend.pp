@@ -12,6 +12,7 @@ class tic::frontend (
   $ipaas_srv_http_port          = undef,
   $cms_node                     = undef,
   $s3_download_contentfile_name = undef,
+  $jmx_agent_opts               = undef,
 
   $redis_session_host      = undef,
   $redis_session_port      = undef,

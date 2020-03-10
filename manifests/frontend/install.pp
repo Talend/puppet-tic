@@ -23,6 +23,7 @@ class tic::frontend::install {
       '-Dcom.sun.management.jmxremote.authenticate=false',
       '-verbose:gc',
       '-Xloggc:/srv/tomcat/ipaas-srv/logs/gc.log',
+      "{tic::frontend::params::jmx_agent_opts}",
     ]
   }
 
