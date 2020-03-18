@@ -77,8 +77,7 @@ describe 'services' do
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.notification.subscription.service.cfg') do
-    its(:content) { should include 'memcached.connectionString = my-memcached-host:my-memcached-port' }
-git     its(:content) { should include 'db.redis.host = localhost' }
+    its(:content) { should include 'db.redis.host = localhost' }
     its(:content) { should include 'db.redis.port = 6379' }
   end
 
@@ -90,7 +89,7 @@ git     its(:content) { should include 'db.redis.host = localhost' }
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.liveupdates.kafka.cfg') do
-    its(:content) { should include 'live.updates.kafka.hosts = localhost:9999' }
+    its(:content) { should include 'live.updates.kafka.hosts = localhost:9092' }
   end
 
   describe file('/opt/talend/ipaas/rt-infra/etc/org.talend.ipaas.rt.webhooks.client.cfg') do

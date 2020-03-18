@@ -191,10 +191,12 @@ class tic::services::params {
   $confirm_email_external_url  = pick($tic::services::confirm_email_external_url,  'https://integrationcloud.talend.com/#/signup/login?trialKey=')
   $tipaas_email_subject        = pick($tic::services::tipaas_email_subject,        'Talend Integration Cloud Evaluation: Confirmation')
 
-  $webhooks_url           = pick($tic::services::webhooks_url,           'unconfigured')
-  $webhooks_external_url  = pick($tic::services::webhooks_external_url,  'unconfigured')
-  $webhooks_redis_host    = pick($tic::services::webhooks_redis_host,    'unconfigured')
-  $webhooks_redis_port    = pick($tic::services::webhooks_redis_port,    6379)
+  $webhooks_url               = pick($tic::services::webhooks_url,               'unconfigured')
+  $webhooks_external_url      = pick($tic::services::webhooks_external_url,      'unconfigured')
+  $webhooks_redis_host        = pick($tic::services::webhooks_redis_host,        'unconfigured')
+  $webhooks_redis_port        = pick($tic::services::webhooks_redis_port,        6379)
+  $webhooks_postgres_server   = pick($tic::services::webhooks_postgres_server,   $postgres_db_host)
+  $webhooks_postgres_password = pick($tic::services::webhooks_postgres_password, 'missing')
 
   $redis_cache_host   = pick($tic::services::redis_cache_host, 'unconfigured')
   $redis_cache_port   = pick($tic::services::redis_cache_port, 6379)
