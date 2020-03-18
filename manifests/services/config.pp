@@ -45,6 +45,15 @@ class tic::services::config {
         'log.messages' => $tic::services::params::log_amq_messages,
       };
 
+    'webhooks_datasource':
+      path     => "${config_dir}/org.talend.ipaas.rt.webhooks.datasource.cfg",
+      settings => {
+        'datasource.servername'   => $tic::services::params::webhooks_postgres_server,
+        'datasource.username'     => 'webhooks',
+        'datasource.databasename' => 'webhooks',
+        'datasource.password'     => $tic::services::params::webhooks_postgres_password,
+      };
+
     'ams_datasource':
       path     => "${config_dir}/org.talend.ipaas.rt.ams.datasource.cfg",
       settings => {

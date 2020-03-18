@@ -170,10 +170,12 @@ class tic::services (
   $confirm_email_external_url  = undef,
   $tipaas_email_subject        = undef,
 
-  $webhooks_url           = undef,
-  $webhooks_external_url  = undef,
-  $webhooks_redis_host    = undef,
-  $webhooks_redis_port    = undef,
+  $webhooks_url               = undef,
+  $webhooks_external_url      = undef,
+  $webhooks_redis_host        = undef,
+  $webhooks_redis_port        = undef,
+  $webhooks_postgres_server   = undef,
+  $webhooks_postgres_password = undef,
 
   $redis_cache_host      = undef,
   $redis_cache_port      = undef,
