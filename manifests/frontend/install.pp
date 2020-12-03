@@ -23,9 +23,7 @@ class tic::frontend::install {
       '-Dcom.sun.management.jmxremote.authenticate=false',
       '-verbose:gc',
       '-Xloggc:/srv/tomcat/ipaas-srv/logs/gc.log',
-      '-XX:+UseGCLogFileRotation',
-      '-XX:NumberOfGCLogFiles=1',
-      '-XX:GCLogFileSize=10M',
+      "{tic::frontend::params::jmx_agent_opts}",
     ]
   }
 

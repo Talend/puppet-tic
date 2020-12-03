@@ -8,7 +8,8 @@ class tic::frontend::params {
   $java_home               = pick($tic::frontend::java_home, undef)
   $java_xmx                = pick($tic::frontend::java_xmx, '1024')
   $java_max_metaspace_size = pick($tic::frontend::java_max_metaspace_size, '512m')
-  $version                 = pick($tic::frontend::version, 'latest')
+  $version                 = pick($tic::frontend::version, 'latest') 
+  $jmx_agent_opts          = pick($tic::frontend::jmx_agent_opts, undef)
 
   $web_enable_test_context      = pick($tic::frontend::web_enable_test_context,      false)
   $web_use_ssl                  = pick($tic::frontend::web_use_ssl,                  true)
